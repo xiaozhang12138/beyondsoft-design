@@ -606,10 +606,31 @@ function initHero() {
 }
 
 /* ---------- 启动 ---------- */
+/* 数据加载策略：优先拉取远程 data/cases.json（后台上传即时生效），
+   失败或不可用时回退到内置 SITE_CASES（离线兜底） */
+function loadRemoteCases() {
+  return fetch('data/cases.json?v=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (list) {
+      if (!Array.isArray(list) || !list.length) throw new Error('empty');
+      // 合并：远程数据覆盖内置数据（保留内置作为 fallback 引用）
+      SITE_CASES.length = 0;
+      Array.prototype.push.apply(SITE_CASES, list);
+      return true;
+    })
+    .catch(function () { return false; });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   buildHeader();
   buildFooter();
   bindEvents();
   initHero();
-  if (window.pageInit) window.pageInit();
+  loadRemoteCases().then(function (ok) {
+    // 远程数据加载完成后再渲染（无论成功与否都执行 pageInit）
+    if (window.pageInit) window.pageInit();
+  });
 });
