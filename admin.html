@@ -411,7 +411,11 @@ function connect() {
   var txt = document.getElementById('connText');
   dot.className = 'dot warn';
   txt.textContent = '连接中...';
-  ghGet('')
+  fetch('https://api.github.com/user', { headers: ghHeaders() })
+    .then(function (r) {
+      if (!r.ok) return r.json().then(function (d) { throw new Error(d.message || 'HTTP ' + r.status); });
+      return r.json();
+    })
     .then(function (user) {
       CFG.owner = user.login;
       document.getElementById('setOwner').value = user.login;
