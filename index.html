@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>博彦设计 · 一站式视觉整合方案服务商</title>
+<meta name="keywords" content="博彦设计,博彦科技,视觉设计,品牌设计,包装设计,品牌包装,宣传片,一站式视觉">
+<meta name="description" content="博彦设计隶属博彦科技（上市公司），500+ 设计师团队，提供平面视觉、品牌包装、图拍视频一站式视觉整合服务，长期服务阿里、蚂蚁、美团、京东等头部企业。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home" data-nav="dark">
+
+<!-- ============ 首屏轮播 ============ -->
+<section class="hero">
+  <div class="hero-slide active">
+    <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+    <div class="hero-mask"></div>
+    <div class="hero-body">
+      <span class="hero-tag">博彦设计 · BEYONDSOFT DESIGN</span>
+      <h1 class="hero-title">你的设计，我来解决<br>一站式视觉整合方案服务商</h1>
+      <p class="hero-desc">隶属博彦科技（上市公司），500+ 设计师团队，从一张海报到一部宣传片，学校与企业需要的视觉内容我们一家就能全部承接。</p>
+      <div class="hero-btns">
+        <a href="cases.html" class="btn btn-primary">查看客户案例</a>
+        <button class="btn btn-ghost js-consult" data-from="首页Banner-1">免费咨询</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide">
+    <div class="hero-bg" style="background-image:url('assets/img/case-alibaba.jpg')"></div>
+    <div class="hero-mask"></div>
+    <div class="hero-body">
+      <span class="hero-tag">合作 16 年 · 年度框架供应商</span>
+      <h1 class="hero-title">头部企业的<br>长期设计伙伴</h1>
+      <p class="hero-desc">阿里、蚂蚁、美团、京东……能被对设计要求最严苛的头部企业长期选中，是对我们能力最好的证明。</p>
+      <div class="hero-btns">
+        <a href="case-detail.html?c=alibaba" class="btn btn-primary">了解阿里合作</a>
+        <button class="btn btn-ghost js-consult" data-from="首页Banner-2">免费咨询</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-slide">
+    <div class="hero-bg" style="background-image:url('assets/img/case-meituan.jpg')"></div>
+    <div class="hero-mask"></div>
+    <div class="hero-body">
+      <span class="hero-tag">平面 · 包装 · 视频 · 全链路</span>
+      <h1 class="hero-title">从品牌到物料<br>一站式交付</h1>
+      <p class="hero-desc">平均 15 分钟接单、24 小时值班、紧急需求响应率 98%，计件与人月两种灵活合作模式，成本清晰可控。</p>
+      <div class="hero-btns">
+        <a href="services.html" class="btn btn-primary">了解服务内容</a>
+        <button class="btn btn-ghost js-consult" data-from="首页Banner-3">免费咨询</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="hero-arrow prev" aria-label="上一张">&#8249;</button>
+  <button class="hero-arrow next" aria-label="下一张">&#8250;</button>
+  <div class="hero-dots"><i class="active"></i><i></i><i></i></div>
+</section>
+
+<!-- ============ 数据概览 ============ -->
+<section class="sec" style="padding:64px 0">
+  <div class="wrap">
+    <div class="stat-grid rv">
+      <div><div class="stat-num">16<small>年</small></div><div class="stat-label">深耕设计行业</div></div>
+      <div><div class="stat-num">500<small>+</small></div><div class="stat-label">高级设计师</div></div>
+      <div><div class="stat-num">20000<small>+</small></div><div class="stat-label">累计服务案例</div></div>
+      <div><div class="stat-num">10<small>城</small></div><div class="stat-label">业务覆盖主流城市</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 精选案例 ============ -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="sec-kicker">Featured Works</div>
+      <h2 class="sec-title">精选客户案例</h2>
+      <p class="sec-sub">阿里、蚂蚁、美团、京东、百度…… 长期框架合作的真实项目</p>
+    </div>
+
+    <div class="tabs rv" id="homeTabs">
+      <button class="tab active" data-cat="全部">全部</button>
+      <button class="tab" data-cat="电商零售">电商零售</button>
+      <button class="tab" data-cat="金融科技">金融科技</button>
+      <button class="tab" data-cat="生活服务">生活服务</button>
+      <button class="tab" data-cat="食品">食品</button>
+      <button class="tab" data-cat="新能源">新能源</button>
+      <button class="tab" data-cat="半导体">半导体</button>
+    </div>
+
+    <div class="case-grid rv" id="homeCases"><!-- JS 渲染 --></div>
+
+    <div class="more-wrap rv">
+      <a href="cases.html" class="btn btn-line">查看更多案例</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三大主营业务 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="sec-kicker">What We Do</div>
+      <h2 class="sec-title">三大主营业务 · 一站式视觉整合</h2>
+      <p class="sec-sub">从平面到视频，学校招生宣传、校庆活动、文化建设需要的视觉内容基本都在我们能力范围内</p>
+    </div>
+
+    <div class="svc-grid rv">
+      <a class="svc-card" href="service-detail.html?s=平面视觉">
+        <div class="img-fit r-4-3" style="background-image:url('assets/img/case-aliyun.jpg');margin-bottom:20px"></div>
+        <h3 class="svc-name">平面视觉</h3>
+        <div class="svc-en">Graphic &amp; Brand Visual</div>
+        <ul class="svc-list">
+          <li>Logo 设计</li><li>品牌 VI / CI</li><li>海报 / KV</li><li>画册</li>
+          <li>包装设计</li><li>详情页</li><li>主视觉</li><li>长图</li>
+        </ul>
+      </a>
+      <a class="svc-card" href="service-detail.html?s=品牌包装">
+        <div class="img-fit r-4-3" style="background-image:url('assets/img/case-food-pkg.jpg');margin-bottom:20px"></div>
+        <h3 class="svc-name">品牌包装</h3>
+        <div class="svc-en">Brand &amp; Packaging Design</div>
+        <ul class="svc-list">
+          <li>品牌策略</li><li>VI 设计</li><li>产品包装</li><li>礼盒设计</li>
+          <li>陈列设计</li><li>包装结构</li><li>品牌故事</li><li>视觉延展</li>
+        </ul>
+      </a>
+      <a class="svc-card" href="service-detail.html?s=图拍视频">
+        <div class="img-fit r-4-3" style="background-image:url('assets/img/case-baidu.jpg');margin-bottom:20px"></div>
+        <h3 class="svc-name">图拍视频</h3>
+        <div class="svc-en">Film &amp; Video</div>
+        <ul class="svc-list">
+          <li>宣传片</li><li>TVC</li><li>短视频</li><li>动画</li>
+          <li>产品视频</li><li>AIGC 视频</li><li>活动拍摄</li><li>直播</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AIGC 亮点 ============ -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="svc-block" style="border-bottom:none;padding:0;grid-template-columns:1fr 1fr;gap:60px">
+      <div class="img-fit r-4-3" style="background-image:url('assets/img/about-aigc.jpg')"></div>
+      <div class="svc-block-txt rv">
+        <div class="svc-block-en">AIGC Empowerment</div>
+        <h2>AIGC 全面赋能 · 更快更省</h2>
+        <p>设计师 100% 熟练使用 AIGC 工具，平均提效 50%，创意产出效率提升两倍。对客户最直接的好处就是：更快、更省，需求当天就能响应，设计周期平均缩短将近一半。</p>
+        <ul class="cap-grid">
+          <li>需求当天响应</li><li>设计周期缩短近半</li><li>人均提效 50%</li><li>创意产能 ×2</li>
+        </ul>
+        <div style="margin-top:26px"><a href="about.html" class="btn btn-line btn-sm">了解我们的能力</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 全国布局 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="sec-kicker">Nationwide Presence</div>
+      <h2 class="sec-title">全国布局</h2>
+      <p class="sec-sub">设计业务分布在杭州、北京、广州、上海等各大城市，其中西安、武汉、成都、大连、郑州、杭州均设有离岸交付场地</p>
+    </div>
+    <div class="global-layout rv">
+      <div class="img-fit r-4-3 global-map" style="background-image:url('assets/img/global-map.png')"></div>
+      <div class="city-grid" id="cityGrid"><!-- JS 渲染 --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 客户墙 ============ -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="sec-kicker">Trusted By</div>
+      <h2 class="sec-title">合作客户</h2>
+      <p class="sec-sub">长期服务的头部企业（客户 logo 取自品牌案例展示 PPT P14）</p>
+    </div>
+    <div class="client-wall rv" id="clientWall"><!-- JS 渲染 --></div>
+  </div>
+</section>
+
+<!-- ============ 资质证书 ============ -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="sec-kicker">Certification</div>
+      <h2 class="sec-title">资质与认证</h2>
+    </div>
+    <div class="cert-grid rv">
+      <div class="cert-item"><div class="img-fit r-3-4" style="background:#1a4fd6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">ISO 9001<br>质量体系</div><p>质量管理体系认证</p></div>
+      <div class="cert-item"><div class="img-fit r-3-4" style="background:#1a4fd6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">ISO 27001<br>信息安全</div><p>信息安全管理体系认证</p></div>
+      <div class="cert-item"><div class="img-fit r-3-4" style="background:#16181d;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">高新技术企业</div><p>国家高新技术企业</p></div>
+      <div class="cert-item"><div class="img-fit r-3-4" style="background:#16181d;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">软件著作权</div><p>多项软件著作权登记</p></div>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+<script>
+/* 首页案例数据（模拟接口返回） */
+var HOME_CASES = [
+  { client: '阿里集团', name: '阿里集团 · 年度框架视觉服务', cat: '电商零售', tags: ['平面视觉'], img: 'case-alibaba.jpg' },
+  { client: '蚂蚁集团', name: '蚂蚁集团 · H5 与动效设计',   cat: '金融科技', tags: ['H5互动'],   img: 'case-antfin.jpg' },
+  { client: '美团',     name: '美团 · 全域视觉服务',         cat: '生活服务', tags: ['平面视觉'], img: 'case-meituan.jpg' },
+  { client: '京东',     name: '京东 · 618 大促主视觉',       cat: '电商零售', tags: ['平面视觉'], img: 'case-jd-618.jpg' },
+  { client: '百度',     name: '百度 · 大型活动视觉',         cat: '金融科技', tags: ['平面视觉'], img: 'case-baidu.jpg' },
+  { client: '古茗',     name: '古茗 · 新品上新海报',         cat: '食品',     tags: ['平面视觉'], img: 'case-guming.jpg' },
+  { client: '宁德时代', name: '宁德时代 · 品牌 IP 与图标',   cat: '新能源',   tags: ['品牌包装'],    img: 'case-catl.jpg' },
+  { client: '玄铁',     name: '玄铁 · 品牌 VI 与 UI',        cat: '半导体',   tags: ['平面视觉'], img: 'case-xuantie.jpg' }
+];
+
+var CLIENT_LOGOS = ['client-00','client-02','client-03','client-04','client-05','client-07','client-08','client-09','client-10','client-11','client-12','client-13','client-14','client-15','client-16','client-18','client-19','client-20','client-21','client-22','client-23','client-24','client-25','client-26','client-27','client-28','client-29','client-30'];
+
+function renderClientWall() {
+  var box = document.getElementById('clientWall');
+  if (!box) return;
+  box.innerHTML = CLIENT_LOGOS.map(function (f) {
+    return '<div class="client-cell"><img src="assets/img/' + f + '.png" alt="合作客户" loading="lazy"></div>';
+  }).join('');
+}
+
+var GLOBAL_CITIES = [
+  { n:'杭州', cap:'2330', ppl:'450', c:'蚂蚁、阿里、美团、百度、平安证券、科沃斯、乐刻等' },
+  { n:'大连', cap:'200', ppl:'150', c:'阿里、美团' },
+  { n:'西安', cap:'1450', ppl:'30', c:'蚂蚁、阿里、网易' },
+  { n:'成都', cap:'260', ppl:'80', c:'蚂蚁、阿里' },
+  { n:'武汉', cap:'60', ppl:'50', c:'京东、沪上阿姨' },
+  { n:'郑州', cap:'50', ppl:'40', c:'蚂蚁' }
+];
+
+function renderCityGrid() {
+  var box = document.getElementById('cityGrid');
+  if (!box) return;
+  var cards = GLOBAL_CITIES.map(function (o) {
+    return '<div class="city-card">' +
+      '<div class="city-name">' + o.n + '</div>' +
+      '<div class="city-meta"><span>场地容量 ' + o.cap + '</span><span>业务人数 ' + o.ppl + '</span></div>' +
+      '<div class="city-clients">主要客户：' + o.c + '</div>' +
+    '</div>';
+  }).join('');
+  box.innerHTML = cards +
+    '<div class="city-note">另在北京、上海、广州、重庆设有业务点，设计业务覆盖全国 10 城。</div>';
+}
+
+function renderHomeCases(cat) {
+  var list = cat === '全部' ? HOME_CASES : HOME_CASES.filter(function (c) { return c.cat === cat; });
+  var box = document.getElementById('homeCases');
+  if (!list.length) {
+    box.innerHTML = '<div class="empty-state" style="grid-column:1/-1">' +
+      '<div class="ph circle" data-label="空状态"></div>' +
+      '<p>该分类暂无案例，可在此位置推荐其他案例</p></div>';
+    return;
+  }
+  box.innerHTML = list.map(function (c) {
+    var link = 'case-detail.html?c=' + encodeURIComponent(c.client);
+    return '<a class="case-card" href="' + link + '">' +
+      '<div class="case-cover"><div class="img-fit r-4-3" style="background-image:url(\'assets/img/' + c.img + '\')"></div>' +
+        '<div class="case-hover"><span class="view">查看案例</span></div></div>' +
+      '<div class="case-meta">' +
+        '<div class="case-client">' + c.client + '</div>' +
+        '<div class="case-name">' + c.name + '</div>' +
+        '<div class="case-tags">' + c.tags.map(function (t) { return '<span>' + t + '</span>'; }).join('') + '</div>' +
+      '</div></a>';
+  }).join('');
+}
+
+window.pageInit = function () {
+  renderHomeCases('全部');
+  renderClientWall();
+  renderCityGrid();
+  document.querySelectorAll('#homeTabs .tab').forEach(function (t) {
+    t.onclick = function () {
+      document.querySelectorAll('#homeTabs .tab').forEach(function (x) { x.classList.remove('active'); });
+      t.classList.add('active');
+      renderHomeCases(t.getAttribute('data-cat'));
+    };
+  });
+};
+</script>
+</body>
+</html>

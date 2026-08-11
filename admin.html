@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>咨询管理 · 博彦设计</title>
+<style>
+:root {
+  --c-primary: #1a4fd6;
+  --c-ink: #14161a;
+  --c-body: #4a5058;
+  --c-muted: #8b919a;
+  --c-line: #e5e8ec;
+  --c-bg: #f6f7f9;
+  --c-green: #2f9e56;
+  --c-red: #d13b3b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background: var(--c-bg); color: var(--c-body); font-size: 14px;
+  line-height: 1.6; padding: 24px;
+}
+.wrap { max-width: 1200px; margin: 0 auto; }
+h1 { font-size: 24px; color: var(--c-ink); margin-bottom: 6px; }
+.sub { color: var(--c-muted); font-size: 13px; margin-bottom: 28px; }
+.toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 38px; padding: 0 18px; border-radius: 8px;
+  font-size: 13px; font-weight: 500; cursor: pointer; border: none;
+  transition: all .2s;
+}
+.btn-primary { background: var(--c-primary); color: #fff; }
+.btn-primary:hover { opacity: .88; }
+.btn-line { background: #fff; border: 1px solid var(--c-line); color: var(--c-ink); }
+.btn-line:hover { border-color: var(--c-primary); color: var(--c-primary); }
+.btn-danger { background: #fff; border: 1px solid #f5c6cb; color: var(--c-red); }
+.btn-danger:hover { background: #fff5f5; }
+.count { font-size: 13px; color: var(--c-muted); }
+.count b { color: var(--c-ink); }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--c-line); font-size: 13px; }
+th { background: #fafbfc; color: var(--c-ink); font-weight: 600; white-space: nowrap; }
+tr:hover td { background: #fafbfc; }
+.empty { text-align: center; padding: 60px 20px; color: var(--c-muted); }
+.empty svg { width: 48px; height: 48px; margin-bottom: 12px; opacity: .3; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 12px; }
+.tag-source { background: #eef1f6; color: var(--c-muted); }
+.tag-type { background: rgba(26,79,214,.08); color: var(--c-primary); }
+.desc-cell { max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.desc-cell:hover { white-space: normal; overflow: visible; }
+.foot { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--c-line); font-size: 13px; color: var(--c-muted); }
+.foot a { color: var(--c-primary); }
+
+@media (max-width: 860px) {
+  table { font-size: 12px; }
+  th, td { padding: 10px 12px; }
+  .desc-cell { max-width: 120px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📋 咨询记录管理</h1>
+  <p class="sub">数据存储在浏览器 localStorage 中，不会上传到服务器。每台设备独立存储。</p>
+
+  <div class="toolbar">
+    <button class="btn btn-primary" onclick="refresh()">🔄 刷新</button>
+    <button class="btn btn-line" onclick="exportJSON()">📥 导出 JSON</button>
+    <button class="btn btn-line" onclick="exportCSV()">📊 导出 CSV</button>
+    <button class="btn btn-danger" onclick="clearAll()">🗑 清空全部</button>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>姓名</th>
+          <th>手机号</th>
+          <th>公司</th>
+          <th>需求类型</th>
+          <th>需求描述</th>
+          <th>来源</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div class="empty" id="empty" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>
+    <p>暂无咨询记录</p>
+    <p style="font-size:13px;margin-top:4px">在前台网站提交咨询表单后，记录将显示在这里</p>
+  </div>
+
+  <div class="foot">
+    <p>⚠️ 此页面仅供内部使用。数据存储上限 500 条，超出自动删除最早记录。</p>
+    <p>生产环境建议对接后端 API，将数据同步到数据库。</p>
+    <p><a href="index.html">← 返回前台网站</a></p>
+  </div>
+</div>
+
+<script>
+function getRecords() {
+  try {
+    var data = localStorage.getItem('beyondsoft_leads');
+    return data ? JSON.parse(data) : [];
+  } catch(e) { return []; }
+}
+
+function refresh() {
+  var records = getRecords();
+  var tbody = document.getElementById('tbody');
+  var empty = document.getElementById('empty');
+  document.getElementById('count').innerHTML = '共 <b>' + records.length + '</b> 条记录';
+
+  if (!records.length) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  tbody.innerHTML = records.map(function(r, i) {
+    return '<tr>' +
+      '<td style="white-space:nowrap">' + (r.time || '') + '</td>' +
+      '<td style="font-weight:500;color:var(--c-ink)">' + (r.name || '') + '</td>' +
+      '<td>' + (r.phone || '') + '</td>' +
+      '<td>' + (r.company || '-') + '</td>' +
+      '<td><span class="tag tag-type">' + (r.type || '未选择') + '</span></td>' +
+      '<td><div class="desc-cell" title="' + (r.desc || '') + '">' + (r.desc || '-') + '</div></td>' +
+      '<td><span class="tag tag-source">' + (r.source || '') + '</span></td>' +
+      '<td><button class="btn btn-line" style="height:28px;padding:0 10px;font-size:12px" onclick="delRecord(' + i + ')">删除</button></td>' +
+    '</tr>';
+  }).join('');
+}
+
+function delRecord(index) {
+  if (!confirm('确认删除这条咨询记录？')) return;
+  var records = getRecords();
+  records.splice(index, 1);
+  localStorage.setItem('beyondsoft_leads', JSON.stringify(records));
+  refresh();
+}
+
+function exportJSON() {
+  var records = getRecords();
+  if (!records.length) { alert('暂无记录可导出'); return; }
+  var blob = new Blob([JSON.stringify(records, null, 2)], {type:'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '博彦设计-咨询记录-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+}
+
+function exportCSV() {
+  var records = getRecords();
+  if (!records.length) { alert('暂无记录可导出'); return; }
+  var headers = ['时间','姓名','手机号','公司','需求类型','需求描述','来源'];
+  var rows = records.map(function(r) {
+    return [r.time||'', r.name||'', r.phone||'', r.company||'', r.type||'', r.desc||'', r.source||'']
+      .map(function(v) { return '"' + (v+'').replace(/"/g,'""') + '"'; }).join(',');
+  });
+  var csv = '\uFEFF' + headers.join(',') + '\n' + rows.join('\n');
+  var blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '博彦设计-咨询记录-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+}
+
+function clearAll() {
+  if (!confirm('确认清空全部咨询记录？此操作不可撤销。')) return;
+  localStorage.removeItem('beyondsoft_leads');
+  refresh();
+}
+
+refresh();
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo 页面索引 · 公司官网原型</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  body { padding-top: 0 !important; background: var(--c-bg-soft); }
+  .map-hero { background: var(--c-ink); color: #fff; padding: 60px 0 50px; }
+  .map-hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -.5px; margin-bottom: 10px; }
+  .map-hero p { color: rgba(255,255,255,.7); font-size: 15px; }
+  .map-group { margin-bottom: 34px; }
+  .map-group > h3 {
+    font-size: 15px; color: var(--c-ink); font-weight: 700; margin-bottom: 14px;
+    padding-left: 11px; border-left: 3px solid var(--c-primary);
+  }
+  .map-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .map-card {
+    background: #fff; border: 1px solid var(--c-line); border-radius: 10px;
+    padding: 18px 20px; transition: all .25s var(--ease); display: block;
+  }
+  .map-card:hover { border-color: var(--c-primary); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .map-card h4 { font-size: 16px; color: var(--c-ink); font-weight: 600; margin-bottom: 5px; }
+  .map-card code { font-size: 12px; color: var(--c-primary); background: rgba(26,79,214,.07); padding: 1px 6px; border-radius: 4px; }
+  .map-card p { font-size: 13px; color: var(--c-muted); margin-top: 9px; line-height: 1.65; }
+  .legend { background: #fff; border: 1px solid var(--c-line); border-radius: 10px; padding: 24px 26px; margin-bottom: 36px; }
+  .legend h3 { font-size: 16px; color: var(--c-ink); margin-bottom: 14px; font-weight: 700; }
+  .legend li { list-style: none; font-size: 14px; padding: 5px 0 5px 16px; position: relative; }
+  .legend li::before { content: ""; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; border-radius: 50%; background: var(--c-primary); }
+  @media (max-width: 900px) { .map-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="map-hero">
+  <div class="wrap">
+    <h1>博彦设计官网原型 · 页面索引</h1>
+    <p>共 13 个页面（含本索引与 404），文字与图片已按博彦设计真实资料填充，交互逻辑均可点击实测</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:44px;padding-bottom:70px">
+
+  <div class="legend">
+    <h3>怎么看这个 Demo</h3>
+    <ul>
+      <li><b>斜纹灰块</b> = 图片占位；本版已从案例 PPTX 提取真实图片填充大部分位置（首页/案例/关于/服务/招聘等），仅少量装饰位仍为占位，块内文字标注用途与建议尺寸</li>
+      <li><b>浅黄色框</b> = 原型说明，写明该处的实现逻辑与注意事项，正式上线时删除</li>
+      <li><b>蓝色提示条</b> = 页面级说明，解释本页的数据来源与后台配置关系</li>
+      <li>导航下拉、移动端抽屉、轮播、筛选、表单校验、弹窗均为<b>真实可交互</b>，不是静态图</li>
+      <li>缩窄浏览器窗口可直接验证响应式效果（断点：1024px / 720px）</li>
+    </ul>
+  </div>
+
+  <div class="map-group">
+    <h3>核心页面</h3>
+    <div class="map-grid">
+      <a class="map-card" href="index.html">
+        <h4>首页 <code>index.html</code></h4>
+        <p>全屏轮播 · 数据概览 · 案例分类 Tab 异步切换 · 服务能力矩阵 · 客户墙 · 全国布局 · 资质证书 · 滚动进场动效</p>
+      </a>
+      <a class="map-card" href="cases.html">
+        <h4>客户案例列表 <code>cases.html</code></h4>
+        <p>关键词搜索 · 行业/服务/类型三维组合筛选 · 已选条件 chip 移除 · URL 参数同步 · 空状态 · 分页</p>
+      </a>
+      <a class="map-card" href="case-detail.html">
+        <h4>案例详情 <code>case-detail.html</code></h4>
+        <p>主视觉 · 富文本正文 · 视频位 · H5 手机壳演示 · 项目信息表 · 分享 · 上下篇 · 相关推荐</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="map-group">
+    <h3>服务内容</h3>
+    <div class="map-grid">
+      <a class="map-card" href="services.html">
+        <h4>服务总览 <code>services.html</code></h4>
+        <p>三大业务板块（平面视觉 / IP 文创 / 图拍视频）左右交错排布 · 专注行业模块 · 合作客户 Logo 墙</p>
+      </a>
+      <a class="map-card" href="service-detail.html?s=平面视觉">
+        <h4>服务子页 <code>service-detail.html</code></h4>
+        <p>按 URL 参数动态渲染三大业务的内容，含能力清单、服务流程、代表案例</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="map-group">
+    <h3>关于我们</h3>
+    <div class="map-grid">
+      <a class="map-card" href="about.html">
+        <h4>公司简介 <code>about.html</code></h4>
+        <p>公司概况 · 数据指标 · 企业愿景 · 发展历程时间轴 · 管理团队</p>
+      </a>
+      <a class="map-card" href="news.html">
+        <h4>新闻列表 <code>news.html</code></h4>
+        <p>分类 Tab 筛选 · 置顶标识 · 左图右文列表 · 示例资讯（8 条）</p>
+      </a>
+      <a class="map-card" href="news-detail.html?n=aigc-platform">
+        <h4>新闻详情 <code>news-detail.html</code></h4>
+        <p>按 URL 参数动态渲染 · 导语 + 富文本正文 + 图注 · 相关阅读</p>
+      </a>
+      <a class="map-card" href="honor.html">
+        <h4>荣誉奖项 <code>honor.html</code></h4>
+        <p>公司资质图墙 · 公司荣誉按年份筛选</p>
+      </a>
+      <a class="map-card" href="jobs.html">
+        <h4>招贤纳士 <code>jobs.html</code></h4>
+        <p>福利分类卡片 · 办公环境 · 职位按城市/职能筛选 · 手风琴展开岗位详情</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="map-group">
+    <h3>转化与其他</h3>
+    <div class="map-grid">
+      <a class="map-card" href="contact.html">
+        <h4>联系我们 <code>contact.html</code></h4>
+        <p>6 个交付城市（杭州/大连/成都/武汉/西安/郑州）Tab 切换 · 一城多办公点 · 地图位 · 完整咨询表单含校验与成功态</p>
+      </a>
+      <a class="map-card" href="404.html">
+        <h4>404 页面 <code>404.html</code></h4>
+        <p>品牌化错误页，保留导航与热门栏目入口</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="map-group">
+    <h3>全站通用组件（任意页面可见）</h3>
+    <div class="map-grid">
+      <div class="map-card" style="cursor:default">
+        <h4>顶部导航</h4>
+        <p>吸顶 · 首页透明起始滚动变白 · 悬停展开二级下拉 · 当前栏目高亮 · 移动端汉堡抽屉</p>
+      </div>
+      <div class="map-card" style="cursor:default">
+        <h4>咨询弹窗</h4>
+        <p>全站统一组件，7 处入口复用；含手机号正则校验、验证码、隐私政策勾选、提交成功态</p>
+      </div>
+      <div class="map-card" style="cursor:default">
+        <h4>侧边悬浮栏 + 页脚</h4>
+        <p>咨询/电话/微信/回顶四按钮 · 页脚四栏网站地图 + 二维码 + 备案信息 · CTA 通栏</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend" style="margin-top:10px">
+    <h3>与需求清单的对应关系</h3>
+    <ul>
+      <li>本 Demo 覆盖需求清单中<b>前台部分的绝大多数条目</b>，可作为评审时的可视化参照</li>
+      <li>后台管理端未做界面演示，但所有「后台可配置」的位置都在页面上用说明框标注了出来</li>
+      <li>Demo 中的导航栏目、城市列表、服务分类均由 <code>assets/js/main.js</code> 顶部的 SITE 配置驱动，
+          模拟真实项目中后台下发数据的方式，改配置即可改结构</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
