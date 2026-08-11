@@ -34,7 +34,7 @@
       <h1 class="hero-title">头部企业的<br>长期设计伙伴</h1>
       <p class="hero-desc">阿里、蚂蚁、美团、京东……能被对设计要求最严苛的头部企业长期选中，是对我们能力最好的证明。</p>
       <div class="hero-btns">
-        <a href="case-detail.html?c=alibaba" class="btn btn-primary">了解阿里合作</a>
+        <a href="case-detail.html?c=阿里" class="btn btn-primary">了解阿里合作</a>
         <button class="btn btn-ghost js-consult" data-from="首页Banner-2">免费咨询</button>
       </div>
     </div>
@@ -204,14 +204,14 @@
 <script>
 /* 首页案例数据（模拟接口返回） */
 var HOME_CASES = [
-  { client: '阿里集团', name: '阿里集团 · 年度框架视觉服务', cat: '电商零售', tags: ['平面视觉'], img: 'case-alibaba.jpg' },
-  { client: '蚂蚁集团', name: '蚂蚁集团 · H5 与动效设计',   cat: '金融科技', tags: ['H5互动'],   img: 'case-antfin.jpg' },
-  { client: '美团',     name: '美团 · 全域视觉服务',         cat: '生活服务', tags: ['平面视觉'], img: 'case-meituan.jpg' },
-  { client: '京东',     name: '京东 · 618 大促主视觉',       cat: '电商零售', tags: ['平面视觉'], img: 'case-jd-618.jpg' },
-  { client: '百度',     name: '百度 · 大型活动视觉',         cat: '金融科技', tags: ['平面视觉'], img: 'case-baidu.jpg' },
-  { client: '古茗',     name: '古茗 · 新品上新海报',         cat: '食品',     tags: ['平面视觉'], img: 'case-guming.jpg' },
-  { client: '宁德时代', name: '宁德时代 · 品牌 IP 与图标',   cat: '新能源',   tags: ['品牌包装'],    img: 'case-catl.jpg' },
-  { client: '玄铁',     name: '玄铁 · 品牌 VI 与 UI',        cat: '半导体',   tags: ['平面视觉'], img: 'case-xuantie.jpg' }
+  { id: 'c21', client: '阿里', name: '阿里巴巴 · 北京新园区开园KV', cat: '电商零售', tags: ['平面视觉'], img: 'case-alibaba.jpg' },
+  { id: 'c07', client: '蚂蚁集团', name: '蚂蚁集团 · H5互动游戏与动效设计', cat: '金融科技', tags: ['H5互动'], img: 'case-antfin.jpg' },
+  { id: 'c31', client: '美团', name: '美团 · 多业务线主视觉设计', cat: '生活服务', tags: ['平面视觉'], img: 'case-meituan.jpg' },
+  { id: 'c75', client: '京东', name: '京东AVA大会 · 开场概念视频', cat: '电商零售', tags: ['图拍视频'], img: 'case-jd-618.jpg' },
+  { id: 'c17', client: '百度', name: '百度 · 1024程序员节KV设计', cat: '金融科技', tags: ['平面视觉'], img: 'case-baidu.jpg' },
+  { id: 'c48', client: '古茗', name: '古茗 · 新品上新系列海报', cat: '食品', tags: ['平面视觉'], img: 'case-guming.jpg' },
+  { id: 'c05', client: '宁德时代', name: '宁德时代 · 星河IP及icon设计', cat: '新能源', tags: ['品牌包装'], img: 'case-catl.jpg' },
+  { id: 'c02', client: '玄铁', name: '玄铁 · 品牌VI与UI设计体系', cat: '半导体', tags: ['平面视觉'], img: 'case-xuantie.jpg' }
 ];
 
 var CLIENT_LOGOS = ['client-00','client-02','client-03','client-04','client-05','client-07','client-08','client-09','client-10','client-11','client-12','client-13','client-14','client-15','client-16','client-18','client-19','client-20','client-21','client-22','client-23','client-24','client-25','client-26','client-27','client-28','client-29','client-30'];
@@ -257,7 +257,7 @@ function renderHomeCases(cat) {
     return;
   }
   box.innerHTML = list.map(function (c) {
-    var link = 'case-detail.html?c=' + encodeURIComponent(c.client);
+    var link = 'case-detail.html?c=' + encodeURIComponent(c.id || c.client);
     return '<a class="case-card" href="' + link + '">' +
       '<div class="case-cover"><div class="img-fit r-4-3" style="background-image:url(\'assets/img/' + c.img + '\')"></div>' +
         '<div class="case-hover"><span class="view">查看案例</span></div></div>' +

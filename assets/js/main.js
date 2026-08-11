@@ -145,11 +145,37 @@ var SITE_CASES = [
   { id:'c80', c:'海尔', n:'海尔 · 品牌形象宣传视频', i:'3C家电', s:'图拍视频', t:'宣传片', img:'case-alibaba.jpg', d:'c80' }
 ];
 
-/* 根据 id 取案例 */
+/* 根据 id / 客户名 / 名称取案例（兼容旧链接：?c=客户名 或 ?c=名称） */
 function getCase(id) {
-  for (var k = 0; k < SITE_CASES.length; k++) if (SITE_CASES[k].id === id) return SITE_CASES[k];
+  if (!id) return null;
+  for (var k = 0; k < SITE_CASES.length; k++) {
+    if (SITE_CASES[k].id === id) return SITE_CASES[k];
+  }
+  for (var k2 = 0; k2 < SITE_CASES.length; k2++) {
+    if (SITE_CASES[k2].c === id) return SITE_CASES[k2];
+  }
+  for (var k3 = 0; k3 < SITE_CASES.length; k3++) {
+    if (SITE_CASES[k3].n.indexOf(id) > -1) return SITE_CASES[k3];
+  }
   return null;
 }
+
+/* 案例视频映射：caseId → assets/videos/ 下的视频文件（来自 PPTX 嵌入视频） */
+var CASE_VIDEOS = {
+  'c53': ['set1_media1.mp4','set1_media2.mp4','set1_media3.mp4','set1_media4.mp4','set1_media5.mp4'],   // 饿了么 H5 三维动画
+  'c64': ['set1_media7.mp4','set1_media8.mp4','set1_media9.mp4','set1_media10.mp4','set1_media11.mp4'], // 蚂蚁 AIGC 拆红包动效
+  'c67': ['set2_media9.mp4'],        // 阿里云 通义AI品牌传播视频
+  'c69': ['set2_media7.mp4'],        // 阿里妈妈 国图联名 AIGC 视频
+  'c70': ['set2_media11.mp4'],       // 堆友 D20 3D 宣传动画
+  'c75': ['set2_media5.mp4'],        // 京东 AVA 大会开场概念
+  'c76': ['set2_media12.mp4'],       // 京东 × MCM 联名
+  'c77': ['set2_media6.mp4'],        // 宁德时代 星河宣传片
+  'c78': ['set2_media8.mp4'],        // Alipay HK
+  'c79': ['set2_media13.mp4'],       // 科沃斯 产品宣传
+  'c80': ['set2_media14.mp4'],       // 海尔 品牌宣传
+  'c51': ['set1_media6.mp4'],        // 蚂蚁健康岛 3D（AIGC 视频案例）
+  'c59': ['set2_media1.mp4','set2_media2.mp4','set2_media3.mp4','set2_media4.mp4'] // 欢聚集团 直播礼物动效
+};
 
 /* ---------- 新闻资讯数据（模拟接口返回，供列表/详情共用） ----------
    示例资讯：内容为依据公开合作背景撰写的原型示例，上线前请以品牌部正式稿为准 */
