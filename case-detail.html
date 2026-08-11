@@ -40,38 +40,18 @@
 <div class="wrap">
   <div class="detail-body">
 
-    <div class="demo-note">以下为案例详情的内容结构演示，正文由后台富文本编辑器维护，支持图文、视频、H5 混排</div>
-
     <h2>项目背景</h2>
     <p id="cBg">—</p>
-    <p>项目围绕客户的品牌调性与业务目标展开，我们从创意策略、视觉落地到交付验收提供一站式服务，确保视觉语言统一、传播节奏可控、交付质量稳定。</p>
-
-    <h2>解决方案</h2>
-    <p>围绕客户的品牌调性与业务目标，我们提供从创意策略到落地执行的一站式视觉服务，确保视觉语言统一、交付节奏可控。</p>
 
     <div class="img-fit r-16-9" id="v1" style="background-image:url('assets/img/case-aliyun.jpg');margin:26px 0"></div>
 
-    <div class="spec">
-      <b>原型说明：</b>设计类长图体积普遍较大，正文图片需支持懒加载、WebP/AVIF 输出与 CDN 分发；
-      列表页调用压缩缩略图，详情页按需加载原图，避免首屏一次性拉取全部素材。
-    </div>
-
     <h2>视觉呈现</h2>
-    <p>下方为多图混排演示，实际项目中通常为设计长图连续排列。</p>
-
     <div class="img-fit r-3-2" id="v2" style="background-image:url('assets/img/case-meituan.jpg');margin:18px 0"></div>
     <div class="img-fit r-3-2" id="v3" style="background-image:url('assets/img/case-jd-618.jpg');margin:18px 0"></div>
 
     <h2>视频演示</h2>
     <p>TVC / 宣传片 / 动画类案例，点击播放真实项目视频。</p>
     <div id="videoZone"><!-- JS 渲染播放器 --></div>
-
-    <h2>H5 互动演示</h2>
-    <p>互动类 H5 案例以手机壳容器内嵌演示，同时提供二维码供真机体验。</p>
-    <div class="phone-shell">
-      <div class="img-fit" id="phoneScreen"></div>
-    </div>
-    <p style="text-align:center;font-size:13px;color:var(--c-muted)">扫码在手机端体验完整互动效果</p>
 
     <h2>项目信息</h2>
     <table class="meta-table">
@@ -82,13 +62,8 @@
       <tr><th>合作 / 上线</th><td id="tYear">—</td></tr>
     </table>
 
-    <div class="note">
-      保密提示：该案例若涉及客户保密协议，可在后台设为「仅内部可见」或「密码访问」，未授权访客将无法打开本页。
-    </div>
-
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin:30px 0">
       <button class="btn btn-line btn-sm" onclick="copyLink()">复制案例链接</button>
-      <button class="btn btn-line btn-sm">微信扫码分享</button>
       <button class="btn btn-primary btn-sm js-consult" data-from="案例详情页">咨询类似项目</button>
     </div>
 
@@ -103,7 +78,7 @@
 <section class="sec soft">
   <div class="wrap">
     <div class="sec-head"><h2 class="sec-title" style="font-size:26px">相关案例推荐</h2>
-      <p class="sec-sub">默认取同行业或同服务类型案例，推荐规则后台可配置</p></div>
+      <p class="sec-sub">同行业或同服务类型的更多案例</p></div>
     <div class="case-grid" id="relList"></div>
   </div>
 </section>
@@ -126,8 +101,6 @@ window.pageInit = function () {
 
   document.title = c.n + ' · 博彦设计';
   document.getElementById('mainVisual').style.backgroundImage = "url('assets/img/" + c.img + "')";
-  var ps = document.getElementById('phoneScreen');
-  if (ps) ps.style.backgroundImage = "url('assets/img/" + (rel[0] ? rel[0].img : c.img) + "')";
   document.getElementById('cTitle').textContent = c.n;
   document.getElementById('cClient').textContent = '客户：' + c.c;
   document.getElementById('cIndustry').textContent = '行业：' + c.i;
