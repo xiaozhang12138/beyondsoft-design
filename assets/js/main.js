@@ -39,13 +39,7 @@ var SITE = {
       text: 'AIGC 赋能', href: 'aigc.html', key: 'aigc'
     },
     {
-      text: '关于我们', href: 'about.html', key: 'about',
-      children: [
-        { text: '公司简介', href: 'about.html' },
-        { text: '荣誉与招聘', href: 'about.html#honor-jobs' },
-        { text: '新闻动态', href: 'news.html' }
-      ]
-    },
+      text: '关于我们', href: 'about.html', key: 'about' },
     { text: '联系我们', href: 'contact.html', key: 'contact' }
   ],
   cities: ['杭州'],
@@ -364,9 +358,9 @@ function buildFooter() {
   var cityLinks = SITE.cities.map(function (c) {
     return '<a href="contact.html?city=' + encodeURIComponent(c) + '">' + c + '</a>';
   }).join('');
-  var aboutLinks = SITE.nav[4].children.map(function (c) {
-    return '<a href="' + c.href + '">' + c.text + '</a>';
-  }).join('');
+  var aboutLinks = '<a href="about.html">关于我们</a>' +
+    '<a href="about.html#honor-jobs">荣誉与招聘</a>' +
+    '<a href="news.html">新闻动态</a>';
 
   var html =
   '<section class="cta-band">' +
