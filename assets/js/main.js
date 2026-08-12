@@ -28,7 +28,11 @@ var SITE = {
       children: [
         { text: '平面视觉', href: 'service-detail.html?s=平面视觉' },
         { text: '品牌包装', href: 'service-detail.html?s=品牌包装' },
-        { text: '图拍视频', href: 'service-detail.html?s=图拍视频' }
+        { text: '图拍视频', href: 'service-detail.html?s=图拍视频' },
+        { text: '整合营销', href: 'service-detail.html?s=整合营销' },
+        { text: '品牌设计', href: 'service-detail.html?s=品牌设计' },
+        { text: '三维设计', href: 'service-detail.html?s=3D设计' },
+        { text: 'UI 设计', href: 'service-detail.html?s=UI设计' }
       ]
     },
     {
@@ -46,7 +50,7 @@ var SITE = {
     { text: '联系我们', href: 'contact.html', key: 'contact' }
   ],
   cities: ['杭州'],
-  services: ['平面视觉', '品牌包装', '图拍视频', '品牌全案', 'AIGC 赋能', '其他'],
+  services: ['平面视觉', '品牌包装', '图拍视频', '整合营销', '品牌设计', '三维设计', 'UI 设计', '品牌全案', 'AIGC 赋能', '其他'],
   contact: {
     tel: '400-×××-××××（商务专线）',
     hotline: '188 0000 0000',
