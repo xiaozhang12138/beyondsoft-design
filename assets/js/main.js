@@ -42,9 +42,8 @@ var SITE = {
       text: '关于我们', href: 'about.html', key: 'about',
       children: [
         { text: '公司简介', href: 'about.html' },
-        { text: '新闻动态', href: 'news.html' },
-        { text: '荣誉奖项', href: 'honor.html' },
-        { text: '招贤纳士', href: 'jobs.html' }
+        { text: '荣誉与招聘', href: 'about.html#honor-jobs' },
+        { text: '新闻动态', href: 'news.html' }
       ]
     },
     { text: '联系我们', href: 'contact.html', key: 'contact' }
