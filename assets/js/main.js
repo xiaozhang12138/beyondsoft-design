@@ -359,7 +359,6 @@ function buildFooter() {
     return '<a href="contact.html?city=' + encodeURIComponent(c) + '">' + c + '</a>';
   }).join('');
   var aboutLinks = '<a href="about.html">关于我们</a>' +
-    '<a href="about.html#honor-jobs">荣誉与招聘</a>' +
     '<a href="news.html">新闻动态</a>';
 
   var html =
