@@ -26,13 +26,15 @@ var SITE = {
     {
       text: '服务内容', href: 'services.html', key: 'services',
       children: [
+        { text: '包装设计', href: 'service-detail.html?s=包装设计' },
         { text: '平面视觉', href: 'service-detail.html?s=平面视觉' },
-        { text: '品牌包装', href: 'service-detail.html?s=品牌包装' },
         { text: '图拍视频', href: 'service-detail.html?s=图拍视频' },
         { text: '整合营销', href: 'service-detail.html?s=整合营销' },
         { text: '品牌设计', href: 'service-detail.html?s=品牌设计' },
+        { text: 'IP 文创', href: 'service-detail.html?s=IP文创' },
         { text: '三维设计', href: 'service-detail.html?s=3D设计' },
-        { text: 'UI 设计', href: 'service-detail.html?s=UI设计' }
+        { text: 'UI 设计', href: 'service-detail.html?s=UI设计' },
+        { text: 'AIGC 赋能', href: 'aigc.html' }
       ]
     },
     {
