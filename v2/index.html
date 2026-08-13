@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>博彦设计 · 你的设计，我们来解决。</title>
+<meta name="description" content="博彦设计隶属博彦科技（上市公司），18年深耕设计行业。包装设计、平面视觉、图拍视频，一站式视觉整合。">
+<style>
+/* =========================================================
+   板式 v2 · 高端权威 · 图片密集版
+   参考：瑞德设计（证据链/大数字）+ Interbrand（品牌权威感）
+   设计语言：浅底留白 · 细字重超大标题 · 斜体关键词 · 通栏图片墙
+   ========================================================= */
+:root {
+  --c-accent:#1a4fd6; --c-ink:#14161a; --c-body:#4a5058; --c-muted:#8b919a;
+  --c-line:#e5e8ec; --c-bg:#fafafa; --c-paper:#f2f4f7; --maxw:1280px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:"PingFang SC","Songti SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif; color:var(--c-body); background:var(--c-bg); font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 48px; }
+
+/* ---------- 导航 ---------- */
+.nav { position:fixed; top:0; left:0; right:0; z-index:900; height:80px; background:rgba(250,250,250,.92); backdrop-filter:blur(14px); border-bottom:1px solid var(--c-line); transition:all .3s; }
+.nav-inner { max-width:var(--maxw); margin:0 auto; padding:0 48px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+.logo-txt { font-size:20px; font-weight:600; color:var(--c-ink); letter-spacing:3px; }
+.logo-txt em { font-style:italic; color:var(--c-accent); }
+.nav-menu { display:flex; gap:36px; }
+.nav-link { font-size:14px; color:var(--c-body); letter-spacing:1px; }
+.nav-link:hover { color:var(--c-ink); }
+.nav-cta { display:flex; align-items:center; gap:20px; }
+.btn-ghost-nav { font-size:13px; color:var(--c-ink); letter-spacing:1px; padding:10px 26px; border:1px solid var(--c-ink); border-radius:999px; transition:all .25s; }
+.btn-ghost-nav:hover { background:var(--c-ink); color:#fff; }
+.btn-solid { font-size:13px; color:#fff; letter-spacing:1px; padding:10px 26px; background:var(--c-accent); border-radius:999px; transition:all .25s; }
+.btn-solid:hover { background:#1239a8; }
+.hamburger { display:none; }
+
+/* ---------- Hero：左文右图 ---------- */
+.hero { padding:170px 0 70px; }
+.hero-inner { display:grid; grid-template-columns:1.05fr .95fr; gap:70px; align-items:center; }
+.hero-kicker { font-size:12px; letter-spacing:5px; color:var(--c-accent); text-transform:uppercase; margin-bottom:36px; }
+.hero-title { font-size:clamp(42px,5.6vw,78px); line-height:1.12; font-weight:200; color:var(--c-ink); letter-spacing:-2px; }
+.hero-title em { font-style:italic; color:var(--c-accent); font-weight:400; }
+.hero-sub { margin-top:32px; font-size:17px; color:var(--c-body); max-width:480px; font-weight:300; }
+.hero-actions { margin-top:44px; display:flex; gap:16px; flex-wrap:wrap; }
+.hero-meta { margin-top:52px; display:flex; gap:48px; }
+.hero-meta .m-num { font-size:36px; font-weight:200; color:var(--c-ink); letter-spacing:-1px; }
+.hero-meta .m-num i { font-style:normal; font-size:15px; color:var(--c-accent); }
+.hero-meta .m-label { font-size:12px; color:var(--c-muted); letter-spacing:2px; margin-top:6px; }
+.hero-visual { position:relative; }
+.hero-visual .main-img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; }
+.hero-visual .float-card { position:absolute; left:-30px; bottom:36px; background:#fff; border:1px solid var(--c-line); padding:18px 24px; box-shadow:0 18px 48px rgba(20,22,26,.10); }
+.hero-visual .float-card b { font-size:15px; color:var(--c-ink); font-weight:500; }
+.hero-visual .float-card span { font-size:12px; color:var(--c-muted); }
+
+/* ---------- 数字背书带 ---------- */
+.stats-band { padding:70px 0; border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); }
+.stats-inner { display:grid; grid-template-columns:repeat(4,1fr); gap:40px; }
+.stat-cell .n { font-size:clamp(40px,4.4vw,60px); font-weight:200; color:var(--c-ink); letter-spacing:-1px; }
+.stat-cell .n i { font-style:normal; font-size:.5em; color:var(--c-accent); }
+.stat-cell .t { font-size:13px; color:var(--c-muted); margin-top:8px; letter-spacing:2px; }
+
+/* ---------- 通用区块 ---------- */
+.sec { padding:110px 0; }
+.sec-head { margin-bottom:56px; }
+.sec-head .kicker { font-size:12px; letter-spacing:5px; color:var(--c-accent); text-transform:uppercase; margin-bottom:16px; }
+.sec-head h2 { font-size:clamp(28px,3.6vw,44px); font-weight:200; color:var(--c-ink); letter-spacing:-1px; }
+.sec-head h2 em { font-style:italic; color:var(--c-accent); }
+.sec-head p { margin-top:14px; color:var(--c-muted); max-width:560px; font-weight:300; }
+.sec-more { float:right; margin-top:-10px; font-size:13px; color:var(--c-accent); letter-spacing:2px; border-bottom:1px solid var(--c-accent); padding-bottom:2px; }
+
+/* ---------- 破折号服务列表 ---------- */
+.svc-list-lines { display:grid; grid-template-columns:1fr 1fr; gap:0 80px; border-top:1px solid var(--c-line); }
+.svc-line { display:flex; align-items:baseline; gap:20px; padding:32px 0; border-bottom:1px solid var(--c-line); transition:padding-left .3s; }
+.svc-line:hover { padding-left:12px; }
+.svc-line .idx { font-size:12px; color:var(--c-accent); letter-spacing:2px; flex:none; }
+.svc-line .name { font-size:22px; font-weight:300; color:var(--c-ink); }
+.svc-line .name em { font-style:italic; }
+.svc-line .en { font-size:12px; color:var(--c-muted); margin-left:auto; letter-spacing:1px; }
+
+/* ---------- 案例墙（通栏大图网格） ---------- */
+.case-wall { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--c-line); }
+.case-cell { border-right:1px solid var(--c-line); border-bottom:1px solid var(--c-line); }
+.case-cell:nth-child(3n) { border-right:none; }
+.case-cell .img { aspect-ratio:4/3; background-size:cover; background-position:center; position:relative; overflow:hidden; transition:transform .6s; }
+.case-cell:hover .img { transform:scale(1.03); }
+.case-info { padding:26px 8px 34px; }
+.case-info .client { font-size:12px; color:var(--c-accent); letter-spacing:2px; }
+.case-info .name { font-size:17px; color:var(--c-ink); font-weight:500; margin-top:8px; line-height:1.6; }
+.case-info .cat { font-size:12px; color:var(--c-muted); margin-top:8px; letter-spacing:1px; }
+
+/* ---------- 瀑布流作品墙 ---------- */
+.wall-grid { columns:4; column-gap:18px; }
+.wall-item { break-inside:avoid; margin-bottom:18px; position:relative; overflow:hidden; border-radius:2px; }
+.wall-item img { width:100%; transition:transform .6s; }
+.wall-item:hover img { transform:scale(1.04); }
+.wall-item .cap { position:absolute; inset:auto 0 0 0; background:linear-gradient(transparent,rgba(12,14,18,.75)); color:#fff; font-size:13px; padding:34px 16px 12px; opacity:0; transition:opacity .3s; }
+.wall-item:hover .cap { opacity:1; }
+
+/* ---------- 理念段 ---------- */
+.quote-band { background:var(--c-paper); border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); padding:110px 0; text-align:center; }
+.quote-band p { font-size:clamp(22px,2.8vw,36px); font-weight:200; color:var(--c-ink); line-height:1.9; max-width:860px; margin:0 auto; }
+.quote-band p em { font-style:italic; color:var(--c-accent); }
+.quote-band .q-src { margin-top:24px; font-size:13px; color:var(--c-muted); letter-spacing:3px; }
+
+/* ---------- 关于证据链 ---------- */
+.founder { display:grid; grid-template-columns:1fr 1fr; gap:90px; align-items:center; }
+.founder .photo { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px; }
+.tl-list .tl-item { display:flex; gap:24px; padding:16px 0; border-bottom:1px solid var(--c-line); }
+.tl-list .tl-item b { color:var(--c-accent); font-weight:400; width:56px; flex:none; font-size:15px; }
+.tl-list .tl-item span { color:var(--c-body); }
+
+/* ---------- 页脚 ---------- */
+.footer { background:#101216; color:#8b919a; padding:70px 0 36px; font-size:14px; }
+.foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; padding-bottom:50px; border-bottom:1px solid #23262c; }
+.foot-brand .logo-txt { color:#fff; }
+.foot-brand p { margin-top:18px; color:#6b727c; font-size:13.5px; }
+.foot-col h4 { color:#fff; font-size:14px; letter-spacing:1px; margin-bottom:20px; font-weight:500; }
+.foot-col a { display:block; padding:5px 0; font-size:13.5px; color:#8b919a; }
+.foot-col a:hover { color:#fff; }
+.foot-bottom { padding-top:24px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:#6b727c; }
+
+.drawer { position:fixed; inset:0; z-index:950; background:#fff; transform:translateX(100%); transition:transform .35s; padding:90px 30px; }
+.drawer.open { transform:translateX(0); }
+.drawer-close { position:absolute; top:24px; right:28px; font-size:30px; color:var(--c-ink); }
+.drawer a { display:block; padding:16px 4px; font-size:18px; color:var(--c-ink); border-bottom:1px solid var(--c-line); }
+
+.rv { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+.rv.in { opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} }
+
+@media (max-width:1024px) {
+  .wrap, .nav-inner { padding:0 28px; }
+  .nav-menu { display:none; }
+  .hamburger { display:flex; flex-direction:column; gap:5px; }
+  .hamburger span { width:22px; height:2px; background:var(--c-ink); }
+  .hero-inner { grid-template-columns:1fr; gap:48px; }
+  .hero-visual .float-card { left:16px; }
+  .stats-inner { grid-template-columns:1fr 1fr; gap:28px; }
+  .svc-list-lines { grid-template-columns:1fr; }
+  .case-wall { grid-template-columns:1fr 1fr; }
+  .case-cell:nth-child(3n){ border-right:1px solid var(--c-line); }
+  .case-cell:nth-child(2n){ border-right:none; }
+  .wall-grid { columns:3; }
+  .founder { grid-template-columns:1fr; gap:40px; }
+  .foot-grid { grid-template-columns:1fr 1fr; gap:40px; }
+}
+@media (max-width:640px) {
+  .wrap, .nav-inner { padding:0 20px; }
+  .hero { padding-top:120px; }
+  .hero-meta { gap:24px; flex-wrap:wrap; }
+  .stats-inner, .case-wall { grid-template-columns:1fr; }
+  .case-cell:nth-child(n){ border-right:none; }
+  .wall-grid { columns:2; }
+  .foot-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body data-page="home">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><span class="logo-txt">博彦<em>设计</em></span></a>
+    <div class="nav-menu">
+      <a class="nav-link" href="index.html">首页</a>
+      <a class="nav-link" href="cases.html">客户案例</a>
+      <a class="nav-link" href="services.html">服务内容</a>
+      <a class="nav-link" href="aigc.html">AIGC</a>
+      <a class="nav-link" href="about.html">关于我们</a>
+      <a class="nav-link" href="contact.html">联系我们</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn-solid js-consult" data-from="v2首页">免费咨询</button>
+      <button class="hamburger" id="btnMenu" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero：左文右大图 -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker rv">BEYONDSOFT DESIGN · SINCE 2008</div>
+        <h1 class="hero-title rv">你的设计，<br><em>我们</em>来解决。</h1>
+        <p class="hero-sub rv">上市公司旗下，500+ 设计师。从货架上的包装到屏幕里的品牌，你需要的视觉，我们一家全包。</p>
+        <div class="hero-actions rv">
+          <a href="cases.html" class="btn-solid">查看案例</a>
+          <button class="btn-ghost-nav js-consult" data-from="v2首页hero">聊聊需求</button>
+        </div>
+        <div class="hero-meta rv">
+          <div><div class="m-num">18<i>年</i></div><div class="m-label">深耕设计行业</div></div>
+          <div><div class="m-num">20000<i>+</i></div><div class="m-label">累计服务案例</div></div>
+          <div><div class="m-num">85<i>%</i></div><div class="m-label">互联网名企覆盖</div></div>
+        </div>
+      </div>
+      <div class="hero-visual rv">
+        <img class="main-img" src="assets/img/case-alibaba.jpg" alt="阿里巴巴开园KV">
+        <div class="float-card"><b>阿里巴巴 · 北京新园区开园 KV</b><br><span>电商零售 · 平面视觉</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数字背书带 -->
+<section class="stats-band">
+  <div class="wrap">
+    <div class="stats-inner rv">
+      <div class="stat-cell"><div class="n">18<i>年</i></div><div class="t">深耕设计行业</div></div>
+      <div class="stat-cell"><div class="n">20000<i>+</i></div><div class="t">累计服务客户案例</div></div>
+      <div class="stat-cell"><div class="n">85<i>%</i></div><div class="t">互联网名企客户覆盖</div></div>
+      <div class="stat-cell"><div class="n">10<i>城</i></div><div class="t">服务覆盖全国</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务列表 -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">What We Do</div>
+      <h2>九大服务板块<em>—</em>一个入口，全部解决</h2>
+    </div>
+    <div class="svc-list-lines rv">
+      <a class="svc-line" href="service-detail.html?s=包装设计"><span class="idx">01</span><span class="name">包装设计<em>—</em></span><span class="en">Packaging</span></a>
+      <a class="svc-line" href="service-detail.html?s=平面视觉"><span class="idx">02</span><span class="name">平面视觉<em>—</em></span><span class="en">Visual</span></a>
+      <a class="svc-line" href="service-detail.html?s=图拍视频"><span class="idx">03</span><span class="name">图拍视频<em>—</em></span><span class="en">Film &amp; Video</span></a>
+      <a class="svc-line" href="service-detail.html?s=整合营销"><span class="idx">04</span><span class="name">整合营销<em>—</em></span><span class="en">Marketing</span></a>
+      <a class="svc-line" href="service-detail.html?s=品牌设计"><span class="idx">05</span><span class="name">品牌设计<em>—</em></span><span class="en">Brand</span></a>
+      <a class="svc-line" href="service-detail.html?s=IP文创"><span class="idx">06</span><span class="name">IP 文创<em>—</em></span><span class="en">Creative</span></a>
+      <a class="svc-line" href="service-detail.html?s=3D设计"><span class="idx">07</span><span class="name">三维设计<em>—</em></span><span class="en">3D</span></a>
+      <a class="svc-line" href="service-detail.html?s=UI设计"><span class="idx">08</span><span class="name">UI 设计<em>—</em></span><span class="en">Interface</span></a>
+      <a class="svc-line" href="aigc.html"><span class="idx">09</span><span class="name">AIGC<em>—</em></span><span class="en">AI Art</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 精选案例墙（12个） -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Selected Works</div>
+      <h2>精选案例<em>—</em>为头部品牌工作</h2>
+      <p>从阿里巴巴到宁德时代，我们与各行业头部品牌长期同行。</p>
+      <a class="sec-more" href="cases.html">全部案例 →</a>
+    </div>
+    <div class="case-wall rv" id="v2Cases"></div>
+  </div>
+</section>
+
+<!-- 瀑布流作品墙（30张真实图） -->
+<section class="sec" style="background:var(--c-paper);border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Works Gallery</div>
+      <h2>作品墙<em>—</em>每一件，都是真实交付</h2>
+    </div>
+    <div class="wall-grid rv" id="v2Wall"></div>
+  </div>
+</section>
+
+<!-- 理念段 -->
+<section class="quote-band">
+  <div class="wrap">
+    <p class="rv">好设计是<em>生意</em>，坏设计是成本。<br>我们把每一分设计预算，都花在能带来增长的地方。</p>
+    <div class="q-src rv">—— 博彦设计 · 设计观</div>
+  </div>
+</section>
+
+<!-- 关于证据链 -->
+<section class="sec">
+  <div class="wrap">
+    <div class="founder">
+      <div class="rv"><img class="photo" src="assets/img/about-team.jpg" alt="博彦设计团队"></div>
+      <div class="rv">
+        <div class="kicker" style="font-size:12px;letter-spacing:5px;color:var(--c-accent);text-transform:uppercase;margin-bottom:16px">About Us</div>
+        <h2 style="font-size:clamp(26px,3.2vw,38px);font-weight:200;color:var(--c-ink);letter-spacing:-1px;margin-bottom:24px">十六年，与头部客户<em style="font-style:italic;color:var(--c-accent)">共同成长</em></h2>
+        <div class="tl-list">
+          <div class="tl-item"><b>2008</b><span>博彦设计团队成立</span></div>
+          <div class="tl-item"><b>2009</b><span>成为阿里巴巴设计框架供应商</span></div>
+          <div class="tl-item"><b>2016</b><span>成为京东 TOP1 设计供应商</span></div>
+          <div class="tl-item"><b>2020</b><span>成为美团 TOP2 设计供应商</span></div>
+          <div class="tl-item"><b>2024</b><span>AIGC 全面赋能，人均提效 50%</span></div>
+        </div>
+        <div style="margin-top:36px"><a href="about.html" class="btn-ghost-nav">了解更多 →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-txt">博彦设计</span>
+        <p>隶属博彦科技（上市公司）旗下。<br>包装设计 · 平面视觉 · 图拍视频，一站式视觉整合。</p>
+      </div>
+      <div class="foot-col"><h4>服务内容</h4><a href="service-detail.html?s=包装设计">包装设计</a><a href="service-detail.html?s=平面视觉">平面视觉</a><a href="service-detail.html?s=图拍视频">图拍视频</a><a href="aigc.html">AIGC</a></div>
+      <div class="foot-col"><h4>关于我们</h4><a href="about.html">公司简介</a><a href="news.html">新闻动态</a><a href="contact.html">联系我们</a></div>
+      <div class="foot-col"><h4>联系</h4><a>杭州 · 总部</a><a>design@beyondsoft.com</a></div>
+    </div>
+    <div class="foot-bottom"><div>博彦设计 · 博彦科技（上市公司）旗下 © 版权所有</div><div>浙ICP备00000000号</div></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="btnClose">&times;</button>
+  <a href="index.html">首页</a><a href="cases.html">客户案例</a><a href="services.html">服务内容</a><a href="aigc.html">AIGC</a><a href="about.html">关于我们</a><a href="contact.html">联系我们</a>
+</div>
+
+<script>
+/* v2 板式：精选案例（12个真实案例） */
+var V2_CASES = [
+  { c:'阿里巴巴', n:'北京新园区开园 KV 设计', cat:'平面视觉', img:'cases/set2_slide16_image48.jpg' },
+  { c:'宁德时代', n:'星河系统宣传片', cat:'图拍视频', img:'cases/set2_slide46_image264.jpg' },
+  { c:'京东', n:'AVA 大会 · 开场概念视频', cat:'图拍视频', img:'cases/set2_slide45_image259.jpg' },
+  { c:'蚂蚁集团', n:'H5 互动游戏与动效设计', cat:'整合营销', img:'cases/set2_slide17_image100.jpg' },
+  { c:'美团', n:'多业务线主视觉设计', cat:'平面视觉', img:'cases/set2_slide20_image121.jpg' },
+  { c:'百度', n:'1024 程序员节 KV 设计', cat:'平面视觉', img:'cases/set1_slide35_image1.jpg' },
+  { c:'中国银行', n:'IP 盲盒系列设计', cat:'包装设计', img:'cases/set1_slide27_image1.jpg' },
+  { c:'天猫', n:'超级品类日 · 混剪视频', cat:'图拍视频', img:'cases/set1_slide89_image1.jpg' },
+  { c:'古茗', n:'新品上新系列海报', cat:'平面视觉', img:'cases/set2_slide32_image182.jpg' },
+  { c:'伊利', n:'世界杯 × 营养早餐品牌宣传', cat:'图拍视频', img:'cases/set2_slide55_image323.jpg' },
+  { c:'玄铁', n:'品牌 VI 与 UI 设计体系', cat:'品牌设计', img:'cases/set2_slide31_image176.jpg' },
+  { c:'沪上阿姨', n:'品牌招商手册设计', cat:'平面视觉', img:'cases/set1_slide55_image1.jpg' }
+];
+
+/* v2 作品墙：30 张真实案例图 */
+var V2_WALL = [
+  { img:'cases/set1_slide15_image1.jpg', cap:'迪安诊断 · 品牌Logo' },
+  { img:'cases/set1_slide28_image119.jpg', cap:'阿里妈妈 · 3D服饰AI' },
+  { img:'cases/set1_slide26_image107.jpg', cap:'唐宫夜宴 · IP文创' },
+  { img:'cases/set1_slide30_image131.jpg', cap:'网易云音乐 × 荣耀 H5' },
+  { img:'cases/set1_slide31_image1.jpg', cap:'支付宝 · 中秋互动H5' },
+  { img:'cases/set1_slide32_image1.jpg', cap:'网易 · 公益H5' },
+  { img:'cases/set1_slide19_image8.jpg', cap:'明康汇 · 农产品包装' },
+  { img:'cases/set1_slide20_image1.jpg', cap:'毕节 · 电商消费季' },
+  { img:'cases/set1_slide21_image1.jpg', cap:'1688严选 · 产品包装' },
+  { img:'cases/set2_slide36_image202.jpg', cap:'迷你巴拉 · 包装详情页' },
+  { img:'cases/set1_slide43_image1.jpg', cap:'百度 · 长图插画' },
+  { img:'cases/set1_slide46_image1.jpg', cap:'百度 · 头像框插画' },
+  { img:'cases/set1_slide49_image197.jpg', cap:'阿里云 · 营销长图' },
+  { img:'cases/set1_slide50_image1.jpg', cap:'阿里妈妈 · M峰会PPT' },
+  { img:'cases/set1_slide54_image1.jpg', cap:'蚂蚁 · 可持续发展报告' },
+  { img:'cases/set1_slide57_image1.jpg', cap:'蚂蚁 · 公交站物料' },
+  { img:'cases/set1_slide37_image1.jpg', cap:'美团闪购 · 版头视觉' },
+  { img:'cases/set1_slide58_image236.jpg', cap:'大众点评 · 美食节市集' },
+  { img:'cases/set1_slide42_image1.jpg', cap:'京东 · 大促海报' },
+  { img:'cases/set2_slide25_image157.jpg', cap:'京东京造 · 详情页' },
+  { img:'cases/set1_slide40_image1.jpg', cap:'1688 · 寻源中国海报' },
+  { img:'cases/set1_slide41_image1.jpg', cap:'天猫超市 · 大促海报' },
+  { img:'cases/set2_slide19_image110.jpg', cap:'虎鲸文娱 · 影视海报' },
+  { img:'cases/set2_slide29_image172.jpg', cap:'科沃斯 · 活动KV' },
+  { img:'cases/set1_slide38_image1.jpg', cap:'小满手工粉 · 菜单海报' },
+  { img:'cases/set1_slide65_image1.jpg', cap:'蚂蚁 · 3D场景动效' },
+  { img:'cases/set1_slide68_image1.jpg', cap:'饿了么 · H5三维动画' },
+  { img:'cases/set1_slide73_image1.jpg', cap:'蚂蚁 · 金融APP界面' },
+  { img:'cases/set1_slide86_image1.jpg', cap:'ZOLOZ · MG宣传动画' },
+  { img:'cases/set2_slide53_image309.jpg', cap:'科沃斯 · 产品视频' }
+];
+
+function renderCases() {
+  var box = document.getElementById('v2Cases');
+  if (!box) return;
+  box.innerHTML = V2_CASES.map(function (x) {
+    return '<a class="case-cell" href="case-detail.html?c=' + encodeURIComponent(x.c) + '">' +
+      '<div class="img" style="background-image:url(\'assets/img/' + x.img + '\')"></div>' +
+      '<div class="case-info"><div class="client">' + x.c + '</div>' +
+      '<div class="name">' + x.n + '</div>' +
+      '<div class="cat">' + x.cat + '</div></div></a>';
+  }).join('');
+}
+
+function renderWall() {
+  var box = document.getElementById('v2Wall');
+  if (!box) return;
+  box.innerHTML = V2_WALL.map(function (w) {
+    return '<div class="wall-item"><img loading="lazy" src="assets/img/' + w.img + '" alt="' + w.cap + '">' +
+      '<div class="cap">' + w.cap + '</div></div>';
+  }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  renderCases();
+  renderWall();
+  document.getElementById('btnMenu').onclick = function () { document.getElementById('drawer').classList.add('open'); };
+  document.getElementById('btnClose').onclick = function () { document.getElementById('drawer').classList.remove('open'); };
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+});
+</script>
+
+
+<!-- 咨询弹窗 -->
+<div class="vm-modal" id="vmModal">
+  <div class="vm-mask" id="vmMask"></div>
+  <div class="vm-box">
+    <button class="vm-close" id="vmClose">&times;</button>
+    <h3>免费咨询</h3>
+    <p class="vm-sub">留下联系方式，商务顾问将在 1 个工作日内与你沟通</p>
+    <form class="vm-form" id="vmForm" novalidate>
+      <input type="text" name="name" placeholder="您的称呼 *" required>
+      <input type="tel" name="phone" placeholder="手机号 *" required>
+      <input type="text" name="company" placeholder="公司名称">
+      <select name="type"><option value="">需求类型</option><option>包装设计</option><option>平面视觉</option><option>图拍视频</option><option>品牌设计</option><option>整合营销</option><option>UI 设计</option><option>三维设计</option><option>AIGC</option><option>其他</option></select>
+      <textarea name="desc" placeholder="简单描述项目需求" rows="3"></textarea>
+      <button type="submit" class="vm-submit">提交咨询</button>
+    </form>
+    <div class="vm-ok" id="vmOk" style="display:none">
+      <div class="vm-tick">✓</div>
+      <h3>提交成功</h3>
+      <p class="vm-sub">我们已收到你的需求，商务顾问会尽快联系你</p>
+    </div>
+  </div>
+</div>
+<style>
+.vm-modal{position:fixed;inset:0;z-index:1200;display:none}
+.vm-modal.open{display:block}
+.vm-mask{position:absolute;inset:0;background:rgba(8,10,14,.72);backdrop-filter:blur(4px)}
+.vm-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;max-width:calc(100vw - 40px);background:#fff;border:1px solid #e5e8ec;border-radius:16px;padding:34px 36px}
+.vm-box h3{font-size:22px;color:#14161a;margin-bottom:6px}
+.vm-sub{font-size:13px;color:#8b919a;margin-bottom:22px}
+.vm-close{position:absolute;top:14px;right:18px;font-size:26px;color:#8b919a;background:none;border:none;cursor:pointer}
+.vm-form{display:grid;gap:12px}
+.vm-form input,.vm-form select,.vm-form textarea{width:100%;padding:12px 14px;border:1px solid #e5e8ec;border-radius:10px;background:#fafafa;color:#14161a;font-size:14px;outline:none;font-family:inherit}
+.vm-form input:focus,.vm-form select:focus,.vm-form textarea:focus{border-color:#1a4fd6}
+.vm-submit{height:46px;border-radius:999px;background:#1a4fd6;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.vm-submit:hover{background:#1239a8}
+.vm-ok{text-align:center;padding:20px 0}
+.vm-tick{width:58px;height:58px;border-radius:50%;background:rgba(47,158,86,.15);color:#2f9e56;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var modal=document.getElementById('vmModal');
+  if(!modal) return;
+  function open(){modal.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest?e.target.closest('.js-consult'):null;
+    if(t){e.preventDefault();open();}
+  });
+  document.getElementById('vmMask').onclick=close;
+  document.getElementById('vmClose').onclick=close;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var form=document.getElementById('vmForm');
+  form.onsubmit=function(e){
+    e.preventDefault();
+    var name=form.name.value.trim(),phone=form.phone.value.trim();
+    if(!name||!/^1[3-9]\d{9}$/.test(phone)){alert('请填写姓名和正确的 11 位手机号');return;}
+    try{
+      var rec={id:Date.now(),name:name,phone:phone,company:form.company.value.trim(),type:form.type.value,desc:form.desc.value.trim(),time:new Date().toLocaleString('zh-CN')};
+      var list=JSON.parse(localStorage.getItem('beyondsoft_leads')||'[]');
+      list.unshift(rec);localStorage.setItem('beyondsoft_leads',JSON.stringify(list.slice(0,500)));
+    }catch(err){}
+    form.style.display='none';
+    document.getElementById('vmOk').style.display='';
+  };
+});
+</script>
+
+</body>
+</html>

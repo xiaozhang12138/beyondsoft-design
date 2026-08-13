@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>服务内容 · 博彦设计</title>
+<meta name="description" content="博彦设计九大服务板块：包装设计、平面视觉、图拍视频三大主推 + 整合营销、品牌设计、IP文创、三维设计、UI设计、AIGC。">
+<style>
+
+:root { --c-bg:#0c0e12; --c-bg2:#11141a; --c-ink:#f2f3f5; --c-body:#9aa1ab; --c-muted:#5c636e; --c-line:#22262e; --c-accent:#ffd400; --c-accent2:#4f8cff; --maxw:1280px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif; background:var(--c-bg); color:var(--c-body); font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 48px; }
+.nav { position:fixed; top:0; left:0; right:0; z-index:900; height:76px; background:rgba(12,14,18,.82); backdrop-filter:blur(16px); border-bottom:1px solid var(--c-line); }
+.nav-inner { max-width:var(--maxw); margin:0 auto; padding:0 48px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+.logo-txt { font-size:19px; font-weight:700; color:#fff; letter-spacing:2px; }
+.logo-txt i { font-style:normal; color:var(--c-accent); }
+.nav-menu { display:flex; gap:34px; }
+.nav-link { font-size:14px; color:var(--c-body); letter-spacing:2px; }
+.nav-link:hover { color:var(--c-accent); }
+.nav-cta { display:flex; align-items:center; gap:18px; }
+.btn-accent { font-size:13px; font-weight:600; color:#0c0e12; letter-spacing:1px; padding:10px 26px; background:var(--c-accent); border-radius:999px; }
+.btn-outline { font-size:13px; color:#fff; letter-spacing:1px; padding:10px 26px; border:1px solid rgba(255,255,255,.3); border-radius:999px; }
+.btn-outline:hover { border-color:var(--c-accent); color:var(--c-accent); }
+.hamburger { display:none; }
+.page-head { padding:170px 0 60px; }
+.page-head .en { font-size:12px; letter-spacing:8px; color:var(--c-accent); text-transform:uppercase; margin-bottom:24px; font-weight:600; }
+.page-head h1 { font-size:clamp(38px,5vw,64px); font-weight:700; color:#fff; letter-spacing:2px; }
+.page-head p { margin-top:18px; color:var(--c-body); max-width:600px; }
+.sec { padding:90px 0; border-top:1px solid var(--c-line); }
+.sec .label { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; margin-bottom:40px; }
+.sec h2 { font-size:clamp(26px,3.4vw,42px); font-weight:700; color:#fff; letter-spacing:2px; margin-bottom:30px; }
+.statement { font-size:clamp(20px,2.6vw,30px); font-weight:200; color:#fff; line-height:1.9; max-width:900px; }
+.statement .hl { color:var(--c-accent); font-style:normal; }
+.data-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.data-cell { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; padding:34px 26px; text-align:center; }
+.data-cell .n { font-size:clamp(34px,4vw,52px); font-weight:200; color:#fff; }
+.data-cell .n i { font-style:normal; color:var(--c-accent); font-size:.5em; }
+.data-cell .t { margin-top:10px; font-size:13px; color:var(--c-muted); letter-spacing:2px; }
+.value-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.value-card { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; padding:36px 30px; }
+.value-card .en { font-size:11px; letter-spacing:3px; color:var(--c-accent); text-transform:uppercase; margin-bottom:14px; }
+.value-card h3 { font-size:20px; color:#fff; font-weight:600; margin-bottom:12px; }
+.value-card p { font-size:14px; color:var(--c-body); }
+.tl-list { max-width:760px; }
+.tl-item { display:flex; gap:28px; padding:22px 0; border-bottom:1px solid var(--c-line); }
+.tl-item b { color:var(--c-accent); font-weight:600; width:60px; flex:none; }
+.tl-item span { color:var(--c-body); }
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.team-card { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; overflow:hidden; transition:all .3s; }
+.team-card:hover { border-color:rgba(255,212,0,.4); transform:translateY(-4px); }
+.team-card .avatar { aspect-ratio:3/4; background-size:cover; background-position:center; }
+.team-card .meta { padding:18px 22px 22px; }
+.team-name { font-size:16px; color:#fff; font-weight:600; }
+.team-role { font-size:12px; color:var(--c-accent); margin-top:4px; letter-spacing:1px; }
+.team-desc { font-size:12.5px; color:var(--c-muted); margin-top:10px; line-height:1.7; }
+.footer { background:#08090c; border-top:1px solid var(--c-line); padding:80px 0 36px; }
+.foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid var(--c-line); }
+.foot-brand .logo-txt { color:#fff; }
+.foot-brand p { margin-top:16px; color:var(--c-muted); font-size:13.5px; }
+.foot-col h4 { color:#fff; font-size:13px; letter-spacing:3px; margin-bottom:18px; font-weight:600; text-transform:uppercase; }
+.foot-col a { display:block; padding:6px 0; font-size:13.5px; color:var(--c-body); }
+.foot-col a:hover { color:var(--c-accent); }
+.foot-bottom { padding-top:24px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--c-muted); }
+.drawer { position:fixed; inset:0; z-index:950; background:var(--c-bg); transform:translateX(100%); transition:transform .35s; padding:90px 30px; }
+.drawer.open { transform:translateX(0); }
+.drawer-close { position:absolute; top:22px; right:26px; font-size:30px; color:#fff; }
+.drawer a { display:block; padding:16px 4px; font-size:18px; color:#fff; border-bottom:1px solid var(--c-line); letter-spacing:2px; }
+.rv { opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+.rv.in { opacity:1; transform:none; }
+@media (max-width:1024px) {
+  .wrap, .nav-inner { padding:0 28px; }
+  .nav-menu { display:none; }
+  .hamburger { display:flex; flex-direction:column; gap:5px; }
+  .hamburger span { width:22px; height:2px; background:#fff; }
+  .data-grid, .value-grid, .team-grid { grid-template-columns:1fr 1fr; }
+  .foot-grid { grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:640px) {
+  .wrap, .nav-inner { padding:0 20px; }
+  .data-grid, .value-grid, .team-grid { grid-template-columns:1fr; }
+  .foot-grid { grid-template-columns:1fr; }
+}
+
+/* 服务页补充 */
+.svc-lines { border-top:1px solid var(--c-line); }
+.svc-line { display:flex; align-items:baseline; gap:20px; padding:30px 0; border-bottom:1px solid var(--c-line); transition:padding-left .3s; }
+.svc-line:hover { padding-left:14px; }
+.svc-line .idx { font-size:14px; color:var(--c-accent); letter-spacing:2px; flex:none; font-weight:600; }
+.svc-line .name { font-size:24px; font-weight:600; color:#fff; letter-spacing:1px; }
+.svc-line .en { font-size:12px; color:var(--c-muted); margin-left:auto; letter-spacing:3px; text-transform:uppercase; }
+.coop-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.coop-card { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; padding:40px 34px; }
+.coop-card .en { font-size:11px; letter-spacing:3px; color:var(--c-accent); text-transform:uppercase; margin-bottom:12px; }
+.coop-card h3 { font-size:24px; color:#fff; font-weight:600; margin-bottom:8px; }
+.coop-card > p { font-size:13.5px; color:var(--c-muted); margin-bottom:22px; }
+.coop-opts { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.coop-opt { border:1px solid var(--c-line); border-radius:10px; padding:18px; }
+.coop-opt b { display:block; font-size:14px; color:#fff; margin-bottom:6px; }
+.coop-opt span { font-size:12.5px; color:var(--c-muted); line-height:1.8; }
+.quick-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.quick-cell { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; padding:30px 24px; text-align:center; }
+.quick-cell .n { font-size:clamp(32px,3.6vw,46px); font-weight:200; color:#fff; }
+.quick-cell .n i { font-style:normal; color:var(--c-accent); font-size:.5em; }
+.quick-cell .t { margin-top:10px; font-size:13px; color:var(--c-muted); letter-spacing:2px; }
+@media (max-width:1024px){ .coop-grid, .quick-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px){ .coop-grid, .quick-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body data-page="services">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><span class="logo-txt">博彦<i>设计</i></span></a>
+    <div class="nav-menu">
+      <a class="nav-link" href="index.html">首页</a>
+      <a class="nav-link" href="cases.html">案例</a>
+      <a class="nav-link" href="services.html">服务</a>
+      <a class="nav-link" href="aigc.html">AIGC</a>
+      <a class="nav-link" href="about.html">我们</a>
+      <a class="nav-link" href="contact.html">联系</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn-accent js-consult" data-from="v3服务页">免费咨询</button>
+      <button class="hamburger" id="btnMenu" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="en rv">WHAT WE DO</div>
+    <h1 class="rv">服务内容</h1>
+    <p class="rv">九大板块，一个入口。从品牌到物料，一站式视觉整合。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ 01-09 SERVICES</div>
+    <div class="svc-lines rv">
+      <a class="svc-line" href="service-detail.html?s=包装设计"><span class="idx">01</span><span class="name">包装设计</span><span class="en">Packaging</span></a>
+      <a class="svc-line" href="service-detail.html?s=平面视觉"><span class="idx">02</span><span class="name">平面视觉</span><span class="en">Visual</span></a>
+      <a class="svc-line" href="service-detail.html?s=图拍视频"><span class="idx">03</span><span class="name">图拍视频</span><span class="en">Film &amp; Video</span></a>
+      <a class="svc-line" href="service-detail.html?s=整合营销"><span class="idx">04</span><span class="name">整合营销</span><span class="en">Marketing</span></a>
+      <a class="svc-line" href="service-detail.html?s=品牌设计"><span class="idx">05</span><span class="name">品牌设计</span><span class="en">Brand</span></a>
+      <a class="svc-line" href="service-detail.html?s=IP文创"><span class="idx">06</span><span class="name">IP 文创</span><span class="en">Creative</span></a>
+      <a class="svc-line" href="service-detail.html?s=3D设计"><span class="idx">07</span><span class="name">三维设计</span><span class="en">3D</span></a>
+      <a class="svc-line" href="service-detail.html?s=UI设计"><span class="idx">08</span><span class="name">UI 设计</span><span class="en">Interface</span></a>
+      <a class="svc-line" href="aigc.html"><span class="idx">09</span><span class="name">AIGC</span><span class="en">AI Art</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ COOPERATION</div>
+    <h2 class="rv">合作模式 — 怎么合作，你说了算</h2>
+    <div class="coop-grid rv">
+      <div class="coop-card">
+        <div class="en">Flexible</div>
+        <h3>计件模式</h3>
+        <p>单张物料或单个项目按件结算，随用随下单</p>
+        <div class="coop-opts">
+          <div class="coop-opt"><b>按件结算</b><span>单价交付、成本可控，适合零散需求</span></div>
+          <div class="coop-opt"><b>按项目结算</b><span>整体打包定价，适合体系化设计</span></div>
+        </div>
+      </div>
+      <div class="coop-card">
+        <div class="en">Dedicated</div>
+        <h3>人月模式</h3>
+        <p>专属设计师团队按人月计费，稳定交付</p>
+        <div class="coop-opts">
+          <div class="coop-opt"><b>驻场服务</b><span>常驻办公协同，实时响应修改</span></div>
+          <div class="coop-opt"><b>离岸远程</b><span>线上协作、成本低，档期灵活</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ SPEED</div>
+    <h2 class="rv">高效接单 — 速度是基本功</h2>
+    <div class="quick-grid rv">
+      <div class="quick-cell"><div class="n">15<i>分钟</i></div><div class="t">接单及时</div></div>
+      <div class="quick-cell"><div class="n">30<i>分钟</i></div><div class="t">高效分配</div></div>
+      <div class="quick-cell"><div class="n">24<i>小时</i></div><div class="t">服务保障</div></div>
+      <div class="quick-cell"><div class="n">98<i>%</i></div><div class="t">紧急响应</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ QUALITY</div>
+    <h2 class="rv">全链路质量监管</h2>
+    <div class="coop-grid rv" style="grid-template-columns:repeat(3,1fr)">
+      <div class="coop-card" style="padding:30px 26px">
+        <div class="en">01</div><h3 style="font-size:19px">四重把关</h3>
+        <p style="font-size:13px;margin-top:10px">设计师自查 → 内审初审 → 组长终审 → 交付客户</p>
+      </div>
+      <div class="coop-card" style="padding:30px 26px">
+        <div class="en">02</div><h3 style="font-size:19px">多重内审</h3>
+        <p style="font-size:13px;margin-top:10px">初稿自查、内审初审、组长终审、业务过稿</p>
+      </div>
+      <div class="coop-card" style="padding:30px 26px">
+        <div class="en">03</div><h3 style="font-size:19px">常态化培训</h3>
+        <p style="font-size:13px;margin-top:10px">日常培训、项目复盘、骨干与管理培训</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-txt">博彦<i>设计</i></span>
+        <p>隶属博彦科技（上市公司）旗下。<br>包装 · 平面 · 视频，一站式视觉整合。</p>
+      </div>
+      <div class="foot-col"><h4>服务</h4><a href="service-detail.html?s=包装设计">包装设计</a><a href="service-detail.html?s=平面视觉">平面视觉</a><a href="service-detail.html?s=图拍视频">图拍视频</a><a href="aigc.html">AIGC</a></div>
+      <div class="foot-col"><h4>我们</h4><a href="about.html">关于</a><a href="cases.html">案例</a><a href="news.html">动态</a><a href="contact.html">联系</a></div>
+      <div class="foot-col"><h4>据点</h4><a>杭州 · 总部</a><a>design@beyondsoft.com</a></div>
+    </div>
+    <div class="foot-bottom"><div>博彦设计 © 2026</div><div>浙ICP备00000000号</div></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="btnClose">&times;</button>
+  <a href="index.html">首页</a><a href="cases.html">案例</a><a href="services.html">服务</a><a href="aigc.html">AIGC</a><a href="about.html">我们</a><a href="contact.html">联系</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('btnMenu').onclick = function () { document.getElementById('drawer').classList.add('open'); };
+  document.getElementById('btnClose').onclick = function () { document.getElementById('drawer').classList.remove('open'); };
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+});
+</script>
+
+<!-- 咨询弹窗 -->
+<div class="vm-modal" id="vmModal">
+  <div class="vm-mask" id="vmMask"></div>
+  <div class="vm-box">
+    <button class="vm-close" id="vmClose">&times;</button>
+    <h3>免费咨询</h3>
+    <p class="vm-sub">留下联系方式，商务顾问将在 1 个工作日内与你沟通</p>
+    <form class="vm-form" id="vmForm" novalidate>
+      <input type="text" name="name" placeholder="您的称呼 *" required>
+      <input type="tel" name="phone" placeholder="手机号 *" required>
+      <input type="text" name="company" placeholder="公司名称">
+      <select name="type"><option value="">需求类型</option><option>包装设计</option><option>平面视觉</option><option>图拍视频</option><option>品牌设计</option><option>整合营销</option><option>UI 设计</option><option>三维设计</option><option>AIGC</option><option>其他</option></select>
+      <textarea name="desc" placeholder="简单描述项目需求" rows="3"></textarea>
+      <button type="submit" class="vm-submit">提交咨询</button>
+    </form>
+    <div class="vm-ok" id="vmOk" style="display:none">
+      <div class="vm-tick">✓</div>
+      <h3>提交成功</h3>
+      <p class="vm-sub">我们已收到你的需求，商务顾问会尽快联系你</p>
+    </div>
+  </div>
+</div>
+<style>
+.vm-modal{position:fixed;inset:0;z-index:1200;display:none}
+.vm-modal.open{display:block}
+.vm-mask{position:absolute;inset:0;background:rgba(8,10,14,.72);backdrop-filter:blur(4px)}
+.vm-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;max-width:calc(100vw - 40px);background:var(--c-bg2,#fff);border:1px solid var(--c-line,#e5e8ec);border-radius:16px;padding:34px 36px}
+.vm-box h3{font-size:22px;color:var(--c-ink,#fff);margin-bottom:6px}
+.vm-sub{font-size:13px;color:var(--c-muted);margin-bottom:22px}
+.vm-close{position:absolute;top:14px;right:18px;font-size:26px;color:var(--c-muted);background:none;border:none;cursor:pointer}
+.vm-form{display:grid;gap:12px}
+.vm-form input,.vm-form select,.vm-form textarea{width:100%;padding:12px 14px;border:1px solid var(--c-line,#e5e8ec);border-radius:10px;background:var(--c-bg,#fff);color:var(--c-ink,#fff);font-size:14px;outline:none;font-family:inherit}
+.vm-form input:focus,.vm-form select:focus,.vm-form textarea:focus{border-color:var(--c-accent,#1a4fd6)}
+.vm-submit{height:46px;border-radius:999px;background:var(--c-accent,#1a4fd6);color:#0c0e12;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.vm-ok{text-align:center;padding:20px 0}
+.vm-tick{width:58px;height:58px;border-radius:50%;background:rgba(47,158,86,.15);color:#2f9e56;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var modal=document.getElementById('vmModal');
+  if(!modal) return;
+  function open(){modal.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest?e.target.closest('.js-consult'):null;
+    if(t){e.preventDefault();open();}
+  });
+  document.getElementById('vmMask').onclick=close;
+  document.getElementById('vmClose').onclick=close;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var form=document.getElementById('vmForm');
+  form.onsubmit=function(e){
+    e.preventDefault();
+    var name=form.name.value.trim(),phone=form.phone.value.trim();
+    if(!name||!/^1[3-9]\d{9}$/.test(phone)){alert('请填写姓名和正确的 11 位手机号');return;}
+    try{
+      var rec={id:Date.now(),name:name,phone:phone,company:form.company.value.trim(),type:form.type.value,desc:form.desc.value.trim(),time:new Date().toLocaleString('zh-CN')};
+      var list=JSON.parse(localStorage.getItem('beyondsoft_leads')||'[]');
+      list.unshift(rec);localStorage.setItem('beyondsoft_leads',JSON.stringify(list.slice(0,500)));
+    }catch(err){}
+    form.style.display='none';
+    document.getElementById('vmOk').style.display='';
+  };
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>服务详情 · 博彦设计</title>
+<meta name="keywords" content="博彦设计服务详情">
+<meta name="description" content="博彦设计单项服务能力详情：能力清单、服务流程与代表案例。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="services" data-nav="dark">
+
+<section class="page-hero">
+  <div class="hero-bg" id="svcHero" style="background-image:url('assets/img/case-aliyun.jpg')"></div>
+  <div class="page-hero-mask"></div>
+  <div class="wrap page-hero-body">
+    <h1 id="svcTitle">服务名称</h1>
+    <p id="svcEn">Service Name</p>
+  </div>
+</section>
+
+<div class="crumb">
+  <div class="wrap">
+    <a href="index.html">首页</a><span>&rsaquo;</span>
+    <a href="services.html">服务内容</a><span>&rsaquo;</span>
+    <span id="crumbNow" style="margin:0;color:var(--c-body)">服务名称</span>
+  </div>
+</div>
+
+
+<!-- ============ 能力清单 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-kicker">Capabilities</div>
+      <h2 class="sec-title">我们能提供什么</h2>
+    </div>
+    <div class="svc-grid rv" id="capGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 服务流程 ============ -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="sec-kicker">Process</div>
+      <h2 class="sec-title">服务流程</h2>
+      <p class="sec-sub">标准化五步交付流程，高效可控</p>
+    </div>
+    <div class="cert-grid rv" style="grid-template-columns:repeat(5,1fr)">
+      <div class="cert-item"><div class="step-badge">01</div><p><b>需求沟通</b><br>明确目标与边界</p></div>
+      <div class="cert-item"><div class="step-badge">02</div><p><b>策略提案</b><br>方向与创意框架</p></div>
+      <div class="cert-item"><div class="step-badge">03</div><p><b>方案设计</b><br>视觉与物料产出</p></div>
+      <div class="cert-item"><div class="step-badge">04</div><p><b>执行落地</b><br>交付与验收</p></div>
+      <div class="cert-item"><div class="step-badge">05</div><p><b>复盘优化</b><br>持续迭代提效</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 代表案例 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-kicker">Cases</div>
+      <h2 class="sec-title">代表案例</h2>
+      <p class="sec-sub">自动关联该服务类型下的案例</p>
+    </div>
+    <div class="case-grid rv" id="svcCases"></div>
+    <div class="more-wrap rv">
+      <a href="cases.html" class="btn btn-line" id="moreCase">查看该服务全部案例</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+<script>
+var SVC = {
+  '平面视觉': { en:'Graphic &amp; Brand Visual', img:'case-aliyun.jpg',
+    caps:[['Logo 设计','标识系统与品牌符号'],
+          ['品牌 VI / CI','视觉识别规范与落地应用'],
+          ['海报 / 主 KV','营销主视觉与活动海报'],
+          ['画册 / 手册','企业画册与宣传册'],
+          ['包装设计','结构与平面设计跟进'],
+          ['商品详情页','电商商详视觉设计']] },
+
+  '图拍视频': { en:'Film &amp; Video', img:'case-baidu.jpg',
+    caps:[['品牌宣传片','企业形象片'],
+          ['TVC','电视 / 网络广告片'],
+          ['短视频','社媒短视频内容'],
+          ['动画','二维 / 三维动画'],
+          ['产品视频','产品演示与发布'],
+          ['AIGC 视频','AI 辅助视频生产']] },
+  '包装设计': { en:'Packaging Design', img:'case-food-pkg.jpg',
+    caps:[['新品全案策略','产品策略与包装规划'],
+          ['食品 / 饮品包装','食品饮料系列包装'],
+          ['礼盒设计','礼赠与节庆礼盒'],
+          ['农产品包装','农特产品包装'],
+          ['日用品包装','日用消费品包装'],
+          ['促销包装','商场促销陈列包装']] },
+  'IP文创': { en:'Cultural Creative', img:'case-catl.jpg',
+    caps:[['IP 形象设计','品牌人格化形象'],
+          ['衍生品设计','周边产品开发'],
+          ['专属礼品','定制礼品方案'],
+          ['IP 联名','品牌联名创意'],
+          ['创意漫画','漫画内容创作'],
+          ['周边策划','衍生品体系规划']] },
+  '整合营销': { en:'Integrated Marketing', img:'case-aigame.jpg',
+    caps:[['传播策略','品牌传播规划'],
+          ['活动策划','线上 / 线下活动'],
+          ['内容营销','内容策划与产出'],
+          ['H5 / 小程序','互动营销载体'],
+          ['新媒体矩阵','多平台运营支持'],
+          ['PR 投放','公关传播执行']] },
+  '品牌设计': { en:'Brand Design', img:'case-xuantie.jpg',
+    caps:[['Logo 设计','品牌标识设计'],
+          ['品牌 VI','视觉识别体系'],
+          ['线下物料','活动 / 门店物料'],
+          ['广告素材','营销广告视觉'],
+          ['品牌故事','品牌叙事内容'],
+          ['视觉规范','品牌使用手册']] },
+  '3D设计': { en:'3D Design', img:'case-catl.jpg',
+    caps:[['美陈场景','线下空间美陈'],
+          ['展厅效果图','展厅 / 展位设计'],
+          ['数字虚拟人','虚拟人形象与动效'],
+          ['Banner 设计','3D 视觉元素'],
+          ['IP 动画','IP 形象三维化'],
+          ['NFT 制作','数字藏品视觉']] },
+  'UI设计': { en:'User Interface', img:'case-antfin.jpg',
+    caps:[['APP / 小程序','移动端界面'],
+          ['网站设计','Web 界面'],
+          ['PC 后台系统','B 端管理界面'],
+          ['数据大屏','可视化大屏'],
+          ['交互设计','交互流程与原型'],
+          ['电视 / 多媒体','OTT / 多媒体 UI']] }
+};
+
+window.pageInit = function () {
+  var m = /[?&]s=([^&]*)/.exec(location.search);
+  var key = m ? decodeURIComponent(m[1]) : '平面视觉';
+  var d = SVC[key] || SVC['平面视觉'];
+
+  document.title = key + ' · 博彦设计';
+  document.getElementById('svcTitle').textContent = key;
+  document.getElementById('svcEn').textContent = d.en.replace('&amp;','&');
+  document.getElementById('crumbNow').textContent = key;
+  document.getElementById('svcHero').style.backgroundImage = "url('assets/img/" + d.img + "')";
+  document.getElementById('moreCase').href = 'cases.html?s=' + encodeURIComponent(key);
+
+  document.getElementById('capGrid').innerHTML = d.caps.map(function (c) {
+    return '<div class="svc-card" style="cursor:default">' +
+      '<div style="width:46px;height:46px;background:var(--c-primary);border-radius:10px;margin-bottom:18px"></div>' +
+      '<h3 class="svc-name" style="font-size:18px">' + c[0] + '</h3>' +
+      '<p style="font-size:14px;margin-top:8px">' + c[1] + '</p></div>';
+  }).join('');
+
+  // 代表案例（按服务类型关联 SITE_CASES）
+  var rel = (typeof SITE_CASES !== 'undefined') ? SITE_CASES.filter(function (x) { return x.s === key; }) : [];
+  document.getElementById('svcCases').innerHTML = rel.map(function (x) {
+    return '<a class="case-card" href="case-detail.html?c=' + encodeURIComponent(x.id) + '">' +
+      '<div class="case-cover"><div class="img-fit r-4-3" style="background-image:url(\'assets/img/' + x.img + '\')"></div>' +
+        '<div class="case-hover"><span class="view">查看案例</span></div></div>' +
+      '<div class="case-meta"><div class="case-client">' + x.c + '</div>' +
+        '<div class="case-name">' + x.n + '</div></div></a>';
+  }).join('');
+};
+</script>
+</body>
+</html>

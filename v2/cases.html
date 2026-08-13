@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>客户案例 · 博彦设计</title>
+<meta name="description" content="博彦设计客户案例：阿里、蚂蚁、美团、京东、百度等头部企业长期合作，覆盖电商、金融、文娱、食品、新能源等行业。">
+<style>
+/* ===== v2 板式公共样式（与首页一致） ===== */
+:root { --c-accent:#1a4fd6; --c-ink:#14161a; --c-body:#4a5058; --c-muted:#8b919a; --c-line:#e5e8ec; --c-bg:#fafafa; --maxw:1280px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:"PingFang SC","Songti SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif; color:var(--c-body); background:var(--c-bg); font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 48px; }
+
+/* 导航 */
+.nav { position:fixed; top:0; left:0; right:0; z-index:900; height:80px; background:rgba(250,250,250,.92); backdrop-filter:blur(14px); border-bottom:1px solid var(--c-line); }
+.nav-inner { max-width:var(--maxw); margin:0 auto; padding:0 48px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+.logo-txt { font-size:20px; font-weight:600; color:var(--c-ink); letter-spacing:3px; }
+.logo-txt em { font-style:italic; color:var(--c-accent); }
+.nav-menu { display:flex; gap:36px; }
+.nav-link { font-size:14px; color:var(--c-body); letter-spacing:1px; position:relative; }
+.nav-link:hover { color:var(--c-ink); }
+.nav-link.active { color:var(--c-ink); }
+.nav-link.active::after { content:""; position:absolute; left:0; bottom:-6px; width:100%; height:1px; background:var(--c-ink); }
+.nav-cta { display:flex; align-items:center; gap:20px; }
+.btn-ghost-nav { font-size:13px; color:var(--c-ink); letter-spacing:1px; padding:10px 26px; border:1px solid var(--c-ink); border-radius:999px; transition:all .25s; }
+.btn-ghost-nav:hover { background:var(--c-ink); color:#fff; }
+.hamburger { display:none; }
+
+/* 页面头 */
+.page-head { padding:170px 0 60px; }
+.page-head .kicker { font-size:12px; letter-spacing:5px; color:var(--c-accent); text-transform:uppercase; margin-bottom:20px; }
+.page-head h1 { font-size:clamp(36px,5vw,60px); font-weight:200; color:var(--c-ink); letter-spacing:-1px; }
+.page-head p { margin-top:16px; color:var(--c-muted); max-width:600px; font-weight:300; }
+
+/* 筛选 */
+.filter-bar { border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); padding:28px 0; }
+.search-box { display:flex; gap:12px; max-width:520px; margin-bottom:20px; }
+.search-box input { flex:1; height:46px; padding:0 18px; border:1px solid var(--c-line); border-radius:999px; outline:none; font-size:14px; background:#fff; }
+.search-box input:focus { border-color:var(--c-accent); }
+.search-box button { height:46px; padding:0 26px; border-radius:999px; background:var(--c-ink); color:#fff; font-size:13px; letter-spacing:1px; }
+.filter-row { display:flex; gap:16px; padding:8px 0; align-items:flex-start; flex-wrap:wrap; }
+.filter-label { width:56px; flex:none; font-size:13px; color:var(--c-ink); font-weight:500; padding-top:6px; letter-spacing:1px; }
+.filter-opts { display:flex; flex-wrap:wrap; gap:8px; }
+.fopt { padding:5px 16px; border-radius:999px; font-size:13px; color:var(--c-muted); border:1px solid var(--c-line); transition:all .2s; background:#fff; }
+.fopt:hover { color:var(--c-ink); border-color:var(--c-ink); }
+.fopt.active { background:var(--c-ink); color:#fff; border-color:var(--c-ink); }
+
+/* 结果 */
+.sec { padding:80px 0; }
+.filter-state { display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:24px 0; font-size:13px; color:var(--c-muted); }
+.case-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--c-line); }
+.case-card { border-right:1px solid var(--c-line); border-bottom:1px solid var(--c-line); }
+.case-card:nth-child(3n) { border-right:none; }
+.case-cover { aspect-ratio:4/3; background-size:cover; background-position:center; transition:transform .6s; }
+.case-card:hover .case-cover { transform:scale(1.02); }
+.case-meta { padding:22px 8px 30px; }
+.case-client { font-size:12px; color:var(--c-accent); letter-spacing:2px; }
+.case-name { font-size:16px; color:var(--c-ink); font-weight:500; margin-top:8px; line-height:1.6; }
+.case-tags { margin-top:10px; display:flex; gap:6px; }
+.case-tags span { font-size:11px; color:var(--c-muted); letter-spacing:1px; }
+
+.empty-state { text-align:center; padding:90px 0; color:var(--c-muted); }
+.pager { display:flex; justify-content:center; gap:8px; margin-top:50px; }
+.pager a, .pager span { min-width:38px; height:38px; padding:0 12px; border:1px solid var(--c-line); border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--c-body); }
+.pager .cur { background:var(--c-ink); border-color:var(--c-ink); color:#fff; }
+
+/* 页脚 */
+.footer { background:#101216; color:#8b919a; padding:70px 0 36px; font-size:14px; margin-top:40px; }
+.foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; padding-bottom:50px; border-bottom:1px solid #23262c; }
+.foot-brand .logo-txt { color:#fff; }
+.foot-brand p { margin-top:18px; color:#6b727c; font-size:13.5px; }
+.foot-col h4 { color:#fff; font-size:14px; letter-spacing:1px; margin-bottom:20px; font-weight:500; }
+.foot-col a { display:block; padding:5px 0; font-size:13.5px; color:#8b919a; }
+.foot-col a:hover { color:#fff; }
+.foot-bottom { padding-top:24px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:#6b727c; }
+
+.drawer { position:fixed; inset:0; z-index:950; background:#fff; transform:translateX(100%); transition:transform .35s; padding:90px 30px; }
+.drawer.open { transform:translateX(0); }
+.drawer-close { position:absolute; top:24px; right:28px; font-size:30px; color:var(--c-ink); }
+.drawer a { display:block; padding:16px 4px; font-size:18px; color:var(--c-ink); border-bottom:1px solid var(--c-line); }
+
+.rv { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+.rv.in { opacity:1; transform:none; }
+
+@media (max-width:1024px) {
+  .wrap, .nav-inner { padding:0 28px; }
+  .nav-menu { display:none; }
+  .hamburger { display:flex; flex-direction:column; gap:5px; }
+  .hamburger span { width:22px; height:2px; background:var(--c-ink); }
+  .case-grid { grid-template-columns:1fr 1fr; }
+  .case-card:nth-child(3n) { border-right:1px solid var(--c-line); }
+  .case-card:nth-child(2n) { border-right:none; }
+  .foot-grid { grid-template-columns:1fr 1fr; gap:40px; }
+}
+@media (max-width:640px) {
+  .wrap, .nav-inner { padding:0 20px; }
+  .case-grid { grid-template-columns:1fr; }
+  .case-card:nth-child(n) { border-right:none; }
+  .foot-grid { grid-template-columns:1fr; }
+  .filter-row { flex-direction:column; gap:8px; }
+}
+</style>
+</head>
+<body data-page="cases">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><span class="logo-txt">博彦<em>设计</em></span></a>
+    <div class="nav-menu">
+      <a class="nav-link" href="index.html">首页</a>
+      <a class="nav-link active" href="cases.html">客户案例</a>
+      <a class="nav-link" href="services.html">服务内容</a>
+      <a class="nav-link" href="aigc.html">AIGC</a>
+      <a class="nav-link" href="about.html">关于我们</a>
+      <a class="nav-link" href="contact.html">联系我们</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn-ghost-nav js-consult" data-from="v2案例页">免费咨询</button>
+      <button class="hamburger" id="btnMenu" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="kicker rv">Our Works</div>
+    <h1 class="rv">客户案例</h1>
+    <p class="rv">支持关键词搜索与「行业 / 服务」组合筛选，结果可分享。</p>
+  </div>
+</section>
+
+<section class="filter-bar">
+  <div class="wrap">
+    <div class="search-box">
+      <input type="text" id="kw" placeholder="输入客户或案例关键词搜索">
+      <button id="btnSearch">搜索</button>
+    </div>
+    <div class="filter-row">
+      <div class="filter-label">行业</div>
+      <div class="filter-opts" data-dim="i">
+        <button class="fopt active" data-v="">不限</button>
+        <button class="fopt" data-v="电商零售">电商零售</button>
+        <button class="fopt" data-v="金融科技">金融科技</button>
+        <button class="fopt" data-v="文娱">文娱</button>
+        <button class="fopt" data-v="生活服务">生活服务</button>
+        <button class="fopt" data-v="食品">食品</button>
+        <button class="fopt" data-v="3C家电">3C 家电</button>
+        <button class="fopt" data-v="新能源">新能源</button>
+        <button class="fopt" data-v="科技">科技</button>
+        <button class="fopt" data-v="大健康">大健康</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-label">服务</div>
+      <div class="filter-opts" data-dim="s">
+        <button class="fopt active" data-v="">不限</button>
+        <button class="fopt" data-v="包装设计">包装设计</button>
+        <button class="fopt" data-v="平面视觉">平面视觉</button>
+        <button class="fopt" data-v="图拍视频">图拍视频</button>
+        <button class="fopt" data-v="品牌设计">品牌设计</button>
+        <button class="fopt" data-v="整合营销">整合营销</button>
+        <button class="fopt" data-v="UI设计">UI 设计</button>
+        <button class="fopt" data-v="AIGC赋能">AIGC 赋能</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="filter-state" id="fstate"></div>
+    <div class="case-grid" id="caseList"></div>
+    <div class="empty-state" id="empty" style="display:none">没有找到匹配的案例，试试放宽筛选条件</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-txt">博彦设计</span>
+        <p>隶属博彦科技（上市公司）旗下。<br>包装设计 · 平面视觉 · 图拍视频，一站式视觉整合。</p>
+      </div>
+      <div class="foot-col"><h4>服务内容</h4><a href="service-detail.html?s=包装设计">包装设计</a><a href="service-detail.html?s=平面视觉">平面视觉</a><a href="service-detail.html?s=图拍视频">图拍视频</a><a href="aigc.html">AIGC</a></div>
+      <div class="foot-col"><h4>关于我们</h4><a href="about.html">公司简介</a><a href="news.html">新闻动态</a><a href="contact.html">联系我们</a></div>
+      <div class="foot-col"><h4>联系</h4><a>杭州 · 总部</a><a>design@beyondsoft.com</a></div>
+    </div>
+    <div class="foot-bottom"><div>博彦设计 · 博彦科技（上市公司）旗下 © 版权所有</div><div>浙ICP备00000000号</div></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="btnClose">&times;</button>
+  <a href="index.html">首页</a><a href="cases.html">客户案例</a><a href="services.html">服务内容</a><a href="aigc.html">AIGC</a><a href="about.html">关于我们</a><a href="contact.html">联系我们</a>
+</div>
+
+<script>
+/* v2 案例数据（内嵌精简版；完整版对接 data/cases.json） */
+var CASES = [
+  { id:'c21', c:'阿里', n:'阿里巴巴 · 北京新园区开园 KV', i:'电商零售', s:'平面视觉', img:'case-alibaba.jpg' },
+  { id:'c07', c:'蚂蚁集团', n:'蚂蚁集团 · H5 互动与动效设计', i:'金融科技', s:'整合营销', img:'case-antfin.jpg' },
+  { id:'c31', c:'美团', n:'美团 · 多业务线主视觉', i:'生活服务', s:'平面视觉', img:'case-meituan.jpg' },
+  { id:'c75', c:'京东', n:'京东 AVA 大会 · 开场概念片', i:'电商零售', s:'图拍视频', img:'case-jd-618.jpg' },
+  { id:'c17', c:'百度', n:'百度 · 1024 程序员节 KV', i:'科技', s:'平面视觉', img:'case-baidu.jpg' },
+  { id:'c77', c:'宁德时代', n:'宁德时代 · 星河系统宣传片', i:'新能源', s:'图拍视频', img:'case-catl.jpg' },
+  { id:'c48', c:'古茗', n:'古茗 · 新品上新系列海报', i:'食品', s:'平面视觉', img:'case-guming.jpg' },
+  { id:'c02', c:'玄铁', n:'玄铁 · 品牌 VI 与 UI 设计', i:'半导体', s:'品牌设计', img:'case-xuantie.jpg' },
+  { id:'c14', c:'1688', n:'1688 严选 · 系列产品包装', i:'电商零售', s:'包装设计', img:'case-jdjingzao.jpg' },
+  { id:'c59', c:'欢聚集团', n:'欢聚集团 · APP 端页面设计', i:'文娱', s:'UI设计', img:'case-joingroup.jpg' },
+  { id:'c42', c:'科沃斯', n:'科沃斯 · 暑期焕新活动 KV', i:'3C家电', s:'平面视觉', img:'case-ecovacs.jpg' },
+  { id:'c78', c:'支付宝', n:'Alipay HK · 品牌宣传视频', i:'金融科技', s:'图拍视频', img:'case-finance.jpg' }
+];
+var F = { i:'', s:'', kw:'' };
+
+function render() {
+  var list = CASES.filter(function (x) {
+    return (!F.i || x.i === F.i) && (!F.s || x.s === F.s) &&
+      (!F.kw || (x.n + x.c).indexOf(F.kw) > -1);
+  });
+  document.getElementById('fstate').innerHTML = '共 <b style="color:var(--c-ink)">' + list.length + '</b> 个案例';
+  var box = document.getElementById('caseList');
+  var empty = document.getElementById('empty');
+  if (!list.length) { box.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  box.innerHTML = list.map(function (x) {
+    return '<a class="case-card" href="case-detail.html?c=' + encodeURIComponent(x.id) + '">' +
+      '<div class="case-cover" style="background-image:url(\'assets/img/' + x.img + '\')"></div>' +
+      '<div class="case-meta"><div class="case-client">' + x.c + '</div>' +
+      '<div class="case-name">' + x.n + '</div>' +
+      '<div class="case-tags"><span>' + x.i + '</span><span>' + x.s + '</span></div></div></a>';
+  }).join('');
+}
+
+function setActive(dim, v) {
+  document.querySelectorAll('[data-dim="' + dim + '"] .fopt').forEach(function (b) {
+    b.classList.toggle('active', b.getAttribute('data-v') === v);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.filter-opts').forEach(function (box) {
+    var dim = box.getAttribute('data-dim');
+    box.querySelectorAll('.fopt').forEach(function (b) {
+      b.onclick = function () {
+        F[dim] = b.getAttribute('data-v');
+        setActive(dim, F[dim]);
+        render();
+      };
+    });
+  });
+  function doSearch() { F.kw = document.getElementById('kw').value.trim(); render(); }
+  document.getElementById('btnSearch').onclick = doSearch;
+  document.getElementById('kw').addEventListener('keydown', function (e) { if (e.key === 'Enter') doSearch(); });
+  document.getElementById('btnMenu').onclick = function () { document.getElementById('drawer').classList.add('open'); };
+  document.getElementById('btnClose').onclick = function () { document.getElementById('drawer').classList.remove('open'); };
+  render();
+});
+</script>
+</body>
+</html>

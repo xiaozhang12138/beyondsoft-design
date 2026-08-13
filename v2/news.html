@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新闻动态 · 博彦设计</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="about" data-nav="dark">
+
+<section class="page-hero">
+  <div class="img-fit hero-bg" style="background-image:url('assets/img/about-team.jpg')"></div>
+  <div class="page-hero-mask"></div>
+  <div class="wrap page-hero-body">
+    <h1>新闻动态</h1>
+    <p>News &amp; Insights</p>
+  </div>
+</section>
+
+<div class="sub-nav">
+  <div class="wrap">
+    <ul>
+      <li><a href="about.html">公司简介</a></li>
+      <li class="active"><a href="news.html">新闻动态</a></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sec" style="padding-top:44px">
+  <div class="wrap">
+
+    <div class="tabs" style="justify-content:flex-start;margin-bottom:10px" id="newsTabs">
+      <button class="tab active" data-c="全部">全部</button>
+      <button class="tab" data-c="公司动态">公司动态</button>
+      <button class="tab" data-c="获奖资讯">获奖资讯</button>
+      <button class="tab" data-c="行业观点">行业观点</button>
+    </div>
+
+
+    <div id="newsList"></div>
+
+    <div class="pager">
+      <a href="javascript:;">上一页</a>
+      <span class="cur">1</span>
+      <a href="javascript:;">下一页</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+<script>
+function renderNews(cat) {
+  var list = (typeof SITE_NEWS !== 'undefined' ? SITE_NEWS : [])
+    .filter(function (x) { return cat === '全部' || x.c === cat; });
+  var box = document.getElementById('newsList');
+  if (!list.length) {
+    box.innerHTML = '<div class="empty-state"><div class="ph circle" data-label="空状态"></div>' +
+      '<p>该分类下暂无内容</p></div>';
+    return;
+  }
+  box.innerHTML = list.map(function (x) {
+    return '<a class="news-row" href="news-detail.html?n=' + x.id + '">' +
+      '<div class="r-16-9 img-fit" style="background-image:url(\'assets/img/' + x.img + '\')"></div>' +
+      '<div><div class="news-date">' + x.d + ' &nbsp;·&nbsp; ' + x.c +
+        (x.top ? ' &nbsp;<span style="color:var(--c-primary)">置顶</span>' : '') + '</div>' +
+        '<div class="news-row-title">' + x.t + '</div>' +
+        '<div class="news-row-desc">' + x.lead + '</div>' +
+      '</div></a>';
+  }).join('');
+}
+
+window.pageInit = function () {
+  renderNews('全部');
+  document.querySelectorAll('#newsTabs .tab').forEach(function (t) {
+    t.onclick = function () {
+      document.querySelectorAll('#newsTabs .tab').forEach(function (x) { x.classList.remove('active'); });
+      t.classList.add('active');
+      renderNews(t.getAttribute('data-c'));
+    };
+  });
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>关于我们 · 博彦设计</title>
+<meta name="description" content="博彦设计隶属博彦科技（上市公司），18年深耕设计行业，500+设计师团队，服务阿里、蚂蚁、美团、京东、百度等头部企业。">
+<style>
+:root { --c-bg:#0c0e12; --c-bg2:#11141a; --c-ink:#f2f3f5; --c-body:#9aa1ab; --c-muted:#5c636e; --c-line:#22262e; --c-accent:#ffd400; --c-accent2:#4f8cff; --maxw:1280px; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif; background:var(--c-bg); color:var(--c-body); font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+button { font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 48px; }
+.nav { position:fixed; top:0; left:0; right:0; z-index:900; height:76px; background:rgba(12,14,18,.82); backdrop-filter:blur(16px); border-bottom:1px solid var(--c-line); }
+.nav-inner { max-width:var(--maxw); margin:0 auto; padding:0 48px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+.logo-txt { font-size:19px; font-weight:700; color:#fff; letter-spacing:2px; }
+.logo-txt i { font-style:normal; color:var(--c-accent); }
+.nav-menu { display:flex; gap:34px; }
+.nav-link { font-size:14px; color:var(--c-body); letter-spacing:2px; }
+.nav-link:hover { color:var(--c-accent); }
+.nav-cta { display:flex; align-items:center; gap:18px; }
+.btn-accent { font-size:13px; font-weight:600; color:#0c0e12; letter-spacing:1px; padding:10px 26px; background:var(--c-accent); border-radius:999px; }
+.btn-outline { font-size:13px; color:#fff; letter-spacing:1px; padding:10px 26px; border:1px solid rgba(255,255,255,.3); border-radius:999px; }
+.btn-outline:hover { border-color:var(--c-accent); color:var(--c-accent); }
+.hamburger { display:none; }
+.page-head { padding:170px 0 60px; }
+.page-head .en { font-size:12px; letter-spacing:8px; color:var(--c-accent); text-transform:uppercase; margin-bottom:24px; font-weight:600; }
+.page-head h1 { font-size:clamp(38px,5vw,64px); font-weight:700; color:#fff; letter-spacing:2px; }
+.page-head p { margin-top:18px; color:var(--c-body); max-width:600px; }
+.sec { padding:90px 0; border-top:1px solid var(--c-line); }
+.sec .label { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; margin-bottom:40px; }
+.sec h2 { font-size:clamp(26px,3.4vw,42px); font-weight:700; color:#fff; letter-spacing:2px; margin-bottom:30px; }
+.statement { font-size:clamp(20px,2.6vw,30px); font-weight:200; color:#fff; line-height:1.9; max-width:900px; }
+.statement .hl { color:var(--c-accent); font-style:normal; }
+.data-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.data-cell { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; padding:34px 26px; text-align:center; }
+.data-cell .n { font-size:clamp(34px,4vw,52px); font-weight:200; color:#fff; }
+.data-cell .n i { font-style:normal; color:var(--c-accent); font-size:.5em; }
+.data-cell .t { margin-top:10px; font-size:13px; color:var(--c-muted); letter-spacing:2px; }
+.value-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.value-card { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; padding:36px 30px; }
+.value-card .en { font-size:11px; letter-spacing:3px; color:var(--c-accent); text-transform:uppercase; margin-bottom:14px; }
+.value-card h3 { font-size:20px; color:#fff; font-weight:600; margin-bottom:12px; }
+.value-card p { font-size:14px; color:var(--c-body); }
+.tl-list { max-width:760px; }
+.tl-item { display:flex; gap:28px; padding:22px 0; border-bottom:1px solid var(--c-line); }
+.tl-item b { color:var(--c-accent); font-weight:600; width:60px; flex:none; }
+.tl-item span { color:var(--c-body); }
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.team-card { background:var(--c-bg2); border:1px solid var(--c-line); border-radius:12px; overflow:hidden; transition:all .3s; }
+.team-card:hover { border-color:rgba(255,212,0,.4); transform:translateY(-4px); }
+.team-card .avatar { aspect-ratio:3/4; background-size:cover; background-position:center; }
+.team-card .meta { padding:18px 22px 22px; }
+.team-name { font-size:16px; color:#fff; font-weight:600; }
+.team-role { font-size:12px; color:var(--c-accent); margin-top:4px; letter-spacing:1px; }
+.team-desc { font-size:12.5px; color:var(--c-muted); margin-top:10px; line-height:1.7; }
+.footer { background:#08090c; border-top:1px solid var(--c-line); padding:80px 0 36px; }
+.foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid var(--c-line); }
+.foot-brand .logo-txt { color:#fff; }
+.foot-brand p { margin-top:16px; color:var(--c-muted); font-size:13.5px; }
+.foot-col h4 { color:#fff; font-size:13px; letter-spacing:3px; margin-bottom:18px; font-weight:600; text-transform:uppercase; }
+.foot-col a { display:block; padding:6px 0; font-size:13.5px; color:var(--c-body); }
+.foot-col a:hover { color:var(--c-accent); }
+.foot-bottom { padding-top:24px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--c-muted); }
+.drawer { position:fixed; inset:0; z-index:950; background:var(--c-bg); transform:translateX(100%); transition:transform .35s; padding:90px 30px; }
+.drawer.open { transform:translateX(0); }
+.drawer-close { position:absolute; top:22px; right:26px; font-size:30px; color:#fff; }
+.drawer a { display:block; padding:16px 4px; font-size:18px; color:#fff; border-bottom:1px solid var(--c-line); letter-spacing:2px; }
+.rv { opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+.rv.in { opacity:1; transform:none; }
+@media (max-width:1024px) {
+  .wrap, .nav-inner { padding:0 28px; }
+  .nav-menu { display:none; }
+  .hamburger { display:flex; flex-direction:column; gap:5px; }
+  .hamburger span { width:22px; height:2px; background:#fff; }
+  .data-grid, .value-grid, .team-grid { grid-template-columns:1fr 1fr; }
+  .foot-grid { grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:640px) {
+  .wrap, .nav-inner { padding:0 20px; }
+  .data-grid, .value-grid, .team-grid { grid-template-columns:1fr; }
+  .foot-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body data-page="about">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><span class="logo-txt">博彦<i>设计</i></span></a>
+    <div class="nav-menu">
+      <a class="nav-link" href="index.html">首页</a>
+      <a class="nav-link" href="cases.html">案例</a>
+      <a class="nav-link" href="services.html">服务</a>
+      <a class="nav-link" href="aigc.html">AIGC</a>
+      <a class="nav-link" href="about.html">我们</a>
+      <a class="nav-link" href="contact.html">联系</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn-accent js-consult" data-from="v3关于页">免费咨询</button>
+      <button class="hamburger" id="btnMenu" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="en rv">ABOUT US</div>
+    <h1 class="rv">关于我们</h1>
+    <p class="rv">十六年只做一件事：让企业的视觉表达，配得上它的实力。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="statement rv">
+      博彦设计隶属博彦科技（上市公司），500+ 设计师团队。<br>
+      我们不追求「大而全」的名头，只在意一件事：<i class="hl">你交过来的需求，能不能又快又好地变成能用的东西。</i>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ NUMBERS</div>
+    <div class="data-grid rv">
+      <div class="data-cell"><div class="n">18<i>年</i></div><div class="t">深耕设计行业</div></div>
+      <div class="data-cell"><div class="n">20000<i>+</i></div><div class="t">累计服务案例</div></div>
+      <div class="data-cell"><div class="n">800<i>+</i></div><div class="t">设计师</div></div>
+      <div class="data-cell"><div class="n">80<i>%</i></div><div class="t">高级及以上占比</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ VISION &amp; VALUES</div>
+    <div class="value-grid rv">
+      <div class="value-card"><div class="en">Vision</div><h3>愿景</h3><p>成为最受信赖的一站式视觉整合伙伴，让好设计触手可及。</p></div>
+      <div class="value-card"><div class="en">Mission</div><h3>使命</h3><p>用专业视觉能力，为客户创造可衡量的品牌增长。</p></div>
+      <div class="value-card"><div class="en">Values</div><h3>价值观</h3><p>专业为本、交付可靠、合作灵活、与客户共赢。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ MILESTONES</div>
+    <h2 class="rv">发展历程</h2>
+    <div class="tl-list rv">
+      <div class="tl-item"><b>2008</b><span>博彦设计团队成立</span></div>
+      <div class="tl-item"><b>2009</b><span>成为阿里巴巴设计框架供应商</span></div>
+      <div class="tl-item"><b>2016</b><span>成为京东 TOP1 设计供应商</span></div>
+      <div class="tl-item"><b>2020</b><span>成为美团 TOP2 设计供应商</span></div>
+      <div class="tl-item"><b>2024</b><span>AIGC 全面赋能，人均提效 50%</span></div>
+      <div class="tl-item"><b>至今</b><span>500+ 设计师 · 20000+ 案例 · 10 城覆盖</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="label rv">/ TEAM</div>
+    <h2 class="rv">核心团队</h2>
+    <div class="team-grid rv" id="v3Team"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-txt">博彦<i>设计</i></span>
+        <p>隶属博彦科技（上市公司）旗下。<br>包装 · 平面 · 视频，一站式视觉整合。</p>
+      </div>
+      <div class="foot-col"><h4>服务</h4><a href="service-detail.html?s=包装设计">包装设计</a><a href="service-detail.html?s=平面视觉">平面视觉</a><a href="service-detail.html?s=图拍视频">图拍视频</a><a href="aigc.html">AIGC</a></div>
+      <div class="foot-col"><h4>我们</h4><a href="cases.html">案例</a><a href="news.html">动态</a><a href="contact.html">联系</a></div>
+      <div class="foot-col"><h4>据点</h4><a>杭州 · 总部</a><a>design@beyondsoft.com</a></div>
+    </div>
+    <div class="foot-bottom"><div>博彦设计 © 2026</div><div>浙ICP备00000000号</div></div>
+  </div>
+</footer>
+
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="btnClose">&times;</button>
+  <a href="index.html">首页</a><a href="cases.html">案例</a><a href="services.html">服务</a><a href="aigc.html">AIGC</a><a href="about.html">我们</a><a href="contact.html">联系</a>
+</div>
+
+<script>
+var V3_TEAM = [
+  { n:'李林华', r:'设计总监 · 20年+', d:'带队服务 100+ 知名企业，覆盖阿里、京东、美团、百度', img:'team/liilinha.png' },
+  { n:'蒋亚男', r:'交付负责人 · 10年+', d:'深耕阿里外包业务，项目负责人与接口', img:'team/jiangyanan.jpeg' },
+  { n:'赵巧', r:'交付负责人 · 10年+', d:'聚焦美团、百度设计服务外包全流程', img:'team/zhaoqiao.png' },
+  { n:'朱国栋', r:'交付负责人 · 10年+', d:'服务阿里国际、联合利华、必胜客等 500 强', img:'team/zhuguodong.png' },
+  { n:'朴银实', r:'视频主管 · 10年 硕士', d:'影视品宣项目管理，整合资源、质量审核', img:'team/piaoyinshi.png' },
+  { n:'卷耳', r:'视觉设计主管 · 10年', d:'大文娱外包接口人，多年项目统筹', img:'team/juaner.png' },
+  { n:'殷爽', r:'视觉设计主管 · 10年+', d:'负责美团和阿里业务，把控画面质感', img:'team/yinshuang.png' },
+  { n:'田润', r:'创意编导 · 8年+', d:'TVC、短视频创意与成本平衡', img:'team/tianrun.png' },
+  { n:'宋梦轩', r:'AIGC 专家 · 5年', d:'平面、视频 AIGC 创作与工作流搭建', img:'team/songmengxuan.png' }
+];
+document.addEventListener('DOMContentLoaded', function () {
+  var box = document.getElementById('v3Team');
+  box.innerHTML = V3_TEAM.map(function (t) {
+    return '<div class="team-card"><div class="avatar" style="background-image:url(\'assets/img/' + t.img + '\')"></div>' +
+      '<div class="meta"><div class="team-name">' + t.n + '</div><div class="team-role">' + t.r + '</div>' +
+      '<div class="team-desc">' + t.d + '</div></div></div>';
+  }).join('');
+  document.getElementById('btnMenu').onclick = function () { document.getElementById('drawer').classList.add('open'); };
+  document.getElementById('btnClose').onclick = function () { document.getElementById('drawer').classList.remove('open'); };
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+});
+</script>
+
+<!-- 咨询弹窗 -->
+<div class="vm-modal" id="vmModal">
+  <div class="vm-mask" id="vmMask"></div>
+  <div class="vm-box">
+    <button class="vm-close" id="vmClose">&times;</button>
+    <h3>免费咨询</h3>
+    <p class="vm-sub">留下联系方式，商务顾问将在 1 个工作日内与你沟通</p>
+    <form class="vm-form" id="vmForm" novalidate>
+      <input type="text" name="name" placeholder="您的称呼 *" required>
+      <input type="tel" name="phone" placeholder="手机号 *" required>
+      <input type="text" name="company" placeholder="公司名称">
+      <select name="type"><option value="">需求类型</option><option>包装设计</option><option>平面视觉</option><option>图拍视频</option><option>品牌设计</option><option>整合营销</option><option>UI 设计</option><option>三维设计</option><option>AIGC</option><option>其他</option></select>
+      <textarea name="desc" placeholder="简单描述项目需求" rows="3"></textarea>
+      <button type="submit" class="vm-submit">提交咨询</button>
+    </form>
+    <div class="vm-ok" id="vmOk" style="display:none">
+      <div class="vm-tick">✓</div>
+      <h3>提交成功</h3>
+      <p class="vm-sub">我们已收到你的需求，商务顾问会尽快联系你</p>
+    </div>
+  </div>
+</div>
+<style>
+.vm-modal{position:fixed;inset:0;z-index:1200;display:none}
+.vm-modal.open{display:block}
+.vm-mask{position:absolute;inset:0;background:rgba(8,10,14,.72);backdrop-filter:blur(4px)}
+.vm-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;max-width:calc(100vw - 40px);background:var(--c-bg2,#fff);border:1px solid var(--c-line,#e5e8ec);border-radius:16px;padding:34px 36px}
+.vm-box h3{font-size:22px;color:var(--c-ink,#fff);margin-bottom:6px}
+.vm-sub{font-size:13px;color:var(--c-muted);margin-bottom:22px}
+.vm-close{position:absolute;top:14px;right:18px;font-size:26px;color:var(--c-muted);background:none;border:none;cursor:pointer}
+.vm-form{display:grid;gap:12px}
+.vm-form input,.vm-form select,.vm-form textarea{width:100%;padding:12px 14px;border:1px solid var(--c-line,#e5e8ec);border-radius:10px;background:var(--c-bg,#fff);color:var(--c-ink,#fff);font-size:14px;outline:none;font-family:inherit}
+.vm-form input:focus,.vm-form select:focus,.vm-form textarea:focus{border-color:var(--c-accent,#1a4fd6)}
+.vm-submit{height:46px;border-radius:999px;background:var(--c-accent,#1a4fd6);color:#0c0e12;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.vm-ok{text-align:center;padding:20px 0}
+.vm-tick{width:58px;height:58px;border-radius:50%;background:rgba(47,158,86,.15);color:#2f9e56;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var modal=document.getElementById('vmModal');
+  if(!modal) return;
+  function open(){modal.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest?e.target.closest('.js-consult'):null;
+    if(t){e.preventDefault();open();}
+  });
+  document.getElementById('vmMask').onclick=close;
+  document.getElementById('vmClose').onclick=close;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  var form=document.getElementById('vmForm');
+  form.onsubmit=function(e){
+    e.preventDefault();
+    var name=form.name.value.trim(),phone=form.phone.value.trim();
+    if(!name||!/^1[3-9]\d{9}$/.test(phone)){alert('请填写姓名和正确的 11 位手机号');return;}
+    try{
+      var rec={id:Date.now(),name:name,phone:phone,company:form.company.value.trim(),type:form.type.value,desc:form.desc.value.trim(),time:new Date().toLocaleString('zh-CN')};
+      var list=JSON.parse(localStorage.getItem('beyondsoft_leads')||'[]');
+      list.unshift(rec);localStorage.setItem('beyondsoft_leads',JSON.stringify(list.slice(0,500)));
+    }catch(err){}
+    form.style.display='none';
+    document.getElementById('vmOk').style.display='';
+  };
+});
+</script>
+
+</body>
+</html>
