@@ -3,124 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>博彦设计 · 你的设计，我们解决</title>
+<title>博彦设计 · 与头部品牌，做下一代视觉体验</title>
 <meta name="description" content="博彦设计隶属博彦科技（上市公司），18年深耕设计行业。包装设计、平面视觉、图拍视频，一站式视觉整合。">
 <style>
 /* =========================================================
-   板式 v3 · 新锐爆品 · 图片密集版
-   参考：Fantasy（暗色沉浸/宽字距/编号）+ 佳简几何（双语/宣言/网感）
-   设计语言：暗底亮图 · 大字宽字距 · 编号模块 · 荧光点缀 · 图墙
+   板式 v3 · Fantasy 苹果风（参考 fantasy.co/careers）
+   设计语言：深色沉浸 · 超大细字宽字距 · 巨型陈述句拆行
+             编号模块 · 全屏影像 · 克制高级
    ========================================================= */
 :root {
-  --c-bg:#0c0e12; --c-bg2:#11141a; --c-ink:#f2f3f5; --c-body:#9aa1ab; --c-muted:#5c636e;
-  --c-line:#22262e; --c-accent:#ffd400; --c-accent2:#4f8cff; --maxw:1280px;
+  --c-bg:#0a0a0c; --c-bg2:#101014; --c-ink:#f5f5f7; --c-body:#9a9aa2;
+  --c-muted:#5c5c66; --c-line:#232329; --c-accent:#2997ff; --maxw:1280px;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif; background:var(--c-bg); color:var(--c-body); font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
+body { font-family:"PingFang SC","SF Pro Display","Helvetica Neue",Arial,sans-serif; background:var(--c-bg); color:var(--c-body); font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased; }
 a { color:inherit; text-decoration:none; }
 img { max-width:100%; display:block; }
 button { font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap { max-width:var(--maxw); margin:0 auto; padding:0 48px; }
 
 /* ---------- 导航 ---------- */
-.nav { position:fixed; top:0; left:0; right:0; z-index:900; height:76px; background:rgba(12,14,18,.82); backdrop-filter:blur(16px); border-bottom:1px solid transparent; transition:all .3s; }
+.nav { position:fixed; top:0; left:0; right:0; z-index:900; height:76px; background:rgba(10,10,12,.75); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border-bottom:1px solid transparent; transition:all .3s; }
 .nav.scrolled { border-bottom-color:var(--c-line); }
 .nav-inner { max-width:var(--maxw); margin:0 auto; padding:0 48px; height:100%; display:flex; align-items:center; justify-content:space-between; }
-.logo-txt { font-size:19px; font-weight:700; color:#fff; letter-spacing:2px; }
+.logo-txt { font-size:19px; font-weight:600; color:#fff; letter-spacing:1px; }
 .logo-txt i { font-style:normal; color:var(--c-accent); }
-.nav-menu { display:flex; gap:34px; }
-.nav-link { font-size:14px; color:var(--c-body); letter-spacing:2px; transition:color .2s; }
-.nav-link:hover { color:var(--c-accent); }
-.nav-cta { display:flex; align-items:center; gap:18px; }
-.btn-accent { font-size:13px; font-weight:600; color:#0c0e12; letter-spacing:1px; padding:10px 26px; background:var(--c-accent); border-radius:999px; transition:all .25s; }
-.btn-accent:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,212,0,.25); }
-.btn-outline { font-size:13px; color:#fff; letter-spacing:1px; padding:10px 26px; border:1px solid rgba(255,255,255,.3); border-radius:999px; transition:all .25s; }
-.btn-outline:hover { border-color:var(--c-accent); color:var(--c-accent); }
+.nav-menu { display:flex; gap:36px; }
+.nav-link { font-size:13px; color:var(--c-body); letter-spacing:1px; transition:color .2s; }
+.nav-link:hover { color:#fff; }
+.nav-cta { display:flex; align-items:center; gap:16px; }
+.btn-blue { font-size:13px; font-weight:600; color:#fff; letter-spacing:.5px; padding:10px 26px; background:var(--c-accent); border-radius:980px; transition:all .25s; }
+.btn-blue:hover { background:#0a84ff; }
 .hamburger { display:none; }
 
-/* ---------- Hero：全屏暗底 + 大图轮播 ---------- */
-.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:150px 0 70px; position:relative; overflow:hidden; }
-.hero::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse 70% 55% at 78% 30%, rgba(79,140,255,.14), transparent 60%), radial-gradient(ellipse 50% 40% at 15% 80%, rgba(255,212,0,.07), transparent 55%); pointer-events:none; }
+/* ---------- Hero：全屏巨型陈述句 ---------- */
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:140px 0 80px; position:relative; overflow:hidden; }
+.hero::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 80% 20%, rgba(41,151,255,.12), transparent 60%), radial-gradient(ellipse 40% 35% at 10% 85%, rgba(255,255,255,.04), transparent 55%); pointer-events:none; }
 .hero .wrap { position:relative; z-index:2; }
-.hero-en { font-size:13px; letter-spacing:8px; color:var(--c-accent); text-transform:uppercase; margin-bottom:36px; font-weight:600; }
-.hero-title { font-size:clamp(40px,7vw,88px); line-height:1.12; font-weight:700; color:#fff; letter-spacing:2px; }
-.hero-title .thin { font-weight:200; color:rgba(255,255,255,.55); }
-.hero-title .hl { color:var(--c-accent); }
-.hero-sub { margin-top:30px; font-size:17px; color:var(--c-body); max-width:560px; line-height:2; }
-.hero-actions { margin-top:48px; display:flex; gap:16px; flex-wrap:wrap; }
-.hero-strip { margin-top:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; max-width:720px; }
-.hero-strip .hs { border-left:2px solid var(--c-accent); padding-left:16px; }
-.hero-strip .hs b { display:block; font-size:26px; font-weight:600; color:#fff; }
-.hero-strip .hs span { font-size:12px; color:var(--c-muted); letter-spacing:2px; }
-.hero-gallery { position:absolute; inset:0; z-index:0; opacity:.34; }
-.hero-gallery .hg-item { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.2s; }
-.hero-gallery .hg-item.on { opacity:1; }
+.hero-kicker { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; margin-bottom:44px; }
+.hero-statement { font-size:clamp(34px,5.6vw,76px); font-weight:200; color:#fff; line-height:1.25; letter-spacing:2px; }
+.hero-statement b { font-weight:600; }
+.hero-statement .accent { color:var(--c-accent); }
+.hero-sub { margin-top:36px; font-size:15px; color:var(--c-body); max-width:520px; font-weight:300; letter-spacing:.5px; }
+.hero-actions { margin-top:52px; display:flex; gap:14px; flex-wrap:wrap; }
+.btn-ghost { font-size:13px; color:#fff; letter-spacing:.5px; padding:10px 26px; border:1px solid rgba(255,255,255,.25); border-radius:980px; transition:all .25s; }
+.btn-ghost:hover { border-color:var(--c-accent); color:var(--c-accent); }
+.hero-facts { margin-top:70px; display:flex; gap:56px; flex-wrap:wrap; }
+.hero-fact .n { font-size:30px; font-weight:200; color:#fff; letter-spacing:1px; }
+.hero-fact .n i { font-style:normal; color:var(--c-accent); font-size:.6em; }
+.hero-fact .t { font-size:12px; color:var(--c-muted); letter-spacing:2px; margin-top:6px; }
 
-/* ---------- 数据带 ---------- */
-.data-band { padding:80px 0; border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); }
-.data-inner { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center; }
-.data-cell .n { font-size:clamp(42px,5vw,68px); font-weight:200; color:#fff; letter-spacing:1px; }
-.data-cell .n i { font-style:normal; color:var(--c-accent); font-size:.5em; }
-.data-cell .t { margin-top:10px; font-size:13px; color:var(--c-muted); letter-spacing:3px; }
+/* ---------- 全屏影像沉浸段 ---------- */
+.immersive { padding:0; position:relative; height:80vh; min-height:520px; overflow:hidden; }
+.immersive .bg { position:absolute; inset:0; background-size:cover; background-position:center; }
+.immersive .mask { position:absolute; inset:0; background:linear-gradient(transparent 20%, rgba(10,10,12,.88) 100%); }
+.immersive .cap { position:absolute; left:48px; right:48px; bottom:56px; z-index:2; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; }
+.immersive .cap .q { font-size:clamp(20px,2.6vw,32px); font-weight:300; color:#fff; letter-spacing:1px; max-width:640px; line-height:1.5; }
+.immersive .cap .meta { font-size:12px; color:var(--c-body); letter-spacing:2px; text-align:right; }
+
+/* ---------- 编号模块 ---------- */
+.num-sec { padding:120px 0; border-top:1px solid var(--c-line); }
+.num-sec .sec-label { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; margin-bottom:60px; }
+.num-list { border-top:1px solid var(--c-line); }
+.num-row { display:grid; grid-template-columns:80px 1fr 1.4fr; gap:30px; align-items:baseline; padding:38px 4px; border-bottom:1px solid var(--c-line); transition:padding-left .3s; }
+.num-row:hover { padding-left:14px; }
+.num-row .n { font-size:26px; font-weight:200; color:var(--c-accent); letter-spacing:1px; }
+.num-row h3 { font-size:clamp(18px,2vw,24px); font-weight:400; color:#fff; letter-spacing:1px; }
+.num-row p { font-size:14px; color:var(--c-body); font-weight:300; }
 
 /* ---------- 双语宣言 ---------- */
-.bilingual { padding:120px 0; text-align:center; }
-.bilingual .en { font-size:clamp(24px,3.6vw,44px); font-weight:700; color:#fff; letter-spacing:4px; line-height:1.3; text-transform:uppercase; }
-.bilingual .cn { margin-top:20px; font-size:16px; color:var(--c-body); letter-spacing:4px; }
-.bilingual .mark { color:var(--c-accent); }
+.manifesto { padding:130px 0; text-align:center; }
+.manifesto .en { font-size:clamp(22px,3.2vw,40px); font-weight:200; color:#fff; letter-spacing:6px; line-height:1.4; text-transform:uppercase; }
+.manifesto .cn { margin-top:24px; font-size:15px; color:var(--c-muted); letter-spacing:5px; }
+.manifesto .mark { color:var(--c-accent); }
 
-/* ---------- 编号服务模块 ---------- */
-.num-sec { padding:110px 0; border-top:1px solid var(--c-line); }
-.num-sec .sec-label { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; margin-bottom:50px; }
-.num-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
-.num-item { padding:40px 36px; border-right:1px solid var(--c-line); border-bottom:1px solid var(--c-line); position:relative; transition:background .3s; }
-.num-item:nth-child(3n){ border-right:none; }
-.num-item:hover { background:var(--c-bg2); }
-.num-item .n { font-size:44px; font-weight:200; color:var(--c-accent); letter-spacing:1px; }
-.num-item h3 { font-size:20px; font-weight:600; color:#fff; margin:16px 0 10px; letter-spacing:1px; }
-.num-item p { font-size:13.5px; color:var(--c-body); line-height:1.9; }
-.num-item .en { font-size:11px; color:var(--c-muted); letter-spacing:3px; margin-bottom:14px; text-transform:uppercase; }
-
-/* ---------- 案例网格（大图 12） ---------- */
+/* ---------- 案例网格 ---------- */
 .works { padding:110px 0; }
-.works .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:54px; flex-wrap:wrap; gap:20px; }
-.works .head h2 { font-size:clamp(28px,3.6vw,44px); font-weight:700; color:#fff; letter-spacing:2px; }
-.works .head .en { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; }
-.works-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-.work-card { position:relative; overflow:hidden; border-radius:12px; background:var(--c-bg2); border:1px solid var(--c-line); transition:all .35s; }
-.work-card:hover { transform:translateY(-6px); border-color:rgba(255,212,0,.4); }
-.work-card .img { aspect-ratio:1/1; background-size:cover; background-position:center; }
-.work-card .info { padding:16px 18px 20px; }
-.work-card .client { font-size:11px; color:var(--c-accent); font-weight:600; letter-spacing:2px; }
-.work-card .name { font-size:14px; color:#fff; font-weight:500; margin-top:5px; line-height:1.6; }
+.works-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:56px; flex-wrap:wrap; gap:18px; }
+.works-head .en { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; }
+.works-head h2 { font-size:clamp(28px,3.4vw,42px); font-weight:200; color:#fff; letter-spacing:1px; margin-top:12px; }
+.works-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.work-card { position:relative; overflow:hidden; border-radius:18px; background:var(--c-bg2); border:1px solid var(--c-line); transition:all .35s; }
+.work-card:hover { transform:translateY(-4px); border-color:rgba(41,151,255,.35); }
+.work-card .img { aspect-ratio:4/3; background-size:cover; background-position:center; }
+.work-card .info { padding:20px 22px 24px; }
+.work-card .client { font-size:12px; color:var(--c-accent); letter-spacing:2px; }
+.work-card .name { font-size:16px; color:#fff; font-weight:400; margin-top:6px; line-height:1.6; }
+.work-card .tag { display:inline-block; margin-top:10px; font-size:11px; color:var(--c-muted); border:1px solid var(--c-line); border-radius:999px; padding:4px 14px; letter-spacing:1px; }
 
-/* ---------- 作品墙（瀑布流） ---------- */
-.gallery { padding:110px 0; background:var(--c-bg2); border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); }
-.gallery .sec-label { font-size:12px; letter-spacing:6px; color:var(--c-muted); text-transform:uppercase; margin-bottom:40px; }
-.gallery h2 { font-size:clamp(28px,3.6vw,44px); font-weight:700; color:#fff; letter-spacing:2px; margin-bottom:50px; }
-.wall-grid { columns:4; column-gap:16px; }
-.wall-item { break-inside:avoid; margin-bottom:16px; position:relative; overflow:hidden; border-radius:10px; }
-.wall-item img { width:100%; transition:transform .6s; }
-.wall-item:hover img { transform:scale(1.05); }
-.wall-item .cap { position:absolute; inset:auto 0 0 0; background:linear-gradient(transparent,rgba(8,10,14,.85)); color:#fff; font-size:12.5px; padding:34px 14px 10px; opacity:0; transition:opacity .3s; }
-.wall-item:hover .cap { opacity:1; }
+/* ---------- 数字带 ---------- */
+.data-band { padding:90px 0; border-top:1px solid var(--c-line); border-bottom:1px solid var(--c-line); }
+.data-inner { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; text-align:center; }
+.data-cell .n { font-size:clamp(40px,4.6vw,62px); font-weight:200; color:#fff; letter-spacing:1px; }
+.data-cell .n i { font-style:normal; color:var(--c-accent); font-size:.5em; }
+.data-cell .t { margin-top:10px; font-size:12px; color:var(--c-muted); letter-spacing:3px; }
 
 /* ---------- 新闻 ---------- */
 .news { padding:110px 0; }
 .news-list { border-top:1px solid var(--c-line); }
 .news-row { display:flex; justify-content:space-between; align-items:baseline; gap:30px; padding:24px 4px; border-bottom:1px solid var(--c-line); transition:padding-left .3s; }
 .news-row:hover { padding-left:14px; }
-.news-row .t { font-size:16px; color:#fff; font-weight:400; letter-spacing:1px; }
+.news-row .t { font-size:16px; color:#fff; font-weight:300; letter-spacing:.5px; }
 .news-row:hover .t { color:var(--c-accent); }
 .news-row .d { font-size:12px; color:var(--c-muted); letter-spacing:2px; flex:none; }
 
+/* ---------- 联系 ---------- */
+.contact-band { padding:120px 0; text-align:center; border-top:1px solid var(--c-line); }
+.contact-band h2 { font-size:clamp(28px,3.6vw,46px); font-weight:200; color:#fff; letter-spacing:2px; }
+.contact-band p { margin-top:16px; color:var(--c-muted); font-size:15px; }
+.contact-actions { margin-top:44px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+
 /* ---------- 页脚 ---------- */
-.footer { background:#08090c; border-top:1px solid var(--c-line); padding:90px 0 40px; }
+.footer { background:#060608; border-top:1px solid var(--c-line); padding:90px 0 40px; }
 .foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:50px; padding-bottom:60px; border-bottom:1px solid var(--c-line); }
 .foot-brand .logo-txt { color:#fff; }
 .foot-brand p { margin-top:18px; color:var(--c-muted); font-size:13.5px; line-height:2; }
-.foot-direct { margin-top:26px; display:inline-block; padding:12px 26px; border:1px solid var(--c-accent); color:var(--c-accent); border-radius:999px; font-size:13px; letter-spacing:1px; }
 .foot-col h4 { color:#fff; font-size:13px; letter-spacing:3px; margin-bottom:20px; font-weight:600; text-transform:uppercase; }
 .foot-col a { display:block; padding:6px 0; font-size:13.5px; color:var(--c-body); transition:color .2s; }
 .foot-col a:hover { color:var(--c-accent); }
@@ -129,9 +127,9 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; colo
 .drawer { position:fixed; inset:0; z-index:950; background:var(--c-bg); transform:translateX(100%); transition:transform .35s; padding:90px 30px; }
 .drawer.open { transform:translateX(0); }
 .drawer-close { position:absolute; top:22px; right:26px; font-size:30px; color:#fff; }
-.drawer a { display:block; padding:16px 4px; font-size:18px; color:#fff; border-bottom:1px solid var(--c-line); letter-spacing:2px; }
+.drawer a { display:block; padding:16px 4px; font-size:18px; color:#fff; border-bottom:1px solid var(--c-line); letter-spacing:1px; }
 
-.rv { opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+.rv { opacity:0; transform:translateY(26px); transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
 .rv.in { opacity:1; transform:none; }
 @media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} }
 
@@ -140,21 +138,21 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; colo
   .nav-menu { display:none; }
   .hamburger { display:flex; flex-direction:column; gap:5px; }
   .hamburger span { width:22px; height:2px; background:#fff; }
-  .num-grid { grid-template-columns:1fr 1fr; }
-  .num-item:nth-child(3n){ border-right:1px solid var(--c-line); }
-  .num-item:nth-child(2n){ border-right:none; }
   .works-grid { grid-template-columns:1fr 1fr; }
+  .num-row { grid-template-columns:60px 1fr; grid-template-rows:auto auto; }
+  .num-row p { grid-column:2; }
   .data-inner { grid-template-columns:1fr 1fr; }
-  .wall-grid { columns:3; }
+  .immersive .cap { left:28px; right:28px; }
   .foot-grid { grid-template-columns:1fr 1fr; gap:36px; }
 }
 @media (max-width:640px) {
   .wrap, .nav-inner { padding:0 20px; }
-  .num-grid, .works-grid, .data-inner { grid-template-columns:1fr; }
-  .num-item:nth-child(n){ border-right:none; }
-  .wall-grid { columns:2; }
+  .works-grid, .data-inner { grid-template-columns:1fr; }
+  .hero { padding-top:120px; }
+  .hero-facts { gap:30px; }
+  .immersive { height:60vh; }
+  .num-sec, .works, .news, .manifesto, .contact-band { padding:70px 0; }
   .foot-grid { grid-template-columns:1fr; }
-  .num-sec, .works, .gallery, .news, .bilingual { padding:70px 0; }
 }
 </style>
 </head>
@@ -172,32 +170,73 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; colo
       <a class="nav-link" href="contact.html">联系</a>
     </div>
     <div class="nav-cta">
-      <button class="btn-accent js-consult" data-from="v3导航">免费咨询</button>
+      <button class="btn-blue js-consult" data-from="v3苹果风首页">免费咨询</button>
       <button class="hamburger" id="btnMenu" aria-label="菜单"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<!-- 首屏：暗底 + 背景大图轮播 -->
+<!-- Hero：巨型陈述句 -->
 <section class="hero">
-  <div class="hero-gallery" id="heroGallery">
-    <div class="hg-item on" style="background-image:url('assets/img/cases/set2_slide16_image48.jpg')"></div>
-    <div class="hg-item" style="background-image:url('assets/img/cases/set2_slide46_image264.jpg')"></div>
-    <div class="hg-item" style="background-image:url('assets/img/cases/set2_slide20_image121.jpg')"></div>
-  </div>
   <div class="wrap">
-    <div class="hero-en rv">BEYONDSOFT DESIGN · SINCE 2008</div>
-    <h1 class="hero-title rv">你的设计<br><span class="thin">我们</span><span class="hl">解决</span></h1>
-    <p class="hero-sub rv">上市公司旗下，500+ 设计师。从货架上的包装，到屏幕里的品牌——你需要的视觉，我们一家全包。</p>
+    <div class="hero-kicker rv">BEYONDSOFT DESIGN · SINCE 2008</div>
+    <h1 class="hero-statement rv">与<b>头部品牌</b>一起，<br>做下一代<br><span class="accent">视觉体验</span>。</h1>
+    <p class="hero-sub rv">我们服务阿里巴巴、京东、美团、百度等中国互联网头部公司，已超过 18 年。你需要的视觉，我们一家全包。</p>
     <div class="hero-actions rv">
-      <a href="cases.html" class="btn-accent">看案例</a>
-      <button class="btn-outline js-consult" data-from="v3首屏">聊聊需求</button>
+      <a href="cases.html" class="btn-blue">查看案例</a>
+      <button class="btn-ghost js-consult" data-from="v3首屏">聊聊需求</button>
     </div>
-    <div class="hero-strip rv">
-      <div class="hs"><b>18年</b><span>深耕设计</span></div>
-      <div class="hs"><b>20000+</b><span>服务案例</span></div>
-      <div class="hs"><b>85%</b><span>互联网名企覆盖</span></div>
+    <div class="hero-facts rv">
+      <div class="hero-fact"><div class="n">18<i>年</i></div><div class="t">深耕设计</div></div>
+      <div class="hero-fact"><div class="n">20000<i>+</i></div><div class="t">服务案例</div></div>
+      <div class="hero-fact"><div class="n">85<i>%</i></div><div class="t">互联网名企覆盖</div></div>
+      <div class="hero-fact"><div class="n">500<i>+</i></div><div class="t">设计师团队</div></div>
     </div>
+  </div>
+</section>
+
+<!-- 全屏影像沉浸段 -->
+<section class="immersive">
+  <div class="bg" style="background-image:url('assets/img/cases/set2_slide16_image48.jpg')"></div>
+  <div class="mask"></div>
+  <div class="cap">
+    <div class="q">阿里巴巴 · 北京新园区开园 KV —— 一张图，撑起一座园区的亮相。</div>
+    <div class="meta">PLANAR VISUAL<br>平面视觉</div>
+  </div>
+</section>
+
+<!-- 编号模块：为什么是我们 -->
+<section class="num-sec">
+  <div class="wrap">
+    <div class="sec-label rv">/ WHY US · 01-05</div>
+    <div class="num-list rv">
+      <div class="num-row"><div class="n">01</div><h3>18 年，只服务头部</h3><p>从 2008 年成为阿里巴巴框架供应商开始，我们的客户名单里，写满了中国互联网的名字。</p></div>
+      <div class="num-row"><div class="n">02</div><h3>一站式，全包</h3><p>包装、平面、视频、品牌、UI、3D、AIGC——九个板块一个入口，不用再找七八家供应商。</p></div>
+      <div class="num-row"><div class="n">03</div><h3>500+ 设计师</h3><p>上市公司体系内的专业团队，高级及以上设计师占比 80%，交付稳定不依赖个人。</p></div>
+      <div class="num-row"><div class="n">04</div><h3>速度是基本功</h3><p>15 分钟接单响应，24 小时大促值班，98% 紧急响应率——头部客户的节奏，我们早就习惯。</p></div>
+      <div class="num-row"><div class="n">05</div><h3>AIGC 提效 50%</h3><p>自研 AIGC 工作流全面落地，同样的预算，双倍的产出；同样的周期，快一半。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 双语宣言 -->
+<section class="manifesto">
+  <div class="wrap">
+    <div class="rv">
+      <div class="en">CREATE GLOBAL BRANDS<br>WITH <span class="mark">CHINESE DESIGN</span>.</div>
+      <div class="cn">以中国设计，成就世界品牌 · 博彦设计</div>
+    </div>
+  </div>
+</section>
+
+<!-- 案例网格 -->
+<section class="works">
+  <div class="wrap">
+    <div class="works-head rv">
+      <div><div class="en">Selected Works</div><h2>为头部品牌工作</h2></div>
+      <a href="cases.html" class="btn-ghost">全部案例 →</a>
+    </div>
+    <div class="works-grid rv" id="v3Works"></div>
   </div>
 </section>
 
@@ -213,63 +252,27 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; colo
   </div>
 </section>
 
-<!-- 双语宣言 -->
-<section class="bilingual">
-  <div class="wrap">
-    <div class="rv">
-      <div class="en">CREATE GLOBAL BRANDS<br>WITH <span class="mark">CHINESE DESIGN</span>.</div>
-      <div class="cn">以中国设计，成就世界品牌 · 博彦设计</div>
-    </div>
-  </div>
-</section>
-
-<!-- 编号服务 -->
-<section class="num-sec">
-  <div class="wrap">
-    <div class="sec-label rv">/ 01-09 SERVICES</div>
-    <div class="num-grid rv">
-      <a class="num-item" href="service-detail.html?s=包装设计"><div class="n">01</div><div class="en">Packaging</div><h3>包装设计</h3><p>从新品全案到礼盒，让产品在货架上脱颖而出。</p></a>
-      <a class="num-item" href="service-detail.html?s=平面视觉"><div class="n">02</div><div class="en">Visual</div><h3>平面视觉</h3><p>海报、KV、插画、长图，覆盖营销全场景。</p></a>
-      <a class="num-item" href="service-detail.html?s=图拍视频"><div class="n">03</div><div class="en">Film &amp; Video</div><h3>图拍视频</h3><p>拍摄、宣传片、TVC 一条龙，AIGC 提效。</p></a>
-      <a class="num-item" href="service-detail.html?s=整合营销"><div class="n">04</div><div class="en">Marketing</div><h3>整合营销</h3><p>传播策略到新媒体矩阵，让好设计被看见。</p></a>
-      <a class="num-item" href="service-detail.html?s=品牌设计"><div class="n">05</div><div class="en">Brand</div><h3>品牌设计</h3><p>Logo、VI、品牌故事，从符号到体系。</p></a>
-      <a class="num-item" href="service-detail.html?s=IP文创"><div class="n">06</div><div class="en">Creative</div><h3>IP 文创</h3><p>IP 形象、联名、周边，让人格化品牌。</p></a>
-      <a class="num-item" href="service-detail.html?s=3D设计"><div class="n">07</div><div class="en">3D</div><h3>三维设计</h3><p>美陈、展厅、数字人，空间即体验。</p></a>
-      <a class="num-item" href="service-detail.html?s=UI设计"><div class="n">08</div><div class="en">Interface</div><h3>UI 设计</h3><p>APP、网站、大屏，界面即产品。</p></a>
-      <a class="num-item" href="aigc.html"><div class="n">09</div><div class="en">AI Art</div><h3>AIGC</h3><p>图生视频、AI 数字人，创意加速器。</p></a>
-    </div>
-  </div>
-</section>
-
-<!-- 案例大图网格 -->
-<section class="works">
-  <div class="wrap">
-    <div class="head rv">
-      <div><div class="en">Selected Works</div><h2>爆品背后，<br>都有我们</h2></div>
-      <a href="cases.html" class="btn-outline">全部案例 →</a>
-    </div>
-    <div class="works-grid rv" id="v3Works"></div>
-  </div>
-</section>
-
-<!-- 作品墙 -->
-<section class="gallery">
-  <div class="wrap">
-    <div class="sec-label rv">/ WORKS GALLERY</div>
-    <h2 class="rv">作品墙 — 真实交付，随时可验</h2>
-    <div class="wall-grid rv" id="v3Wall"></div>
-  </div>
-</section>
-
 <!-- 新闻 -->
 <section class="news">
   <div class="wrap">
-    <div class="sec-label rv" style="margin-bottom:40px">/ NEWS</div>
+    <div class="sec-label rv" style="font-size:12px;letter-spacing:6px;color:var(--c-muted);text-transform:uppercase;margin-bottom:40px">/ NEWS</div>
     <div class="news-list rv">
       <a class="news-row" href="news-detail.html?n=view-cost"><span class="t">好设计是生意，坏设计是成本</span><span class="d">2026.03</span></a>
       <a class="news-row" href="news-detail.html?n=view-package"><span class="t">包装设计的生意经：货架上的 3 秒钟</span><span class="d">2026.02</span></a>
       <a class="news-row" href="news-detail.html?n=aigc-platform"><span class="t">AIGC 设计平台全面上线，人均效率提升 50%</span><span class="d">2026.01</span></a>
       <a class="news-row" href="news-detail.html?n=jd-renew"><span class="t">与京东续签年度框架，连续 10 年核心供应商</span><span class="d">2025.12</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section class="contact-band">
+  <div class="wrap">
+    <h2 class="rv">有项目？直接聊。</h2>
+    <p class="rv">15 分钟接单响应 · 24 小时大促值班 · 98% 紧急响应率</p>
+    <div class="contact-actions rv">
+      <button class="btn-blue js-consult" data-from="v3首页底部">免费咨询</button>
+      <a class="btn-ghost" href="contact.html">联系团队</a>
     </div>
   </div>
 </section>
@@ -281,7 +284,6 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; colo
       <div class="foot-brand">
         <span class="logo-txt">博彦<i>设计</i></span>
         <p>隶属博彦科技（上市公司）旗下。<br>包装 · 平面 · 视频，一站式视觉整合。</p>
-        <a class="foot-direct" href="contact.html">设计总负责 · 李林华 ↗</a>
       </div>
       <div class="foot-col"><h4>服务</h4><a href="service-detail.html?s=包装设计">包装设计</a><a href="service-detail.html?s=平面视觉">平面视觉</a><a href="service-detail.html?s=图拍视频">图拍视频</a><a href="aigc.html">AIGC</a></div>
       <div class="foot-col"><h4>我们</h4><a href="about.html">关于</a><a href="cases.html">案例</a><a href="news.html">动态</a><a href="contact.html">联系</a></div>
@@ -297,48 +299,20 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; colo
 </div>
 
 <script>
-/* v3 精选案例：12 个真实案例 */
+/* v3 案例：真实案例 */
 var V3_WORKS = [
-  { c:'阿里巴巴', n:'北京新园区开园 KV', img:'cases/set2_slide16_image48.jpg' },
-  { c:'宁德时代', n:'星河系统宣传片', img:'cases/set2_slide46_image264.jpg' },
-  { c:'京东', n:'AVA 大会 · 开场概念视频', img:'cases/set2_slide45_image259.jpg' },
-  { c:'蚂蚁集团', n:'H5 互动游戏与动效设计', img:'cases/set2_slide17_image100.jpg' },
-  { c:'美团', n:'多业务线主视觉设计', img:'cases/set2_slide20_image121.jpg' },
-  { c:'百度', n:'1024 程序员节 KV 设计', img:'cases/set1_slide35_image1.jpg' },
-  { c:'中国银行', n:'IP 盲盒系列设计', img:'cases/set1_slide27_image1.jpg' },
-  { c:'天猫', n:'超级品类日 · 混剪视频', img:'cases/set1_slide89_image1.jpg' },
-  { c:'古茗', n:'新品上新系列海报', img:'cases/set2_slide32_image182.jpg' },
-  { c:'伊利', n:'世界杯 × 营养早餐宣传', img:'cases/set2_slide55_image323.jpg' },
-  { c:'玄铁', n:'品牌 VI 与 UI 设计体系', img:'cases/set2_slide31_image176.jpg' },
-  { c:'沪上阿姨', n:'品牌招商手册设计', img:'cases/set1_slide55_image1.jpg' }
-];
-
-/* v3 作品墙：24 张真实案例图 */
-var V3_WALL = [
-  { img:'cases/set1_slide15_image1.jpg', cap:'迪安诊断 · 品牌Logo' },
-  { img:'cases/set1_slide28_image119.jpg', cap:'阿里妈妈 · 3D服饰AI' },
-  { img:'cases/set1_slide26_image107.jpg', cap:'唐宫夜宴 · IP文创' },
-  { img:'cases/set1_slide30_image131.jpg', cap:'网易云音乐 × 荣耀 H5' },
-  { img:'cases/set1_slide31_image1.jpg', cap:'支付宝 · 中秋互动H5' },
-  { img:'cases/set1_slide32_image1.jpg', cap:'网易 · 公益H5' },
-  { img:'cases/set1_slide19_image8.jpg', cap:'明康汇 · 农产品包装' },
-  { img:'cases/set1_slide20_image1.jpg', cap:'毕节 · 电商消费季' },
-  { img:'cases/set1_slide21_image1.jpg', cap:'1688严选 · 产品包装' },
-  { img:'cases/set2_slide36_image202.jpg', cap:'迷你巴拉 · 包装详情页' },
-  { img:'cases/set1_slide43_image1.jpg', cap:'百度 · 长图插画' },
-  { img:'cases/set1_slide46_image1.jpg', cap:'百度 · 头像框插画' },
-  { img:'cases/set1_slide49_image197.jpg', cap:'阿里云 · 营销长图' },
-  { img:'cases/set1_slide50_image1.jpg', cap:'阿里妈妈 · M峰会PPT' },
-  { img:'cases/set1_slide54_image1.jpg', cap:'蚂蚁 · 可持续发展报告' },
-  { img:'cases/set1_slide57_image1.jpg', cap:'蚂蚁 · 公交站物料' },
-  { img:'cases/set1_slide37_image1.jpg', cap:'美团闪购 · 版头视觉' },
-  { img:'cases/set1_slide58_image236.jpg', cap:'大众点评 · 美食节市集' },
-  { img:'cases/set1_slide42_image1.jpg', cap:'京东 · 大促海报' },
-  { img:'cases/set2_slide25_image157.jpg', cap:'京东京造 · 详情页' },
-  { img:'cases/set1_slide40_image1.jpg', cap:'1688 · 寻源中国海报' },
-  { img:'cases/set1_slide41_image1.jpg', cap:'天猫超市 · 大促海报' },
-  { img:'cases/set1_slide38_image1.jpg', cap:'小满手工粉 · 菜单海报' },
-  { img:'cases/set1_slide86_image1.jpg', cap:'ZOLOZ · MG宣传动画' }
+  { c:'阿里巴巴', n:'北京新园区开园 KV 设计', tag:'平面视觉', img:'cases/set2_slide16_image48.jpg' },
+  { c:'宁德时代', n:'星河系统宣传片', tag:'图拍视频', img:'cases/set2_slide46_image264.jpg' },
+  { c:'京东', n:'AVA 大会 · 开场概念视频', tag:'图拍视频', img:'cases/set2_slide45_image259.jpg' },
+  { c:'蚂蚁集团', n:'H5 互动游戏与动效设计', tag:'整合营销', img:'cases/set2_slide17_image100.jpg' },
+  { c:'美团', n:'多业务线主视觉设计', tag:'平面视觉', img:'cases/set2_slide20_image121.jpg' },
+  { c:'百度', n:'1024 程序员节 KV 设计', tag:'平面视觉', img:'cases/set1_slide35_image1.jpg' },
+  { c:'中国银行', n:'IP 盲盒系列设计', tag:'包装设计', img:'cases/set1_slide27_image1.jpg' },
+  { c:'天猫', n:'超级品类日 · 混剪视频', tag:'图拍视频', img:'cases/set1_slide89_image1.jpg' },
+  { c:'古茗', n:'新品上新系列海报', tag:'平面视觉', img:'cases/set2_slide32_image182.jpg' },
+  { c:'伊利', n:'世界杯 × 营养早餐品牌宣传', tag:'图拍视频', img:'cases/set2_slide55_image323.jpg' },
+  { c:'玄铁', n:'品牌 VI 与 UI 设计体系', tag:'品牌设计', img:'cases/set2_slide31_image176.jpg' },
+  { c:'沪上阿姨', n:'品牌招商手册设计', tag:'平面视觉', img:'cases/set1_slide55_image1.jpg' }
 ];
 
 function renderWorks() {
@@ -347,33 +321,14 @@ function renderWorks() {
   box.innerHTML = V3_WORKS.map(function (w) {
     return '<a class="work-card" href="case-detail.html?c=' + encodeURIComponent(w.c) + '">' +
       '<div class="img" style="background-image:url(\'assets/img/' + w.img + '\')"></div>' +
-      '<div class="info"><div class="client">' + w.c + '</div><div class="name">' + w.n + '</div></div></a>';
+      '<div class="info"><div class="client">' + w.c + '</div>' +
+      '<div class="name">' + w.n + '</div>' +
+      '<span class="tag">' + w.tag + '</span></div></a>';
   }).join('');
-}
-
-function renderWall() {
-  var box = document.getElementById('v3Wall');
-  if (!box) return;
-  box.innerHTML = V3_WALL.map(function (w) {
-    return '<div class="wall-item"><img loading="lazy" src="assets/img/' + w.img + '" alt="' + w.cap + '">' +
-      '<div class="cap">' + w.cap + '</div></div>';
-  }).join('');
-}
-
-/* Hero 背景轮播 */
-var hgItems, hgIdx = 0;
-function heroNext() {
-  if (!hgItems || hgItems.length < 2) return;
-  hgItems[hgIdx].classList.remove('on');
-  hgIdx = (hgIdx + 1) % hgItems.length;
-  hgItems[hgIdx].classList.add('on');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   renderWorks();
-  renderWall();
-  hgItems = document.querySelectorAll('.hg-item');
-  setInterval(heroNext, 5000);
   var nav = document.getElementById('siteNav');
   window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive:true });
   document.getElementById('btnMenu').onclick = function () { document.getElementById('drawer').classList.add('open'); };
@@ -415,16 +370,16 @@ document.addEventListener('DOMContentLoaded', function () {
 <style>
 .vm-modal{position:fixed;inset:0;z-index:1200;display:none}
 .vm-modal.open{display:block}
-.vm-mask{position:absolute;inset:0;background:rgba(4,6,10,.78);backdrop-filter:blur(4px)}
-.vm-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;max-width:calc(100vw - 40px);background:#11141a;border:1px solid #22262e;border-radius:16px;padding:34px 36px}
-.vm-box h3{font-size:22px;color:#fff;margin-bottom:6px}
-.vm-sub{font-size:13px;color:#5c636e;margin-bottom:22px}
-.vm-close{position:absolute;top:14px;right:18px;font-size:26px;color:#5c636e;background:none;border:none;cursor:pointer}
+.vm-mask{position:absolute;inset:0;background:rgba(8,10,14,.72);backdrop-filter:blur(4px)}
+.vm-box{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;max-width:calc(100vw - 40px);background:#101014;border:1px solid #232329;border-radius:16px;padding:34px 36px}
+.vm-box h3{font-size:22px;color:#f5f5f7;margin-bottom:6px}
+.vm-sub{font-size:13px;color:#8a8a92;margin-bottom:22px}
+.vm-close{position:absolute;top:14px;right:18px;font-size:26px;color:#8a8a92;background:none;border:none;cursor:pointer}
 .vm-form{display:grid;gap:12px}
-.vm-form input,.vm-form select,.vm-form textarea{width:100%;padding:12px 14px;border:1px solid #22262e;border-radius:10px;background:#0c0e12;color:#f2f3f5;font-size:14px;outline:none;font-family:inherit}
-.vm-form input:focus,.vm-form select:focus,.vm-form textarea:focus{border-color:#ffd400}
-.vm-submit{height:46px;border-radius:999px;background:#ffd400;color:#0c0e12;font-size:14px;font-weight:600;border:none;cursor:pointer}
-.vm-submit:hover{box-shadow:0 8px 24px rgba(255,212,0,.25)}
+.vm-form input,.vm-form select,.vm-form textarea{width:100%;padding:12px 14px;border:1px solid #e8e8ec;border-radius:10px;background:#0a0a0c;color:#f5f5f7;font-size:14px;outline:none;font-family:inherit}
+.vm-form input:focus,.vm-form select:focus,.vm-form textarea:focus{border-color:#2997ff}
+.vm-submit{height:46px;border-radius:999px;background:#2997ff;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer}
+.vm-submit:hover{background:#0a84ff}
 .vm-ok{text-align:center;padding:20px 0}
 .vm-tick{width:58px;height:58px;border-radius:50%;background:rgba(47,158,86,.15);color:#2f9e56;font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 </style>
