@@ -157,7 +157,7 @@
       <h2 class="sec-title">合作客户</h2>
       <p class="sec-sub">长期服务的头部企业（客户 logo 取自品牌案例展示 PPT P14）</p>
     </div>
-    <div class="client-wall rv" id="clientWall"><!-- JS 渲染 --></div>
+    <div class="client-rows rv" id="clientRows"><!-- JS 渲染：三行横向滚动 --></div>
   </div>
 </section>
 
@@ -178,11 +178,17 @@ var HOME_CASES = [
 var CLIENT_LOGOS = ['client-00','client-02','client-03','client-04','client-05','client-07','client-08','client-09','client-10','client-11','client-12','client-13','client-14','client-15','client-16','client-18','client-19','client-20','client-21','client-22','client-23','client-24','client-25','client-26','client-27','client-28','client-29','client-30'];
 
 function renderClientWall() {
-  var box = document.getElementById('clientWall');
+  var box = document.getElementById('clientRows');
   if (!box) return;
-  box.innerHTML = CLIENT_LOGOS.map(function (f) {
-    return '<div class="client-cell"><img src="assets/img/' + f + '.png" alt="合作客户" loading="lazy"></div>';
-  }).join('');
+  var size = Math.ceil(CLIENT_LOGOS.length / 3);
+  var rows = [];
+  for (var r = 0; r < 3; r++) {
+    var slice = CLIENT_LOGOS.slice(r * size, (r + 1) * size);
+    rows.push('<div class="client-row">' + slice.map(function (f) {
+      return '<div class="client-cell"><img src="assets/img/' + f + '.png" alt="合作客户" loading="lazy"></div>';
+    }).join('') + '</div>');
+  }
+  box.innerHTML = rows.join('');
 }
 
 var GLOBAL_CITIES = [
