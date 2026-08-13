@@ -70,22 +70,12 @@
   </div>
 </section>
 
-<!-- ============ 全国布局 ============ -->
+<!-- ============ 全国布局（地图 + 点位，无文字） ============ -->
 <section class="sec soft">
   <div class="wrap">
-    <div class="svc-block" style="border-bottom:none">
-      <div class="img-fit r-4-3" style="background-image:url('assets/img/about-hangzhou.jpg')"></div>
-      <div class="svc-block-txt rv">
-        <div class="svc-block-en">Nationwide Layout</div>
-        <h2>总部杭州 · 多地交付中心</h2>
-        <p>总部位于杭州，场地两千多平，450 多位设计师；另在大连、成都、武汉、西安、郑州设有离岸交付中心，并在北京、上海、广州、重庆设有业务点。不管项目多急、量多大，我们都有足够的人力顶上去。</p>
-        <ul class="cap-grid">
-          <li>杭州总部 · 2330 ㎡</li><li>450+ 驻场设计师</li>
-          <li>大连离岸中心</li><li>成都离岸中心</li>
-          <li>武汉离岸中心</li><li>西安离岸中心</li>
-          <li>郑州离岸中心</li><li>北京 · 上海 · 广州 · 重庆</li>
-        </ul>
-      </div>
+    <div class="global-map-wrap rv">
+      <div class="img-fit r-4-3 global-map" style="background-image:url('assets/img/global-map.png')"></div>
+      <div class="city-dots" id="cityDots"><!-- JS 渲染点位 --></div>
     </div>
   </div>
 </section>
@@ -110,7 +100,7 @@
   </div>
 </section>
 
-<!-- ============ 管理团队 ============ -->
+<!-- ============ 管理团队（横向滚动一排） ============ -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head center rv">
@@ -118,38 +108,49 @@
       <h2 class="sec-title">核心管理团队</h2>
       <p class="sec-sub">设计总监、交付负责人、视觉与视频主管均 10 年以上经验，长期服务阿里、美团、百度等头部客户</p>
     </div>
-    <div class="team-grid rv" style="grid-template-columns:repeat(3,1fr);gap:32px 26px">
+    <div class="team-scroll rv" id="teamScroll">
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/liilinha.png')"></div>
-        <div class="team-name">李林华</div><div class="team-role" style="color:var(--c-primary);font-weight:600">设计总监 · 20年+</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">深耕设计行业 20 年+，带队服务 100+ 知名企业，覆盖阿里、京东、美团、百度等头部客户</p></div>
+        <div class="team-name">李林华</div><div class="team-role" style="color:var(--c-primary);font-weight:600">设计总监 · 20年+</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/jiangyanan.jpeg')"></div>
-        <div class="team-name">蒋亚男</div><div class="team-role" style="color:var(--c-primary);font-weight:600">交付负责人 · 10年+</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">深耕阿里外包业务，项目负责人与接口，统筹管理与质量把控，UI/UX 设计专家</p></div>
+        <div class="team-name">蒋亚男</div><div class="team-role" style="color:var(--c-primary);font-weight:600">交付负责人 · 10年+</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/zhaoqiao.png')"></div>
-        <div class="team-name">赵巧</div><div class="team-role" style="color:var(--c-primary);font-weight:600">交付负责人 · 10年+</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">跨平台项目实操与团队管理经验，聚焦美团、百度等企业设计服务外包全流程落地</p></div>
+        <div class="team-name">赵巧</div><div class="team-role" style="color:var(--c-primary);font-weight:600">交付负责人 · 10年+</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/zhuguodong.png')"></div>
-        <div class="team-name">朱国栋</div><div class="team-role" style="color:var(--c-primary);font-weight:600">交付负责人 · 10年+</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">深度服务阿里国际、联合利华、必胜客、比亚迪等多家 500 强企业</p></div>
+        <div class="team-name">朱国栋</div><div class="team-role" style="color:var(--c-primary);font-weight:600">交付负责人 · 10年+</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/piaoyinshi.png')"></div>
-        <div class="team-name">朴银实</div><div class="team-role" style="color:var(--c-primary);font-weight:600">视频主管 · 10年 · 硕士</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">影视品宣视频项目管理经验，擅长整合资源、项目统筹与质量审核</p></div>
+        <div class="team-name">朴银实</div><div class="team-role" style="color:var(--c-primary);font-weight:600">视频主管 · 10年 · 硕士</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/juaner.png')"></div>
-        <div class="team-name">卷耳</div><div class="team-role" style="color:var(--c-primary);font-weight:600">视觉设计主管 · 10年</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">大文娱外包接口人，多年项目经验与统筹管理</p></div>
+        <div class="team-name">卷耳</div><div class="team-role" style="color:var(--c-primary);font-weight:600">视觉设计主管 · 10年</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/yinshuang.png')"></div>
-        <div class="team-name">殷爽</div><div class="team-role" style="color:var(--c-primary);font-weight:600">视觉设计主管 · 10年+</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">主要负责美团和阿里业务，擅长创意落地与团队统筹，把控画面质感与细节</p></div>
+        <div class="team-name">殷爽</div><div class="team-role" style="color:var(--c-primary);font-weight:600">视觉设计主管 · 10年+</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/tianrun.png')"></div>
-        <div class="team-name">田润</div><div class="team-role" style="color:var(--c-primary);font-weight:600">创意编导 · 8年+</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">擅长 TVC、短视频创意与成本平衡，执行经验丰富，服务阿里、老板电器等客户</p></div>
+        <div class="team-name">田润</div><div class="team-role" style="color:var(--c-primary);font-weight:600">创意编导 · 8年+</div></div>
       <div class="team-card"><div class="img-fit r-3-4" style="background-image:url('assets/img/team/songmengxuan.png')"></div>
-        <div class="team-name">宋梦轩</div><div class="team-role" style="color:var(--c-primary);font-weight:600">生成式视觉专家 · 5年 AIGC</div>
-        <p style="font-size:12.5px;color:var(--c-muted);margin-top:8px;line-height:1.7">精研平面、视频等多方面 AIGC 创作与工作流搭建，服务京东云、信华信等客户</p></div>
+        <div class="team-name">宋梦轩</div><div class="team-role" style="color:var(--c-primary);font-weight:600">生成式视觉专家 · 5年 AIGC</div></div>
     </div>
+    <p class="team-scroll-hint">← 左右滑动查看更多 →</p>
   </div>
 </section>
 
 <script src="assets/js/main.js"></script>
+
+<script>
+/* 全国布局点位：只显示城市名（无容量/人数/客户文字） */
+var ABOUT_CITIES = [
+  { n:'杭州', x:72, y:62 }, { n:'大连', x:87, y:22 },
+  { n:'西安', x:46, y:52 }, { n:'成都', x:32, y:72 },
+  { n:'武汉', x:66, y:52 }, { n:'郑州', x:61, y:46 },
+  { n:'北京', x:69, y:20 }, { n:'上海', x:86, y:52 },
+  { n:'广州', x:72, y:88 }, { n:'重庆', x:47, y:68 }
+];
+document.addEventListener('DOMContentLoaded', function () {
+  var box = document.getElementById('cityDots');
+  if (!box) return;
+  box.innerHTML = ABOUT_CITIES.map(function (c) {
+    return '<span class="city-dot" style="left:' + c.x + '%;top:' + c.y + '%">' + c.n + '</span>';
+  }).join('');
+});
+</script>
+
 </body>
 </html>
