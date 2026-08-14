@@ -118,6 +118,7 @@ window.pageInit = function () {
 
   // 案例视频：有映射则渲染真实播放器，无则隐藏视频区
   var vz = document.getElementById('videoZone');
+  if (vz) vz.style.display = 'none'; /* 视频已移除，隐藏播放区 */
   var videos = (typeof CASE_VIDEOS !== 'undefined' && CASE_VIDEOS[c.id]) ? CASE_VIDEOS[c.id] : null;
   if (vz) {
     if (videos && videos.length) {

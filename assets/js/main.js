@@ -12,40 +12,24 @@ var SITE = {
       text: '客户案例', href: 'cases.html', key: 'cases',
       children: [
         { text: '全部案例', href: 'cases.html' },
-        { text: '视频案例', href: 'video-cases.html' },
-        { text: '电商零售', href: 'cases.html?industry=电商零售' },
+        { text: '电商新零售', href: 'cases.html?industry=电商新零售' },
         { text: '金融科技', href: 'cases.html?industry=金融科技' },
         { text: '文娱', href: 'cases.html?industry=文娱' },
         { text: '生活服务', href: 'cases.html?industry=生活服务' },
-        { text: '食品', href: 'cases.html?industry=食品' },
+        { text: '食品酒饮', href: 'cases.html?industry=食品酒饮' },
         { text: '3C 家电', href: 'cases.html?industry=3C家电' },
         { text: '新能源', href: 'cases.html?industry=新能源' },
         { text: '半导体', href: 'cases.html?industry=半导体' }
       ]
     },
-    {
-      text: '服务内容', href: 'services.html', key: 'services',
-      children: [
-        { text: '包装设计', href: 'service-detail.html?s=包装设计' },
-        { text: '平面视觉', href: 'service-detail.html?s=平面视觉' },
-        { text: '图拍视频', href: 'service-detail.html?s=图拍视频' },
-        { text: '整合营销', href: 'service-detail.html?s=整合营销' },
-        { text: '品牌设计', href: 'service-detail.html?s=品牌设计' },
-        { text: 'IP 文创', href: 'service-detail.html?s=IP文创' },
-        { text: '三维设计', href: 'service-detail.html?s=3D设计' },
-        { text: 'UI 设计', href: 'service-detail.html?s=UI设计' },
-        { text: 'AIGC 赋能', href: 'aigc.html' }
-      ]
-    },
-    {
-      text: 'AIGC 赋能', href: 'aigc.html', key: 'aigc'
-    },
-    {
-      text: '关于我们', href: 'about.html', key: 'about' },
+    { text: '服务内容', href: 'services.html', key: 'services' },
+    { text: 'AIGC 赋能', href: 'aigc.html', key: 'aigc' },
+    { text: '关于我们', href: 'about.html', key: 'about' },
     { text: '联系我们', href: 'contact.html', key: 'contact' }
   ],
   cities: ['杭州'],
-  services: ['包装设计', '平面视觉', '图拍视频', '整合营销', '品牌设计', '三维设计', 'UI 设计', '品牌全案', 'AIGC 赋能', '其他'],
+  services: ['平面视觉', '品牌包装', '图拍视频', 'IP 设计', '整合营销', '品牌设计', 'AIGC', '三维设计'],
+  industries: ['电商新零售', '金融科技', '文娱', '生活服务', '食品酒饮', '3C 家电', '新能源', '半导体', '服饰', '大健康', '箱包', '美妆'],
   contact: {
     tel: '400-×××-××××（商务专线）',
     hotline: '188 0000 0000',
@@ -165,21 +149,7 @@ function getCase(id) {
 }
 
 /* 案例视频映射：caseId → assets/videos/ 下的视频文件（来自 PPTX 嵌入视频） */
-var CASE_VIDEOS = {
-  'c53': ['set1_media1.mp4','set1_media2.mp4','set1_media3.mp4','set1_media4.mp4','set1_media5.mp4'],   // 饿了么 H5 三维动画
-  'c64': ['set1_media7.mp4','set1_media8.mp4','set1_media9.mp4','set1_media10.mp4','set1_media11.mp4'], // 蚂蚁 AIGC 拆红包动效
-  'c67': ['set2_media9.mp4'],        // 阿里云 通义AI品牌传播视频
-  'c69': ['set2_media7.mp4'],        // 阿里妈妈 国图联名 AIGC 视频
-  'c70': ['set2_media11.mp4'],       // 堆友 D20 3D 宣传动画
-  'c75': ['set2_media5.mp4'],        // 京东 AVA 大会开场概念
-  'c76': ['set2_media12.mp4'],       // 京东 × MCM 联名
-  'c77': ['set2_media6.mp4'],        // 宁德时代 星河宣传片
-  'c78': ['set2_media8.mp4'],        // Alipay HK
-  'c79': ['set2_media13.mp4'],       // 科沃斯 产品宣传
-  'c80': ['set2_media14.mp4'],       // 海尔 品牌宣传
-  'c51': ['set1_media6.mp4'],        // 蚂蚁健康岛 3D（AIGC 视频案例）
-  'c59': ['set2_media1.mp4','set2_media2.mp4','set2_media3.mp4','set2_media4.mp4'] // 欢聚集团 直播礼物动效
-};
+var CASE_VIDEOS = {}; // 视频已全部移除（2026-08-14 减负）
 
 /* ---------- 新闻资讯数据（模拟接口返回，供列表/详情共用） ----------
    示例资讯：内容为依据公开合作背景撰写的原型示例，上线前请以品牌部正式稿为准 */
@@ -386,15 +356,14 @@ function buildFooter() {
   var cityLinks = SITE.cities.map(function (c) {
     return '<a href="contact.html?city=' + encodeURIComponent(c) + '">' + c + '</a>';
   }).join('');
-  var aboutLinks = '<a href="about.html">关于我们</a>' +
-    '<a href="news.html">新闻动态</a>';
+  var aboutLinks = '<a href="about.html">公司简介</a>';
 
   var html =
   '<section class="cta-band">' +
     '<div class="ph is-dark" data-label="背景图占位 · 建议 1920×420 · 深色调品牌视觉"></div>' +
     '<div class="wrap cta-inner">' +
       '<h3>获取品牌定制化服务</h3>' +
-      '<p>说明你的项目诉求，我们会在 1 个工作日内与你联系</p>' +
+      '<p>说明您的项目诉求，我们会在 1 个工作日内与你联系</p>' +
       '<button class="btn btn-primary js-consult" data-from="页脚CTA通栏">马上联系</button>' +
     '</div>' +
   '</section>' +
@@ -408,11 +377,10 @@ function buildFooter() {
         '<div class="foot-col">' +
           '<h4>关注我们</h4>' +
           '<div class="foot-qr">' +
-            '<div class="qr"><div class="ph" data-label="二维码"></div><p>公众号</p></div>' +
-            '<div class="qr"><div class="ph" data-label="二维码"></div><p>视频号</p></div>' +
+            '<div class="qr"><div class="ph" data-label="二维码"></div><p>小红书</p></div>' +
           '</div>' +
           '<ul class="foot-contact" style="margin-top:20px">' +
-            '<li><b>咨询热线</b>' + SITE.contact.tel + '</li>' +
+            '<li><b>商务热线</b>' + SITE.contact.tel + '</li>' +
             '<li><b>服务专线</b>' + SITE.contact.hotline + '</li>' +
             '<li><b>公司邮箱</b>' + SITE.contact.mail + '</li>' +
           '</ul>' +
@@ -458,13 +426,17 @@ function buildFooter() {
             '<select name="type">' +
               '<option value="">请选择</option>' +
               SITE.services.map(function (s) { return '<option>' + s + '</option>'; }).join('') +
-              '<option>其他</option>' +
+            '</select></div>' +
+          '<div class="form-item full"><label>预算区间</label>' +
+            '<select name="budget">' +
+              '<option value="">请选择</option>' +
+              '<option>10 万以下</option><option>10-30 万</option><option>30-100 万</option><option>100 万以上</option>' +
             '</select></div>' +
           '<div class="form-item full"><label>需求描述</label>' +
             '<textarea name="desc" placeholder="简单描述项目背景、预算区间与期望时间"></textarea></div>' +
           '<div class="form-item full"><label>验证码 <span class="req">*</span></label>' +
             '<div class="captcha-row"><input type="text" name="code" placeholder="请输入右侧验证码">' +
-            '<div class="ph" data-label="验证码"></div></div>' +
+            '<div class="captcha-code">A7K2</div></div>' +
             '<div class="form-err">请填写验证码</div></div>' +
           '<div class="form-item full">' +
             '<label class="form-agree"><input type="checkbox" id="agree" style="width:auto;margin-top:3px">' +
@@ -653,8 +625,10 @@ document.addEventListener('DOMContentLoaded', function () {
   buildFooter();
   bindEvents();
   initHero();
+  // 立即渲染页面内容（不依赖远程数据）
+  if (window.pageInit) window.pageInit();
+  // 远程数据加载完成后刷新案例列表（后台上传即时生效）
   loadRemoteCases().then(function (ok) {
-    // 远程数据加载完成后再渲染（无论成功与否都执行 pageInit）
-    if (window.pageInit) window.pageInit();
+    if (ok && window.pageInit) window.pageInit();
   });
 });
