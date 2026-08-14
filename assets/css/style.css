@@ -620,8 +620,7 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
 .modal-ok .ph { width: 132px; height: 132px; margin: 20px auto 10px; font-size: 10px; padding: 6px; }
 
 /* ---------- 进场动效 ---------- */
-.rv { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-.rv.in { opacity: 1; transform: none; }
+.rv { opacity: 1; transform: none; transition: opacity .7s var(--ease), transform .7s var(--ease); }
 @media (prefers-reduced-motion: reduce) {
   .rv { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }

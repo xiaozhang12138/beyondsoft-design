@@ -347,10 +347,10 @@ function buildHeader() {
 
 /* ---------- 注入页脚 ---------- */
 function buildFooter() {
-  var caseLinks = SITE.nav[1].children.map(function (c) {
+  var caseLinks = (SITE.nav[1].children || []).map(function (c) {
     return '<a href="' + c.href + '">' + c.text + '</a>';
   }).join('');
-  var svcLinks = SITE.nav[2].children.map(function (c) {
+  var svcLinks = (SITE.nav[2].children || []).map(function (c) {
     return '<a href="' + c.href + '">' + c.text + '</a>';
   }).join('');
   var cityLinks = SITE.cities.map(function (c) {
@@ -563,17 +563,29 @@ function bindEvents() {
     };
   }
 
-  // 进场动效
+  // 进场动效（观察当前所有 .rv，含 JS 渲染后新增的）
+  revealAll();
+}
+
+/* 观察所有 .rv 元素（渲染后调用，避免新元素永远 opacity:0） */
+function revealAll() {
+  var els = qa('.rv');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    qa('.rv').forEach(function (el) { io.observe(el); });
+    els.forEach(function (el) {
+      if (!el.classList.contains('in')) io.observe(el);
+    });
   } else {
-    qa('.rv').forEach(function (el) { el.classList.add('in'); });
+    els.forEach(function (el) { el.classList.add('in'); });
   }
+  /* 兜底：1.2s 后仍未显示的直接显示（防止 IO 异常导致页面空白） */
+  setTimeout(function () {
+    qa('.rv').forEach(function (el) { el.classList.add('in'); });
+  }, 1200);
 }
 
 /* ---------- 首页轮播 ---------- */
@@ -627,8 +639,11 @@ document.addEventListener('DOMContentLoaded', function () {
   initHero();
   // 立即渲染页面内容（不依赖远程数据）
   if (window.pageInit) window.pageInit();
+  // 渲染完成后重新观察 .rv（包含 JS 新增元素）
+  revealAll();
   // 远程数据加载完成后刷新案例列表（后台上传即时生效）
   loadRemoteCases().then(function (ok) {
     if (ok && window.pageInit) window.pageInit();
+    revealAll();
   });
 });
