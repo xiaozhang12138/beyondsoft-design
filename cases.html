@@ -74,13 +74,14 @@
       <div class="filter-opts" data-dim="s">
         <button class="fopt active" data-v="">不限</button>
         <button class="fopt" data-v="平面视觉">平面视觉</button>
-        <button class="fopt" data-v="品牌包装">品牌包装</button>
+        <button class="fopt" data-v="图拍视频">图拍视频</button>
+        <button class="fopt" data-v="包装设计">包装设计</button>
         <button class="fopt" data-v="品牌设计">品牌设计</button>
         <button class="fopt" data-v="整合营销">整合营销</button>
         <button class="fopt" data-v="3D设计">3D 设计</button>
         <button class="fopt" data-v="UI设计">UI 设计</button>
-        <button class="fopt" data-v="图拍视频">图拍视频</button>
-        <button class="fopt" data-v="AIGC赋能">AIGC 赋能</button>
+        <button class="fopt" data-v="IP设计">IP设计</button>
+        <button class="fopt" data-v="AIGC">AIGC</button>
       </div>
     </div>
 
@@ -135,7 +136,7 @@ var INDUSTRY_MAP = {
   '箱包': '箱包'
 };
 function mapIndustry(v) { return INDUSTRY_MAP[v] || v; }
-function mapService(v) { return v === '包装设计' ? '品牌包装' : v; }
+function mapService(v) { if(v==='包装设计') return '品牌包装'; if(v==='AIGC') return 'AIGC赋能'; if(v==='IP设计') return 'IP 文创'; return v; }
 
 var F = { i:'', s:'', kw:'' };
 var DIM_NAME = { i:'行业', s:'服务', kw:'关键词' };

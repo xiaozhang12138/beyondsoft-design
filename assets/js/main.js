@@ -410,14 +410,20 @@ function buildFooter() {
     '</div>' +
   '</footer>' +
 
-  '<div class="side-bar">' +
-    '<button class="side-btn js-consult" data-from="侧边悬浮"><i class="ico">&#9993;</i>咨询</button>' +
-    '<button class="side-btn"><i class="ico">&#9990;</i>电话' +
-      '<div class="pop"><b>' + SITE.contact.hotline + '</b></div></button>' +
-    '<button class="side-btn"><i class="ico">&#9635;</i>微信' +
-      '<div class="pop"><div class="ph" data-label="企微二维码"></div></div></button>' +
-    '<button class="side-btn" id="toTop"><i class="ico">&#8593;</i>顶部</button>' +
+  '<div class="float-panel">' +
+    '<div class="fp-head">立享专业咨询</div>' +
+    '<div class="fp-qr">' +
+      '<div class="fp-qr-img"><div class="ph" data-label="微信二维码"></div></div>' +
+      '<div class="fp-qr-label">微信扫码</div>' +
+    '</div>' +
+    '<div class="fp-divider"></div>' +
+    '<div class="fp-row"><span class="fp-label">服务专线</span><a class="fp-val" href="tel:' + SITE.contact.hotline + '">' + SITE.contact.hotline + '</a></div>' +
+    '<div class="fp-row"><span class="fp-label">电话咨询</span><a class="fp-val" href="tel:' + SITE.contact.tel + '">' + SITE.contact.tel + '</a></div>' +
+    '<button class="fp-btn js-consult" data-from="侧边悬浮面板">售前留言</button>' +
   '</div>' +
+  '<button class="float-top" id="toTop" aria-label="返回顶部">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>' +
+  '</button>' +
 
   '<div class="modal" id="consultModal">' +
     '<div class="modal-mask js-modal-close"></div>' +

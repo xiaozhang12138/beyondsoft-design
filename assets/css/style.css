@@ -577,24 +577,69 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
 /* ==========================================================================
    浮窗 / 弹窗 / 回顶
    ========================================================================== */
-.side-bar { position: fixed; right: 20px; bottom: 90px; z-index: 800; display: flex; flex-direction: column; gap: 10px; }
-.side-btn {
-  width: 52px; height: 52px; border-radius: 12px; background: #fff;
-  border: 1px solid var(--c-line); box-shadow: var(--shadow-sm);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2px; font-size: 11px; color: var(--c-body); transition: all .25s var(--ease); position: relative;
+.float-panel {
+  position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
+  z-index: 800; width: 130px;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.12);
+  padding: 14px 12px 12px;
+  text-align: center;
 }
-.side-btn:hover { background: var(--c-primary); color: #fff; border-color: var(--c-primary); transform: translateX(-3px); }
-.side-btn .ico { font-size: 17px; line-height: 1; }
-.side-btn .pop {
-  position: absolute; right: 62px; top: 50%; transform: translateY(-50%) translateX(8px);
-  background: #fff; border: 1px solid var(--c-line); border-radius: 8px; box-shadow: var(--shadow-md);
-  padding: 12px; opacity: 0; visibility: hidden; transition: all .25s var(--ease); white-space: nowrap; color: var(--c-ink);
+.fp-head {
+  font-size: 13px; font-weight: 700; color: var(--c-primary);
+  margin-bottom: 10px; letter-spacing: .5px;
 }
-.side-btn:hover .pop { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
-.side-btn .pop .ph { width: 104px; height: 104px; font-size: 9px; padding: 4px; }
-#toTop { opacity: 0; visibility: hidden; }
-#toTop.show { opacity: 1; visibility: visible; }
+.fp-qr-img {
+  width: 90px; height: 90px; margin: 0 auto;
+  border-radius: 6px; overflow: hidden;
+}
+.fp-qr-img .ph { width: 100%; height: 100%; }
+.fp-qr-label {
+  font-size: 10px; color: var(--c-muted); margin-top: 6px;
+  letter-spacing: .5px;
+}
+.fp-divider {
+  height: 1px; background: rgba(0,0,0,.06); margin: 10px 0;
+}
+.fp-row {
+  display: flex; flex-direction: column; gap: 1px; margin-bottom: 8px;
+  text-align: left;
+}
+.fp-label { font-size: 9px; color: var(--c-muted); letter-spacing: .5px; }
+.fp-val {
+  font-size: 12px; font-weight: 700; color: var(--c-ink);
+  letter-spacing: .3px; text-decoration: none;
+}
+.fp-val:hover { color: var(--c-primary); }
+.fp-btn {
+  width: 100%; height: 30px; margin-top: 2px;
+  background: var(--c-primary); color: #fff;
+  border: none; border-radius: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: .5px;
+  cursor: pointer; transition: all .25s var(--ease);
+}
+.fp-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+.float-top {
+  position: fixed; right: 20px; bottom: 30px; z-index: 800;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-body); cursor: pointer;
+  opacity: 0; visibility: hidden;
+  transition: all .3s var(--ease);
+}
+.float-top svg { width: 20px; height: 20px; }
+.float-top.show { opacity: 1; visibility: visible; }
+.float-top:hover { background: var(--c-primary); color: #fff; }
 
 .modal { position: fixed; inset: 0; z-index: 1000; display: none; }
 .modal.open { display: block; }
@@ -677,8 +722,10 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
   .detail-head h1 { font-size: 25px; }
   .sec-title { font-size: 23px; }
   .filter-row { flex-direction: column; gap: 8px; }
-  .side-bar { right: 12px; bottom: 70px; }
-  .side-btn { width: 46px; height: 46px; }
+  .float-panel { right: 8px; width: 110px; padding: 10px 8px 8px; }
+  .fp-qr-img { width: 70px; height: 70px; }
+  .fp-head { font-size: 12px; }
+  .float-top { right: 8px; width: 36px; height: 36px; }
   .sub-nav ul { overflow-x: auto; }
   .sub-nav a { padding: 15px 16px; white-space: nowrap; }
   .modal-box { padding: 28px 22px; }
