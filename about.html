@@ -110,26 +110,6 @@
   </div>
 </section>
 
-<!-- ============ 发展历程 ============ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="sec-kicker">Milestones</div>
-      <h2 class="sec-title">发展历程</h2>
-      <p class="sec-sub">与头部客户共同成长的关键节点</p>
-    </div>
-    <div class="timeline rv" style="max-width:760px;margin:0 auto">
-      <div class="tl-item"><div class="tl-year">2008</div><p>博彦设计团队成立，从一支小团队起步。</p></div>
-      <div class="tl-item"><div class="tl-year">2009</div><p>成为阿里巴巴设计框架供应商，开启与头部企业的长期合作。</p></div>
-      <div class="tl-item"><div class="tl-year">2016</div><p>成为京东 TOP1 设计供应商，合作至今已 10 年。</p></div>
-      <div class="tl-item"><div class="tl-year">2020</div><p>与美团建立年度合作，成为其 TOP2 设计供应商。</p></div>
-      <div class="tl-item"><div class="tl-year">2024</div><p>AIGC 全面赋能设计流程，人均提效 50%，创意产能翻倍。</p></div>
-      <div class="tl-item" style="padding-bottom:0"><div class="tl-year">至今</div><p>500+ 设计师团队，累计服务客户案例超过两万个，覆盖全国 10 个主流城市。</p></div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ============ 管理团队（自动无限滚动） ============ -->
 <section class="sec">
   <div class="wrap">
@@ -147,13 +127,7 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
-  var m = document.getElementById('clientMarquee');
-  if (m && typeof SITE_CLIENTS !== 'undefined') {
-    var cells = SITE_CLIENTS.map(function (c) {
-      return '<div class="client-cell"><span style="font-weight:700;color:var(--c-ink);font-size:16px;letter-spacing:1px;white-space:nowrap">' + c + '</span></div>';
-    }).join('');
-    m.innerHTML = '<div class="client-marquee-track">' + cells + cells + '</div>';
-  }
+  renderLogoMarquee('clientMarquee');
 });
 /* 核心管理团队：自动无限滚动 */
 var TEAM_MEMBERS = [

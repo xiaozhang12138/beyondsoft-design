@@ -26,38 +26,7 @@
     </div>
   </div>
 
-  <div class="hero-slide">
-    <div class="hero-bg" style="background-image:url('assets/img/case-alibaba.jpg')"></div>
-    <div class="hero-mask"></div>
-    <div class="hero-body">
-      <span class="hero-tag">合作 16 年 · 年度框架供应商</span>
-      <h1 class="hero-title">头部企业的<br>长期设计伙伴</h1>
-      <p class="hero-desc">被对设计要求最严苛的头部企业连续选中 16 年——阿里、蚂蚁、美团、京东……就是能力最好的证明。</p>
-      <div class="hero-btns">
-        <a href="case-detail.html?c=阿里" class="btn btn-primary">了解阿里合作</a>
-        <button class="btn btn-ghost js-consult" data-from="首页Banner-2">免费咨询</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-slide">
-    <div class="hero-bg" style="background-image:url('assets/img/case-meituan.jpg')"></div>
-    <div class="hero-mask"></div>
-    <div class="hero-body">
-      <span class="hero-tag">平面 · 包装 · 视频 · 全链路</span>
-      <h1 class="hero-title">从品牌到物料<br>一站式交付</h1>
-      <p class="hero-desc">平均 15 分钟接单、24 小时值班、紧急需求响应率 98%，计件与人月两种灵活合作模式，成本清晰可控。</p>
-      <div class="hero-btns">
-        <a href="services.html" class="btn btn-primary">了解服务内容</a>
-        <button class="btn btn-ghost js-consult" data-from="首页Banner-3">免费咨询</button>
-      </div>
-    </div>
-  </div>
-
-  <button class="hero-arrow prev" aria-label="上一张">&#8249;</button>
-  <button class="hero-arrow next" aria-label="下一张">&#8250;</button>
-  <div class="hero-dots"><i class="active"></i><i></i><i></i></div>
-</section>
+  </section>
 
 <!-- ============ 数据概览 ============ -->
 <section class="sec" style="padding:64px 0">
@@ -137,18 +106,18 @@ var HOME_CASES = [
   { id: 'c02', client: '玄铁', name: '玄铁 · 品牌VI与UI设计体系', cat: '半导体', tags: ['平面视觉'], img: 'case-xuantie.jpg' }
 ];
 
-var CLIENT_LOGOS = ['client-00','client-02','client-03','client-04','client-05','client-07','client-08','client-09','client-10','client-11','client-12','client-13','client-14','client-15','client-16','client-18','client-19','client-20','client-21','client-22','client-23','client-24','client-25','client-26','client-27','client-28','client-29','client-30'];
-
 
 /* 九大服务模块：只留名称+英文，三个主营排版突出 */
 var HOME_SERVICES = [
   { n:'平面视觉', en:'Graphic & Brand Visual', main:true },
-  { n:'包装设计', en:'Packaging Design', main:true },
   { n:'图拍视频', en:'Film & Video', main:true },
-  { n:'UI 设计', en:'User Interface', main:false },
-  { n:'三维设计', en:'3D Design', main:false },
+  { n:'包装设计', en:'Packaging Design', main:true },
+  { n:'整合营销', en:'Integrated Marketing', main:false },
   { n:'品牌设计', en:'Brand Design', main:false },
-  { n:'整合营销', en:'Integrated Marketing', main:false }
+  { n:'IP 文创', en:'Cultural Creative', main:false },
+  { n:'三维设计', en:'3D Design', main:false },
+  { n:'UI 设计', en:'User Interface', main:false },
+  { n:'AIGC', en:'AI Generated Art', main:false }
 ];
 
 function renderHomeSvc() {
@@ -164,13 +133,7 @@ function renderHomeSvc() {
 }
 
 function renderClientWall() {
-  var box = document.getElementById('clientMarquee');
-  if (!box) return;
-  var cells = CLIENT_LOGOS.map(function (f) {
-    return '<div class="client-cell"><img src="assets/img/' + f + '.png" alt="合作客户" loading="lazy"></div>';
-  }).join('');
-  /* 双份内容实现无缝循环 */
-  box.innerHTML = '<div class="client-marquee-track">' + cells + cells + '</div>';
+  renderLogoMarquee('clientMarquee');
 }
 
 var GLOBAL_CITIES = [

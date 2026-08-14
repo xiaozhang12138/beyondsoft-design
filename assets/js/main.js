@@ -43,6 +43,19 @@ var SITE = {
 /* ---------- 合作客户（用于 Logo 墙 / 关于页） ---------- */
 var SITE_CLIENTS = ['迪安诊断', '玄铁', '中国银行', '阿里妈妈', '宁德时代', '唐宫夜宴', '蚂蚁集团', '网易云音乐', '支付宝', '网易', '美团', '明康汇', '毕节', '1688', '迷你巴拉', '百度', '阿里', '京东', '天猫', '快手', '虎鲸文娱', '科沃斯', '森马', '平安证券', '沪上阿姨', '小满手工粉', '古茗', '饿了么', '腾讯', '欢聚集团', '淘宝', '海尔'];
 
+/* 客户 logo 图片列表（首页客户墙轮播用） */
+var CLIENT_LOGOS = ['client-00','client-02','client-03','client-04','client-05','client-07','client-08','client-09','client-10','client-11','client-12','client-13','client-14','client-15','client-16','client-18','client-19','client-20','client-21','client-22','client-23','client-24','client-25','client-26','client-27','client-28','client-29','client-30'];
+
+/* 通用客户墙轮播渲染：logo 图片版（与首页一致） */
+function renderLogoMarquee(id) {
+  var box = document.getElementById(id);
+  if (!box) return;
+  var cells = CLIENT_LOGOS.map(function (f) {
+    return '<div class="client-cell"><img src="assets/img/' + f + '.png" alt="合作客户" loading="lazy"></div>';
+  }).join('');
+  box.innerHTML = '<div class="client-marquee-track">' + cells + cells + '</div>';
+}
+
 /* ---------- 客户案例数据（模拟接口返回，供首页/列表/详情共用） ----------
    i = 行业  s = 服务类型  img = 列表缩略图  year = 合作/上线时间 */
 var SITE_CASES = [
