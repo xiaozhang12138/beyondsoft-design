@@ -50,12 +50,15 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .tl-list .item { display:flex; gap:28px; padding:22px 0; border-bottom:1px solid var(--c-line); }
 .tl-list .item b { color:var(--c-accent); font-weight:400; width:64px; flex:none; font-size:15px; }
 .tl-list .item span { color:var(--c-body); }
-.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px 26px; }
-.team-card { text-align:center; }
-.team-card .avatar { aspect-ratio:3/4; background-size:cover; background-position:center; border-radius:2px; margin-bottom:16px; }
-.team-name { font-size:16px; color:var(--c-ink); font-weight:500; }
-.team-role { font-size:12.5px; color:var(--c-accent); letter-spacing:1px; margin-top:4px; }
-.team-desc { font-size:12.5px; color:var(--c-muted); margin-top:10px; line-height:1.7; font-weight:300; }
+.team-scroll { overflow:hidden; }
+.team-scroll-track { display:flex; gap:20px; width:max-content; animation:scrollLeft 30s linear infinite; }
+.team-scroll:hover .team-scroll-track { animation-play-state:paused; }
+@keyframes scrollLeft { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+.team-card { text-align:center; width:240px; flex:none; }
+.team-card .avatar { aspect-ratio:1/1; background-size:cover; background-position:center; border-radius:2px; margin-bottom:14px; }
+.team-name { font-size:15px; color:var(--c-ink); font-weight:500; }
+.team-role { font-size:12px; color:var(--c-accent); letter-spacing:1px; margin-top:4px; }
+.team-desc { font-size:12px; color:var(--c-muted); margin-top:8px; line-height:1.65; font-weight:300; padding:0 6px; }
 .footer { background:#101216; color:#8b919a; padding:70px 0 36px; font-size:14px; }
 .foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; padding-bottom:50px; border-bottom:1px solid #23262c; }
 .foot-brand .logo-txt { color:#fff; }
@@ -77,12 +80,11 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   .hamburger span { width:22px; height:2px; background:var(--c-ink); }
   .metric-strip { grid-template-columns:1fr 1fr; }
   .metric-cell:nth-child(3) { border-left:none; }
-  .team-grid { grid-template-columns:1fr 1fr; }
   .foot-grid { grid-template-columns:1fr 1fr; gap:40px; }
 }
 @media (max-width:640px) {
   .wrap, .nav-inner { padding:0 20px; }
-  .metric-strip, .team-grid { grid-template-columns:1fr; }
+  .metric-strip { grid-template-columns:1fr; }
   .metric-cell { border-left:none; border-top:1px solid var(--c-line); }
   .foot-grid { grid-template-columns:1fr; }
 }
@@ -95,11 +97,8 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
     <a class="logo" href="index.html"><span class="logo-txt">博彦<em>设计</em></span></a>
     <div class="nav-menu">
       <a class="nav-link" href="index.html">首页</a>
-      <a class="nav-link" href="cases.html">客户案例</a>
       <a class="nav-link" href="services.html">服务内容</a>
-      <a class="nav-link" href="aigc.html">AIGC</a>
       <a class="nav-link active" href="about.html">关于我们</a>
-      <a class="nav-link" href="contact.html">联系我们</a>
     </div>
     <div class="nav-cta">
       <button class="btn-ghost-nav js-consult" data-from="v2关于页">免费咨询</button>
@@ -190,7 +189,9 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
       <h2>核心管理团队</h2>
       <p>设计总监、交付负责人、视觉与视频主管均 10 年以上经验，长期服务阿里、美团、百度等头部客户。</p>
     </div>
-    <div class="team-grid rv" id="v2Team"></div>
+    <div class="team-scroll rv">
+      <div class="team-scroll-track" id="v2Team"></div>
+    </div>
   </div>
 </section>
 
@@ -201,8 +202,8 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
         <span class="logo-txt">博彦设计</span>
         <p>隶属博彦科技（上市公司）旗下。<br>包装设计 · 平面视觉 · 图拍视频，一站式视觉整合。</p>
       </div>
-      <div class="foot-col"><h4>服务内容</h4><a href="service-detail.html?s=包装设计">包装设计</a><a href="service-detail.html?s=平面视觉">平面视觉</a><a href="service-detail.html?s=图拍视频">图拍视频</a><a href="aigc.html">AIGC</a></div>
-      <div class="foot-col"><h4>关于我们</h4><a href="cases.html">客户案例</a><a href="news.html">新闻动态</a><a href="contact.html">联系我们</a></div>
+      <div class="foot-col"><h4>服务内容</h4><a href="javascript:;">包装设计</a><a href="javascript:;">平面视觉</a><a href="javascript:;">图拍视频</a><a href="javascript:;">AIGC</a></div>
+      <div class="foot-col"><h4>关于我们</h4><a href="javascript:;">客户案例</a><a href="javascript:;">新闻动态</a><a href="javascript:;">联系我们</a></div>
       <div class="foot-col"><h4>联系</h4><a>杭州 · 总部</a><a>design@beyondsoft.com</a></div>
     </div>
     <div class="foot-bottom"><div>博彦设计 · 博彦科技（上市公司）旗下 © 版权所有</div><div>浙ICP备00000000号</div></div>
@@ -211,7 +212,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="btnClose">&times;</button>
-  <a href="index.html">首页</a><a href="cases.html">客户案例</a><a href="services.html">服务内容</a><a href="aigc.html">AIGC</a><a href="about.html">关于我们</a><a href="contact.html">联系我们</a>
+  <a href="index.html">首页</a><a href="services.html">服务内容</a><a href="about.html">关于我们</a>
 </div>
 
 <script>
@@ -228,11 +229,12 @@ var V2_TEAM = [
 ];
 document.addEventListener('DOMContentLoaded', function () {
   var box = document.getElementById('v2Team');
-  box.innerHTML = V2_TEAM.map(function (t) {
+  var cards = V2_TEAM.map(function (t) {
     return '<div class="team-card"><div class="avatar" style="background-image:url(\'assets/img/' + t.img + '\')"></div>' +
       '<div class="team-name">' + t.n + '</div><div class="team-role">' + t.r + '</div>' +
       '<div class="team-desc">' + t.d + '</div></div>';
   }).join('');
+  box.innerHTML = cards + cards;
   document.getElementById('btnMenu').onclick = function () { document.getElementById('drawer').classList.add('open'); };
   document.getElementById('btnClose').onclick = function () { document.getElementById('drawer').classList.remove('open'); };
   if ('IntersectionObserver' in window) {
