@@ -556,7 +556,7 @@ var HOME_SERVICES = [
   { n:'AIGC', en:'AI Generated Art', main:false, skills:['内容策划','图生视频','文生图','视频剪辑','动画与 3D 模型','AI 数字人','数据可视化'] }
 ];
 
-function renderSvcGrid(containerId, mini) {
+var renderSvcGrid = function(containerId, mini) {
   var box = document.getElementById(containerId);
   if (!box) return;
   box.innerHTML = HOME_SERVICES.map(function (s, i) {
