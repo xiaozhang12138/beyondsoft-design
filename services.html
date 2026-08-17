@@ -110,29 +110,9 @@
 <script src="assets/js/main.js"></script>
 <script>
 /* 九大服务模块 */
-var SVC_LIST = [
-  { n:'平面视觉', en:'Graphic & Brand Visual', main:true },
-  { n:'包装设计', en:'Packaging Design', main:true },
-  { n:'图拍视频', en:'Film & Video', main:true },
-  { n:'整合营销', en:'Integrated Marketing', main:false },
-  { n:'品牌设计', en:'Brand Design', main:false },
-  { n:'IP 文创', en:'Cultural Creative', main:false },
-  { n:'三维设计', en:'3D Design', main:false },
-  { n:'UI 设计', en:'User Interface', main:false },
-  { n:'AIGC', en:'AI Generated Art', main:false }
-];
 
 window.pageInit = function () {
-  var g = document.getElementById('svcGrid');
-  if (g) {
-    g.innerHTML = SVC_LIST.map(function (s, i) {
-      return '<div class="svc-card svc-mini' + (s.main ? ' svc-featured' : '') + '">' +
-        '<span class="svc-idx">' + (i < 9 ? '0' + (i + 1) : i + 1) + '</span>' +
-        '<h3 class="svc-name">' + s.n + '</h3>' +
-        '<div class="svc-en">' + s.en + '</div>' +
-      '</div>';
-    }).join('');
-  }
+  renderSvcGrid('svcGrid', false);
   renderLogoMarquee('clientMarquee');
 };
 </script>

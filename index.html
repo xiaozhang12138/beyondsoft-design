@@ -105,29 +105,7 @@ var HOME_CASES = [
 
 
 /* 九大服务模块：只留名称+英文，三个主营排版突出 */
-var HOME_SERVICES = [
-  { n:'平面视觉', en:'Graphic & Brand Visual', main:true },
-  { n:'图拍视频', en:'Film & Video', main:true },
-  { n:'包装设计', en:'Packaging Design', main:true },
-  { n:'整合营销', en:'Integrated Marketing', main:false },
-  { n:'品牌设计', en:'Brand Design', main:false },
-  { n:'IP 文创', en:'Cultural Creative', main:false },
-  { n:'三维设计', en:'3D Design', main:false },
-  { n:'UI 设计', en:'User Interface', main:false },
-  { n:'AIGC', en:'AI Generated Art', main:false }
-];
 
-function renderHomeSvc() {
-  var box = document.getElementById('homeSvcGrid');
-  if (!box) return;
-  box.innerHTML = HOME_SERVICES.map(function (s, i) {
-    return '<div class="svc-card svc-mini' + (s.main ? ' svc-featured' : '') + '" data-idx="' + i + '">' +
-      '<span class="svc-idx">' + (i < 9 ? '0' + (i + 1) : i + 1) + '</span>' +
-      '<h3 class="svc-name">' + s.n + '</h3>' +
-      '<div class="svc-en">' + s.en + '</div>' +
-    '</div>';
-  }).join('');
-}
 
 function renderClientWall() {
   renderLogoMarquee('clientMarquee');
@@ -157,7 +135,7 @@ function renderHomeCases(cat) {
 
 window.pageInit = function () {
   renderHomeCases('全部');
-  renderHomeSvc();
+  renderSvcGrid('homeSvcGrid', true);
   renderClientWall();
   document.querySelectorAll('#homeTabs .tab').forEach(function (t) {
     t.onclick = function () {
