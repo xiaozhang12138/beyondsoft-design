@@ -42,8 +42,8 @@
   max-width: 520px; line-height: 1.9; margin-bottom: 56px;
 }
 .aigc-hero-metrics {
-  display: grid; grid-template-columns: repeat(4, auto);
-  gap: 64px; padding-top: 44px; border-top: 1px solid rgba(255,255,255,.1);
+  display: grid; grid-template-columns: repeat(3, auto);
+  justify-content: center; gap: 80px; padding-top: 44px; border-top: 1px solid rgba(255,255,255,.1);
 }
 .aigc-hero-metrics .m-num {
   font-size: clamp(34px, 4vw, 52px); font-weight: 200; letter-spacing: 1px;
@@ -164,7 +164,7 @@
   .pillar-grid, .aigc-case-grid { grid-template-columns: 1fr 1fr; gap: 48px 32px; }
   .flow-steps { grid-template-columns: 1fr 1fr; gap: 40px 0; }
   .flow-step:nth-child(2)::after { display: none; }
-  .aigc-hero-metrics { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .aigc-hero-metrics { grid-template-columns: repeat(3, auto); gap: 40px; }
 }
 @media (max-width: 720px) {
   .aigc-sec { padding: 90px 0; }
@@ -183,20 +183,20 @@
   <div class="bg-grid"></div>
   <div class="aigc-hero-body rv">
     <div class="kicker">AIGC Empowerment · 博彦设计</div>
-    <h1>AIGC 释放<em>无限创意</em></h1>
-    <p class="sub">2022 年率先完成 AIGC 与视觉工作流的深度融合，现已实现全项目 100% AI 赋能。持续锚定前沿模型技术迭代，构筑高效精准的智能视觉设计解决方案。</p>
+    <h1>AIGC重构<em>视觉生产力</em></h1>
+    <p class="sub">行业首批实现 AIGC 与视觉工作流深度融合，现已完成 100% 项目AI 赋能覆盖。持续锚定前沿模型技术迭代，构筑高效精准的智能视觉设计解决方案体系。</p>
     <div class="aigc-hero-metrics">
       <div>
         <div class="m-num">100<i>%</i></div>
-        <div class="m-label">AI 赋能项目</div>
+        <div class="m-label">AI 支持八大业务模块</div>
+      </div>
+      <div>
+        <div class="m-num">100<i>%</i></div>
+        <div class="m-label">设计师熟练应用 AIGC</div>
       </div>
       <div>
         <div class="m-num">50<i>%</i></div>
         <div class="m-label">提升设计效率</div>
-      </div>
-      <div>
-        <div class="m-num">90<i>%</i></div>
-        <div class="m-label">提升视觉一致性</div>
       </div>
     </div>
   </div>
