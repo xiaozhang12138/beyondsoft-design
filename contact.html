@@ -31,12 +31,10 @@
       <div class="contact-card">
         <h3 id="cityName">杭州</h3>
 
-        <div class="contact-line"><div class="k">电话</div>
-          <div class="v"><a href="tel:057100000000">0571-0000 0000</a>（商务专线）</div></div>
-        <div class="contact-line"><div class="k">专线</div>
-          <div class="v"><a href="tel:18800000000">188 0000 0000</a></div></div>
+        <div class="contact-line"><div class="k">商务热线</div>
+          <div class="v"><a href="tel:19550254115">1955 0254 115</a>（李女士）</div></div>
         <div class="contact-line"><div class="k">邮箱</div>
-          <div class="v"><a href="mailto:design@beyondsoft.com">design@beyondsoft.com</a></div></div>
+          <div class="v"><a href="mailto:lilinhua01@beyondsoft.com">lilinhua01@beyondsoft.com</a></div></div>
 
         <div class="office-list" id="officeList"></div>
 
@@ -69,35 +67,11 @@
         <div class="form-item"><label>姓名 <span class="req">*</span></label>
           <input type="text" name="name" placeholder="请输入您的称呼">
           <div class="form-err">请填写姓名</div></div>
-        <div class="form-item"><label>手机号 <span class="req">*</span></label>
-          <input type="tel" name="phone" placeholder="请输入您的手机号码">
-          <div class="form-err">请填写正确的 11 位手机号</div></div>
-        <div class="form-item"><label>公司名称</label>
-          <input type="text" name="company" placeholder="请输入公司名称"></div>
-        <div class="form-item"><label>需求类型</label>
-          <select name="type">
-            <option value="">请选择</option>
-            <option>平面视觉</option><option>包装设计</option><option>图拍视频</option>
-            <option>品牌全案</option><option>AIGC 赋能</option><option>其他</option>
-          </select></div>
-        <div class="form-item full"><label>预算区间</label>
-          <select name="budget">
-            <option value="">请选择</option>
-            <option>10 万以下</option><option>10-30 万</option>
-            <option>30-100 万</option><option>100 万以上</option>
-          </select></div>
-        <div class="form-item full"><label>需求描述</label>
-          <textarea name="desc" placeholder="简单描述项目背景与期望时间"></textarea></div>
-        <div class="form-item full"><label>验证码 <span class="req">*</span></label>
-          <div class="captcha-row"><input type="text" name="code" placeholder="请输入右侧验证码">
-            <div class="captcha-box">A7K2</div></div>
-          <div class="form-err">请填写验证码</div>
-          </div>
-        <div class="form-item full">
-          <label class="form-agree"><input type="checkbox" id="agree2" style="width:auto;margin-top:3px">
-            <span>我已阅读并同意 <a href="#">《隐私政策》</a>，同意贵司使用上述信息与我联系</span></label>
-          <div class="form-err" id="agree2Err">请先阅读并同意隐私政策</div>
-        </div>
+        <div class="form-item"><label>邮箱 / 电话 <span class="req">*</span></label>
+          <input type="text" name="contact" placeholder="请输入邮箱或手机号">
+          <div class="form-err">请填写邮箱或手机号</div></div>
+        <div class="form-item full"><label>留言内容</label>
+          <textarea name="message" placeholder="简单描述您的需求"></textarea></div>
         <div class="form-item full">
           <button type="submit" class="btn btn-primary" style="width:100%">提交咨询</button></div>
       </form>
@@ -105,26 +79,7 @@
       <div id="pageOk" style="display:none;text-align:center;padding:20px 0">
         <div class="modal-ok"><div class="tick">&#10003;</div>
           <h3 style="font-size:22px;color:var(--c-ink)">提交成功</h3>
-          <p class="sub">我们已收到你的需求，商务顾问会尽快联系你</p>
-          <div class="qr-box" style="margin-top:14px">
-            <svg viewBox="0 0 100 100" fill="none" stroke="#14161a" stroke-width="4">
-              <rect x="6" y="6" width="22" height="22" rx="3"/><rect x="14" y="14" width="6" height="6" fill="#14161a"/>
-              <rect x="72" y="6" width="22" height="22" rx="3"/><rect x="80" y="14" width="6" height="6" fill="#14161a"/>
-              <rect x="6" y="72" width="22" height="22" rx="3"/><rect x="14" y="80" width="6" height="6" fill="#14161a"/>
-              <rect x="40" y="10" width="6" height="6" fill="#14161a"/><rect x="52" y="10" width="6" height="6" fill="#14161a"/>
-              <rect x="40" y="22" width="6" height="6" fill="#14161a"/><rect x="64" y="22" width="6" height="6" fill="#14161a"/>
-              <rect x="40" y="40" width="6" height="6" fill="#14161a"/><rect x="52" y="40" width="6" height="6" fill="#14161a"/>
-              <rect x="64" y="40" width="6" height="6" fill="#14161a"/><rect x="76" y="40" width="6" height="6" fill="#14161a"/>
-              <rect x="88" y="40" width="6" height="6" fill="#14161a"/><rect x="40" y="52" width="6" height="6" fill="#14161a"/>
-              <rect x="64" y="52" width="6" height="6" fill="#14161a"/><rect x="88" y="52" width="6" height="6" fill="#14161a"/>
-              <rect x="40" y="64" width="6" height="6" fill="#14161a"/><rect x="52" y="64" width="6" height="6" fill="#14161a"/>
-              <rect x="76" y="64" width="6" height="6" fill="#14161a"/><rect x="40" y="76" width="6" height="6" fill="#14161a"/>
-              <rect x="52" y="76" width="6" height="6" fill="#14161a"/><rect x="64" y="76" width="6" height="6" fill="#14161a"/>
-              <rect x="76" y="76" width="6" height="6" fill="#14161a"/><rect x="88" y="76" width="6" height="6" fill="#14161a"/>
-              <rect x="88" y="88" width="6" height="6" fill="#14161a"/>
-            </svg>
-          </div>
-          <p style="font-size:13px">扫码添加商务企微，可即时沟通</p></div>
+          <p class="sub">我们已收到你的需求，商务顾问会尽快联系你</p></div>
       </div>
 
     </div>
@@ -188,11 +143,7 @@ window.pageInit = function () {
     var ok = true;
     f.querySelectorAll('.form-item').forEach(function (i) { i.classList.remove('error'); });
     if (!f.name.value.trim()) { f.name.closest('.form-item').classList.add('error'); ok = false; }
-    if (!/^1[3-9]\d{9}$/.test(f.phone.value.trim())) { f.phone.closest('.form-item').classList.add('error'); ok = false; }
-    if (!f.code.value.trim()) { f.code.closest('.form-item').classList.add('error'); ok = false; }
-    var a = document.getElementById('agree2');
-    document.getElementById('agree2Err').style.display = a.checked ? 'none' : 'block';
-    if (!a.checked) ok = false;
+    if (!f.contact.value.trim()) { f.contact.closest('.form-item').classList.add('error'); ok = false; }
     if (!ok) return;
     f.style.display = 'none';
     document.getElementById('pageOk').style.display = '';

@@ -548,9 +548,6 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
 .form-item.error .form-err { display: block; }
 .form-agree { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--c-muted); margin: 6px 0 4px; }
 .form-agree a { color: var(--c-primary); }
-.captcha-row { display: flex; gap: 10px; }
-.captcha-row input { flex: 1; }
-.captcha-row .ph { width: 108px; height: 45px; flex: none; font-size: 10px; padding: 4px; }
 
 /* ==========================================================================
    页脚
@@ -567,6 +564,7 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
 .foot-qr { display: flex; gap: 14px; }
 .foot-qr .qr { text-align: center; }
 .foot-qr .ph { width: 84px; height: 84px; margin-bottom: 8px; font-size: 9px; padding: 4px; }
+.foot-qr .qr img { width: 96px; height: 96px; border-radius: 10px; margin-bottom: 8px; display: block; object-fit: cover; }
 .foot-qr p { font-size: 12px; }
 .foot-bottom {
   border-top: 1px solid #262a31; padding: 22px 0; font-size: 12.5px;
@@ -598,6 +596,7 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
   border-radius: 6px; overflow: hidden;
 }
 .fp-qr-img .ph { width: 100%; height: 100%; }
+.fp-qr-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .fp-qr-label {
   font-size: 10px; color: var(--c-muted); margin-top: 6px;
   letter-spacing: .5px;
@@ -777,15 +776,6 @@ body.dev .spec, body.dev .demo-note { display: block; }
 }
 .qr-box svg { width: 104px; height: 104px; }
 
-/* 图形验证码占位（仿真样式） */
-.captcha-box {
-  width: 108px; height: 45px; flex: none; border-radius: 8px;
-  background: linear-gradient(135deg, #eef1f6, #dde6f3); color: #1a4fd6;
-  font-weight: 700; letter-spacing: 5px; font-size: 20px; font-style: italic;
-  display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--c-line); user-select: none;
-}
-
 /* 联系页：真实地图嵌入 */
 .map-box { height: 100%; min-height: 520px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-line); }
 .map-frame { width: 100%; height: 100%; min-height: 520px; border: 0; display: block; }
@@ -877,15 +867,6 @@ body.dev .spec, body.dev .demo-note { display: block; }
   to { transform: translateX(-50%); }
 }
 
-/* 验证码 */
-.captcha-code {
-  flex: none; width: 96px; height: 40px; border-radius: 8px;
-  background: var(--c-bg-soft,#eef0f3); color: var(--c-ink,#14161a);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 18px; letter-spacing: 4px;
-  border: 1px dashed var(--c-line,#dfe3e8); user-select: none;
-}
-
 /* 九大模块：简约卡片（名称+英文），主营用排版突出 */
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .svc-mini {
@@ -911,33 +892,3 @@ body.dev .spec, body.dev .demo-note { display: block; }
 @media (max-width: 1024px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } }
 
-/* 核心管理团队：自动无限滚动 */
-.team-marquee { position: relative; overflow: hidden; padding: 8px 0; }
-.team-marquee-track {
-  display: flex; gap: 20px; width: max-content;
-  animation: team-marquee-scroll 45s linear infinite;
-}
-.team-marquee:hover .team-marquee-track { animation-play-state: paused; }
-.team-marquee-track .team-card {
-  flex: 0 0 200px; scroll-snap-align: start;
-  background: #fff; border: 1px solid var(--c-line);
-  border-radius: var(--radius); padding: 14px 14px 18px;
-  transition: transform .25s, box-shadow .25s;
-}
-.team-marquee-track .team-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(20,22,26,.08); }
-.team-marquee-track .team-card .img-fit { border-radius: 8px; margin-bottom: 12px; }
-.team-marquee-track .team-name { font-size: 15px; font-weight: 600; color: var(--c-ink); }
-.team-marquee-track .team-role { font-size: 12px; margin-top: 4px; letter-spacing: .5px; }
-.team-marquee-track .team-desc { font-size: 11.5px; color: var(--c-muted); margin-top: 8px; line-height: 1.6; }
-.team-marquee::before, .team-marquee::after {
-  content: ""; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none;
-}
-.team-marquee::before { left: 0; background: linear-gradient(90deg, var(--c-bg,#fff), transparent); }
-.team-marquee::after { right: 0; background: linear-gradient(270deg, var(--c-bg,#fff), transparent); }
-@keyframes team-marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@media (max-width: 640px) {
-  .team-marquee-track .team-card { flex-basis: 150px; }
-}

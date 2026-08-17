@@ -133,29 +133,6 @@ function renderClientWall() {
   renderLogoMarquee('clientMarquee');
 }
 
-var GLOBAL_CITIES = [
-  { n:'杭州', cap:'2330', ppl:'450', c:'蚂蚁、阿里、美团、百度、平安证券、科沃斯、乐刻等' },
-  { n:'大连', cap:'200', ppl:'150', c:'阿里、美团' },
-  { n:'西安', cap:'1450', ppl:'30', c:'蚂蚁、阿里、网易' },
-  { n:'成都', cap:'260', ppl:'80', c:'蚂蚁、阿里' },
-  { n:'武汉', cap:'60', ppl:'50', c:'京东、沪上阿姨' },
-  { n:'郑州', cap:'50', ppl:'40', c:'蚂蚁' }
-];
-
-function renderCityGrid() {
-  var box = document.getElementById('cityGrid');
-  if (!box) return;
-  var cards = GLOBAL_CITIES.map(function (o) {
-    return '<div class="city-card">' +
-      '<div class="city-name">' + o.n + '</div>' +
-      '<div class="city-meta"><span>场地容量 ' + o.cap + '</span><span>业务人数 ' + o.ppl + '</span></div>' +
-      '<div class="city-clients">主要客户：' + o.c + '</div>' +
-    '</div>';
-  }).join('');
-  box.innerHTML = cards +
-    '<div class="city-note">另在北京、上海、广州、重庆设有业务点，设计业务覆盖全国 10 城。</div>';
-}
-
 function renderHomeCases(cat) {
   var list = cat === '全部' ? HOME_CASES : HOME_CASES.filter(function (c) { return c.cat === cat; });
   var box = document.getElementById('homeCases');
@@ -182,7 +159,6 @@ window.pageInit = function () {
   renderHomeCases('全部');
   renderHomeSvc();
   renderClientWall();
-  renderCityGrid();
   document.querySelectorAll('#homeTabs .tab').forEach(function (t) {
     t.onclick = function () {
       document.querySelectorAll('#homeTabs .tab').forEach(function (x) { x.classList.remove('active'); });

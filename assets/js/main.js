@@ -31,9 +31,9 @@ var SITE = {
   services: ['平面视觉', '品牌包装', '图拍视频', 'IP 设计', '整合营销', '品牌设计', 'AIGC', '三维设计'],
   industries: ['电商新零售', '金融科技', '文娱', '生活服务', '食品酒饮', '3C 家电', '新能源', '半导体', '服饰', '大健康', '箱包', '美妆'],
   contact: {
-    tel: '400-×××-××××（商务专线）',
-    hotline: '188 0000 0000',
-    mail: 'design@beyondsoft.com',
+    tel: '1955 0254 115',
+    person: '李女士',
+    mail: 'lilinhua01@beyondsoft.com',
     company: '博彦设计 · 博彦科技（上市公司）旗下',
     icp: '浙ICP备00000000号',
     police: '浙公网安备 00000000000000号'
@@ -360,16 +360,21 @@ function buildHeader() {
 
 /* ---------- 注入页脚 ---------- */
 function buildFooter() {
-  var caseLinks = (SITE.nav[1].children || []).map(function (c) {
+  /* 客户案例列：精简为 4 个入口，避免页脚过长 */
+  var caseLinks = (SITE.nav[1].children || []).slice(0, 4).map(function (c) {
     return '<a href="' + c.href + '">' + c.text + '</a>';
   }).join('');
-  var svcLinks = (SITE.nav[2].children || []).map(function (c) {
-    return '<a href="' + c.href + '">' + c.text + '</a>';
-  }).join('');
-  var cityLinks = SITE.cities.map(function (c) {
-    return '<a href="contact.html?city=' + encodeURIComponent(c) + '">' + c + '</a>';
-  }).join('');
-  var aboutLinks = '<a href="about.html">公司简介</a>';
+  /* 服务内容列：三大主营 + AIGC */
+  var svcLinks = [
+    '<a href="services.html">平面视觉</a>',
+    '<a href="services.html">图拍视频</a>',
+    '<a href="services.html">包装设计</a>',
+    '<a href="aigc.html">AIGC 赋能</a>'
+  ].join('');
+  var aboutLinks =
+    '<a href="about.html">公司简介</a>' +
+    '<a href="about.html#join">加入我们</a>' +
+    '<a href="contact.html">联系我们</a>';
 
   var html =
   '<section class="cta-band">' +
@@ -385,24 +390,26 @@ function buildFooter() {
       '<div class="foot-top">' +
         '<div class="foot-col"><h4>客户案例</h4>' + caseLinks + '</div>' +
         '<div class="foot-col"><h4>服务内容</h4>' + svcLinks + '</div>' +
-        '<div class="foot-col"><h4>联系我们</h4><div class="foot-cities">' + cityLinks + '</div></div>' +
         '<div class="foot-col"><h4>关于我们</h4>' + aboutLinks + '</div>' +
         '<div class="foot-col">' +
           '<h4>关注我们</h4>' +
           '<div class="foot-qr">' +
-            '<div class="qr"><div class="ph" data-label="二维码"></div><p>小红书</p></div>' +
+            '<div class="qr"><img src="assets/img/xhs-qr.png" alt="小红书二维码"><p>小红书</p></div>' +
           '</div>' +
-          '<ul class="foot-contact" style="margin-top:20px">' +
-            '<li><b>商务热线</b>' + SITE.contact.tel + '</li>' +
-            '<li><b>服务专线</b>' + SITE.contact.hotline + '</li>' +
-            '<li><b>公司邮箱</b>' + SITE.contact.mail + '</li>' +
+        '</div>' +
+        '<div class="foot-col">' +
+          '<h4>联系我们</h4>' +
+          '<ul class="foot-contact">' +
+            '<li><b>商务热线</b><a href="tel:19550254115">1955 0254 115</a><span style="color:#9299a3">（李女士）</span></li>' +
+            '<li><b>公司邮箱</b><a href="mailto:lilinhua01@beyondsoft.com">lilinhua01@beyondsoft.com</a></li>' +
           '</ul>' +
         '</div>' +
       '</div>' +
       '<div class="foot-bottom">' +
         '<div>' + SITE.contact.company + ' &copy; 版权所有</div>' +
         '<div>' +
-          '<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.contact.icp + '</a>' +
+          '<a href="https://www.beyondsoft.com/" target="_blank" rel="noopener">母公司 · 博彦科技官网</a>' +
+          ' &nbsp;|&nbsp; <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.contact.icp + '</a>' +
           ' &nbsp;|&nbsp; <a href="#">' + SITE.contact.police + '</a>' +
           ' &nbsp;|&nbsp; <a href="#">隐私政策</a>' +
         '</div>' +
@@ -413,12 +420,12 @@ function buildFooter() {
   '<div class="float-panel">' +
     '<div class="fp-head">立享专业咨询</div>' +
     '<div class="fp-qr">' +
-      '<div class="fp-qr-img"><div class="ph" data-label="微信二维码"></div></div>' +
-      '<div class="fp-qr-label">微信扫码</div>' +
+      '<div class="fp-qr-img"><img src="assets/img/xhs-qr.png" alt="小红书二维码"></div>' +
+      '<div class="fp-qr-label">小红书扫码</div>' +
     '</div>' +
     '<div class="fp-divider"></div>' +
-    '<div class="fp-row"><span class="fp-label">服务专线</span><a class="fp-val" href="tel:' + SITE.contact.hotline + '">' + SITE.contact.hotline + '</a></div>' +
-    '<div class="fp-row"><span class="fp-label">电话咨询</span><a class="fp-val" href="tel:' + SITE.contact.tel + '">' + SITE.contact.tel + '</a></div>' +
+    '<div class="fp-row"><span class="fp-label">商务热线</span><a class="fp-val" href="tel:19550254115">1955 0254 115（李女士）</a></div>' +
+    '<div class="fp-row"><span class="fp-label">公司邮箱</span><a class="fp-val" href="mailto:lilinhua01@beyondsoft.com">lilinhua01@beyondsoft.com</a></div>' +
     '<button class="fp-btn js-consult" data-from="侧边悬浮面板">售前留言</button>' +
   '</div>' +
   '<button class="float-top" id="toTop" aria-label="返回顶部">' +
@@ -436,44 +443,19 @@ function buildFooter() {
           '<div class="form-item"><label>姓名 <span class="req">*</span></label>' +
             '<input type="text" name="name" placeholder="请输入您的称呼">' +
             '<div class="form-err">请填写姓名</div></div>' +
-          '<div class="form-item"><label>手机号 <span class="req">*</span></label>' +
-            '<input type="tel" name="phone" placeholder="请输入您的手机号码">' +
-            '<div class="form-err">请填写正确的 11 位手机号</div></div>' +
-          '<div class="form-item full"><label>公司名称</label>' +
-            '<input type="text" name="company" placeholder="请输入公司名称"></div>' +
-          '<div class="form-item full"><label>需求类型</label>' +
-            '<select name="type">' +
-              '<option value="">请选择</option>' +
-              SITE.services.map(function (s) { return '<option>' + s + '</option>'; }).join('') +
-            '</select></div>' +
-          '<div class="form-item full"><label>预算区间</label>' +
-            '<select name="budget">' +
-              '<option value="">请选择</option>' +
-              '<option>10 万以下</option><option>10-30 万</option><option>30-100 万</option><option>100 万以上</option>' +
-            '</select></div>' +
-          '<div class="form-item full"><label>需求描述</label>' +
-            '<textarea name="desc" placeholder="简单描述项目背景、预算区间与期望时间"></textarea></div>' +
-          '<div class="form-item full"><label>验证码 <span class="req">*</span></label>' +
-            '<div class="captcha-row"><input type="text" name="code" placeholder="请输入右侧验证码">' +
-            '<div class="captcha-code">A7K2</div></div>' +
-            '<div class="form-err">请填写验证码</div></div>' +
-          '<div class="form-item full">' +
-            '<label class="form-agree"><input type="checkbox" id="agree" style="width:auto;margin-top:3px">' +
-            '<span>我已阅读并同意 <a href="#">《隐私政策》</a>，同意贵司使用上述信息与我联系</span></label>' +
-            '<div class="form-err" id="agreeErr">请先阅读并同意隐私政策</div>' +
-          '</div>' +
+          '<div class="form-item"><label>邮箱 / 电话 <span class="req">*</span></label>' +
+            '<input type="text" name="contact" placeholder="请输入邮箱或手机号">' +
+            '<div class="form-err">请填写邮箱或手机号</div></div>' +
+          '<div class="form-item full"><label>留言内容</label>' +
+            '<textarea name="message" placeholder="简单描述您的需求"></textarea></div>' +
           '<div class="form-item full">' +
             '<button type="submit" class="btn btn-primary">提交咨询</button></div>' +
         '</form>' +
-        '<div class="spec" style="margin-top:16px"><b>原型说明：</b>' +
-          '提交时自动附带来源页面、来源栏目、UTM 渠道参数、设备类型与提交时间，写入后台线索库并触发商务通知。</div>' +
       '</div>' +
       '<div class="modal-ok" id="modalOk" style="display:none">' +
         '<div class="tick">&#10003;</div>' +
         '<h3>提交成功</h3>' +
         '<p class="sub">我们已收到你的需求，商务顾问会尽快联系你</p>' +
-        '<div class="ph" data-label="商务企微二维码占位&#10;建议 300×300"></div>' +
-        '<p style="font-size:13px">扫码可即时沟通，无需等待</p>' +
       '</div>' +
     '</div>' +
   '</div>';
@@ -543,15 +525,8 @@ function bindEvents() {
       var name = form.name.value.trim();
       if (!name) { form.name.closest('.form-item').classList.add('error'); ok = false; }
 
-      var phone = form.phone.value.trim();
-      if (!/^1[3-9]\d{9}$/.test(phone)) { form.phone.closest('.form-item').classList.add('error'); ok = false; }
-
-      var code = form.code.value.trim();
-      if (!code) { form.code.closest('.form-item').classList.add('error'); ok = false; }
-
-      var agree = q('#agree');
-      q('#agreeErr').style.display = agree.checked ? 'none' : 'block';
-      if (!agree.checked) ok = false;
+      var contact = form.contact.value.trim();
+      if (!contact) { form.contact.closest('.form-item').classList.add('error'); ok = false; }
 
       if (!ok) return;
 
@@ -559,10 +534,8 @@ function bindEvents() {
       var record = {
         id: Date.now(),
         name: name,
-        phone: phone,
-        company: form.company.value.trim(),
-        type: form.type.value,
-        desc: form.desc.value.trim(),
+        contact: contact,
+        message: form.message.value.trim(),
         source: modal.getAttribute('data-from') || '',
         time: new Date().toLocaleString('zh-CN', {timeZone:'Asia/Shanghai'})
       };
