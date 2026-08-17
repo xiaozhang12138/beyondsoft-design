@@ -56,6 +56,45 @@ function renderLogoMarquee(id) {
   box.innerHTML = '<div class="client-marquee-track">' + cells + cells + '</div>';
 }
 
+/* ---------- 九大服务模块数据 ---------- */
+var HOME_SERVICES = [
+  { n:'平面视觉', en:'Graphic & Brand Visual', main:true, skills:['海报设计','开机屏设计','版头设计','红包封面','活动KV','插画设计','长图设计','PPT美化','电子杂志','营销手册','H5','商品详情页'] },
+  { n:'图拍视频', en:'Film & Video', main:true, skills:['企业宣传片','TVC','短视频','动画设计','动效制作','产品视频','产品拍摄','人物拍摄','场景拍摄','微距拍摄'] },
+  { n:'包装设计', en:'Packaging Design', main:true, skills:['新品全案产品策略','礼盒设计','商场促销包装','农产品包装','食品饮品包装','日用品包装','宠物用品包装','母婴产品包装'] },
+  { n:'整合营销', en:'Integrated Marketing', main:false, skills:['传播策略','品牌营销','产品策略','内容营销','公关传播','热点事件','活动策划','新媒体矩阵','PR 投放'] },
+  { n:'品牌设计', en:'Brand Design', main:false, skills:['logo 设计','品牌 VI 设计','线下活动物料','营销与广告素材设计','品牌故事与传播内容'] },
+  { n:'IP 文创', en:'Cultural Creative', main:false, skills:['IP 形象设计','衍生品设计','专属礼品','电子图书','IP 联名','创意漫画','周边策划','3D 建模'] },
+  { n:'三维设计', en:'3D Design', main:false, skills:['线下美陈场景','展示展厅效果图','数字虚拟人','元素设计','Banner 设计','IP 动画'] },
+  { n:'UI 设计', en:'User Interface', main:false, skills:['交互设计','app & 小程序设计','网站设计','PC 后台系统','数据大屏'] },
+  { n:'AIGC', en:'AI Generated Art', main:false, skills:['内容策划','图生视频','文生图','视频剪辑','动画与 3D 模型','AI 数字人','数据可视化'] }
+];
+
+var renderSvcGrid = function(containerId, mini) {
+  var box = document.getElementById(containerId);
+  if (!box) return;
+  box.innerHTML = HOME_SERVICES.map(function (s, i) {
+    var num = i < 9 ? '0' + (i + 1) : i + 1;
+    var skillsHtml = (s.skills || []).map(function(sk) { return '<span>' + sk + '</span>'; }).join('');
+    if (mini) {
+      return '<div class="svc-card svc-mini' + (s.main ? ' svc-featured' : '') + '" data-idx="' + i + '">' +
+        '<span class="svc-idx">' + num + '</span>' +
+        '<h3 class="svc-name">' + s.n + '</h3>' +
+        '<div class="svc-en">' + s.en + '</div>' +
+        '<div class="svc-skills">' + skillsHtml + '</div>' +
+      '</div>';
+    }
+    return '<div class="svc-card svc-full' + (s.main ? ' svc-featured' : '') + '" data-idx="' + i + '">' +
+      '<div class="svc-accent"></div>' +
+      '<span class="svc-num">' + num + '</span>' +
+      (s.main ? '<span class="svc-badge">主营</span>' : '') +
+      '<h3 class="svc-name">' + s.n + '</h3>' +
+      '<div class="svc-en">' + s.en + '</div>' +
+      '<p class="svc-hint">悬停查看技能</p>' +
+      '<div class="svc-skills">' + skillsHtml + '</div>' +
+    '</div>';
+  }).join('');
+}
+
 /* ---------- 客户案例数据（模拟接口返回，供首页/列表/详情共用） ----------
    i = 行业  s = 服务类型  img = 列表缩略图  year = 合作/上线时间 */
 var SITE_CASES = [
@@ -543,33 +582,6 @@ function bindEvents() {
       };
 
       var records = [];
-
-var HOME_SERVICES = [
-  { n:'平面视觉', en:'Graphic & Brand Visual', main:true, skills:['海报设计','开机屏设计','版头设计','红包封面','活动KV','插画设计','长图设计','PPT美化','电子杂志','营销手册','H5','商品详情页'] },
-  { n:'图拍视频', en:'Film & Video', main:true, skills:['企业宣传片','TVC','短视频','动画设计','动效制作','产品视频','产品拍摄','人物拍摄','场景拍摄','微距拍摄'] },
-  { n:'包装设计', en:'Packaging Design', main:true, skills:['新品全案产品策略','礼盒设计','商场促销包装','农产品包装','食品饮品包装','日用品包装','宠物用品包装','母婴产品包装'] },
-  { n:'整合营销', en:'Integrated Marketing', main:false, skills:['传播策略','品牌营销','产品策略','内容营销','公关传播','热点事件','活动策划','新媒体矩阵','PR 投放'] },
-  { n:'品牌设计', en:'Brand Design', main:false, skills:['logo 设计','品牌 VI 设计','线下活动物料','营销与广告素材设计','品牌故事与传播内容'] },
-  { n:'IP 文创', en:'Cultural Creative', main:false, skills:['IP 形象设计','衍生品设计','专属礼品','电子图书','IP 联名','创意漫画','周边策划','3D 建模'] },
-  { n:'三维设计', en:'3D Design', main:false, skills:['线下美陈场景','展示展厅效果图','数字虚拟人','元素设计','Banner 设计','IP 动画'] },
-  { n:'UI 设计', en:'User Interface', main:false, skills:['交互设计','app & 小程序设计','网站设计','PC 后台系统','数据大屏'] },
-  { n:'AIGC', en:'AI Generated Art', main:false, skills:['内容策划','图生视频','文生图','视频剪辑','动画与 3D 模型','AI 数字人','数据可视化'] }
-];
-
-var renderSvcGrid = function(containerId, mini) {
-  var box = document.getElementById(containerId);
-  if (!box) return;
-  box.innerHTML = HOME_SERVICES.map(function (s, i) {
-    var skillsHtml = (s.skills || []).map(function(sk) { return '<span>' + sk + '</span>'; }).join('');
-    var cls = mini ? 'svc-mini' : '';
-    return '<div class="svc-card ' + cls + (s.main ? ' svc-featured' : '') + '" data-idx="' + i + '">' +
-      (mini ? '<span class="svc-idx">' + (i < 9 ? '0' + (i + 1) : i + 1) + '</span>' : '') +
-      '<h3 class="svc-name">' + s.n + '</h3>' +
-      (mini ? '<div class="svc-en">' + s.en + '</div>' : '') +
-      '<div class="svc-skills">' + skillsHtml + '</div>' +
-    '</div>';
-  }).join('');
-}
       try {
         var saved = localStorage.getItem('beyondsoft_leads');
         if (saved) records = JSON.parse(saved);
