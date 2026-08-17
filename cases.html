@@ -281,13 +281,7 @@ window.pageInit = function () {
   });
 
   render();
-  var m = document.getElementById('clientMarquee');
-  if (m && typeof SITE_CLIENTS !== 'undefined') {
-    var cells = SITE_CLIENTS.map(function (c) {
-      return '<div class="client-cell"><span style="font-weight:700;color:var(--c-ink);font-size:16px;letter-spacing:1px;white-space:nowrap">' + c + '</span></div>';
-    }).join('');
-    m.innerHTML = '<div class="client-marquee-track">' + cells + cells + '</div>';
-  }
+  renderLogoMarquee('clientMarquee');
 
 };
 </script>
