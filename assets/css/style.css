@@ -611,7 +611,7 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
 .foot-brand-right a:hover { color: var(--c-primary); }
 .foot-top { display: grid; grid-template-columns: repeat(3, 1fr) 200px; gap: 40px; padding-bottom: 50px; }
 .foot-col h4 { color: #fff; font-size: 15px; margin-bottom: 18px; font-weight: 600; }
-.foot-col a, .foot-col li { display: block; list-style: none; padding: 5px 0; font-size: 13px; color: #9299a3; transition: color .2s; }
+.foot-col a, .foot-col li { display: inline-block; width: 50%; list-style: none; padding: 5px 0; font-size: 13px; color: #9299a3; transition: color .2s; vertical-align: top; }
 .foot-col a:hover { color: #fff; }
 .foot-cities { display: flex; flex-wrap: wrap; gap: 4px 12px; }
 .foot-cities a { padding: 4px 0; }
@@ -627,6 +627,8 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
   display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
 }
 .foot-bottom a:hover { color: #fff; }
+.foot-corp-link { color: #fff !important; font-weight: 600; font-size: 13px; }
+.foot-corp-link:hover { color: var(--c-primary) !important; text-decoration: underline; }
 
 /* ==========================================================================
    浮窗 / 弹窗 / 回顶

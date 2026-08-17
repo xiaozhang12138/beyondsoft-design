@@ -89,7 +89,6 @@ var renderSvcGrid = function(containerId, mini) {
       (s.main ? '<span class="svc-badge">主营</span>' : '') +
       '<h3 class="svc-name">' + s.n + '</h3>' +
       '<div class="svc-en">' + s.en + '</div>' +
-      '<p class="svc-hint">悬停查看技能</p>' +
       '<div class="svc-skills">' + skillsHtml + '</div>' +
     '</div>';
   }).join('');
@@ -399,17 +398,14 @@ function buildHeader() {
 
 /* ---------- 注入页脚 ---------- */
 function buildFooter() {
-  /* 客户案例列：精简为 4 个入口，避免页脚过长 */
-  var caseLinks = (SITE.nav[1].children || []).slice(0, 4).map(function (c) {
+  /* 客户案例列：全部入口，两排排列 */
+  var caseLinks = (SITE.nav[1].children || []).map(function (c) {
     return '<a href="' + c.href + '">' + c.text + '</a>';
   }).join('');
-  /* 服务内容列：三大主营 + AIGC */
-  var svcLinks = [
-    '<a href="services.html">平面视觉</a>',
-    '<a href="services.html">图拍视频</a>',
-    '<a href="services.html">包装设计</a>',
-    '<a href="aigc.html">AIGC 赋能</a>'
-  ].join('');
+  /* 服务内容列：全部九大服务 */
+  var svcLinks = HOME_SERVICES.map(function (s) {
+    return '<a href="services.html">' + s.n + '</a>';
+  }).join('');
   var aboutLinks =
     '<a href="about.html">公司简介</a>' +
     '<a href="about.html#join">加入我们</a>' +
@@ -448,7 +444,7 @@ function buildFooter() {
         '</div>' +
       '</div>' +
       '<div class="foot-bottom">' +
-        '<div>&copy; 2026 ' + SITE.name + ' · 隶属<a href="https://www.beyondsoft.com/" target="_blank" rel="noopener">博彦科技</a>（上市公司）旗下，版权所有</div>' +
+        '<div>&copy; 2026 ' + SITE.name + ' · 隶属<a href="https://www.beyondsoft.com/" target="_blank" rel="noopener" class="foot-corp-link">博彦科技（上市公司）</a>旗下，版权所有</div>' +
         '<div>' +
           '<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.contact.icp + '</a>' +
           ' &nbsp;|&nbsp; <a href="#">' + SITE.contact.police + '</a>' +
