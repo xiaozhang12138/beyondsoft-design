@@ -387,6 +387,16 @@ function buildFooter() {
   '</section>' +
   '<footer class="footer">' +
     '<div class="wrap">' +
+      '<div class="foot-brand">' +
+        '<div class="foot-brand-left">' +
+          '<div class="foot-logo">' + SITE.name + '</div>' +
+          '<p>一站式视觉整合方案服务商 · 深耕设计行业 18 年</p>' +
+        '</div>' +
+        '<div class="foot-brand-right">' +
+          '<div><span>商务热线</span><a href="tel:19550254115">1955 0254 115（李女士）</a></div>' +
+          '<div><span>公司邮箱</span><a href="mailto:lilinhua01@beyondsoft.com">lilinhua01@beyondsoft.com</a></div>' +
+        '</div>' +
+      '</div>' +
       '<div class="foot-top">' +
         '<div class="foot-col"><h4>客户案例</h4>' + caseLinks + '</div>' +
         '<div class="foot-col"><h4>服务内容</h4>' + svcLinks + '</div>' +
@@ -397,19 +407,11 @@ function buildFooter() {
             '<div class="qr"><img src="assets/img/xhs-qr.png" alt="小红书二维码"><p>小红书</p></div>' +
           '</div>' +
         '</div>' +
-        '<div class="foot-col">' +
-          '<h4>联系我们</h4>' +
-          '<ul class="foot-contact">' +
-            '<li><b>商务热线</b><a href="tel:19550254115">1955 0254 115</a><span style="color:#9299a3">（李女士）</span></li>' +
-            '<li><b>公司邮箱</b><a href="mailto:lilinhua01@beyondsoft.com">lilinhua01@beyondsoft.com</a></li>' +
-          '</ul>' +
-        '</div>' +
       '</div>' +
       '<div class="foot-bottom">' +
-        '<div>' + SITE.contact.company + ' &copy; 版权所有</div>' +
+        '<div>&copy; 2026 ' + SITE.name + ' · 隶属<a href="https://www.beyondsoft.com/" target="_blank" rel="noopener">博彦科技</a>（上市公司）旗下，版权所有</div>' +
         '<div>' +
-          '<a href="https://www.beyondsoft.com/" target="_blank" rel="noopener">母公司 · 博彦科技官网</a>' +
-          ' &nbsp;|&nbsp; <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.contact.icp + '</a>' +
+          '<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.contact.icp + '</a>' +
           ' &nbsp;|&nbsp; <a href="#">' + SITE.contact.police + '</a>' +
           ' &nbsp;|&nbsp; <a href="#">隐私政策</a>' +
         '</div>' +

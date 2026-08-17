@@ -553,7 +553,21 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
    页脚
    ========================================================================== */
 .footer { background: #16181d; color: #9299a3; padding: 70px 0 0; font-size: 14px; }
-.foot-top { display: grid; grid-template-columns: repeat(4, 1fr) 220px; gap: 40px; padding-bottom: 50px; }
+/* 品牌区：左 logo+简介，右联系方式 */
+.foot-brand {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  padding-bottom: 36px; margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.foot-logo { font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 1.5px; }
+.foot-brand-left p { margin-top: 10px; font-size: 12.5px; color: #9299a3; }
+.foot-brand-right { display: flex; gap: 36px; flex-wrap: wrap; }
+.foot-brand-right > div { display: flex; flex-direction: column; gap: 5px; }
+.foot-brand-right span { font-size: 11px; color: #6b7280; letter-spacing: .5px; }
+.foot-brand-right a { font-size: 14px; font-weight: 600; color: #fff; text-decoration: none; }
+.foot-brand-right a:hover { color: var(--c-primary); }
+.foot-top { display: grid; grid-template-columns: repeat(3, 1fr) 200px; gap: 40px; padding-bottom: 50px; }
 .foot-col h4 { color: #fff; font-size: 15px; margin-bottom: 18px; font-weight: 600; }
 .foot-col a, .foot-col li { display: block; list-style: none; padding: 5px 0; font-size: 13px; color: #9299a3; transition: color .2s; }
 .foot-col a:hover { color: #fff; }
@@ -561,10 +575,10 @@ input, textarea, select { font-family: inherit; font-size: 14px; }
 .foot-cities a { padding: 4px 0; }
 .foot-contact li { padding: 4px 0; line-height: 1.7; }
 .foot-contact b { color: #fff; font-weight: 500; display: block; font-size: 12px; margin-top: 8px; }
-.foot-qr { display: flex; gap: 14px; }
+.foot-qr { display: flex; gap: 14px; justify-content: center; }
 .foot-qr .qr { text-align: center; }
 .foot-qr .ph { width: 84px; height: 84px; margin-bottom: 8px; font-size: 9px; padding: 4px; }
-.foot-qr .qr img { width: 96px; height: 96px; border-radius: 10px; margin-bottom: 8px; display: block; object-fit: cover; }
+.foot-qr .qr img { width: 96px; height: 96px; border-radius: 10px; margin: 0 auto 8px; display: block; object-fit: cover; }
 .foot-qr p { font-size: 12px; }
 .foot-bottom {
   border-top: 1px solid #262a31; padding: 22px 0; font-size: 12.5px;

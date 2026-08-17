@@ -140,10 +140,13 @@ function mapService(v) { if(v==='包装设计') return '品牌包装'; if(v==='A
 
 var F = { i:'', s:'', kw:'' };
 var DIM_NAME = { i:'行业', s:'服务', kw:'关键词' };
+var P = 1;            /* 当前页码 */
+var PAGE_SIZE = 24;   /* 每页 24 个案例 = 8 排 × 3 列 */
 
 function syncURL() {
   var p = [];
   Object.keys(F).forEach(function(k){ if (F[k]) p.push(k + '=' + encodeURIComponent(F[k])); });
+  if (P > 1) p.push('p=' + P);
   history.replaceState(null, '', location.pathname + (p.length ? '?' + p.join('&') : ''));
 }
 
@@ -165,13 +168,18 @@ function render() {
     (chips ? '&nbsp;&nbsp;' + chips + '<span class="clear-all" id="clearAll">清空全部</span>' : '');
 
   var box = document.getElementById('caseList');
+  var pagerBox = document.getElementById('pager');
+  var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  if (P > totalPages) P = totalPages;
   if (!list.length) {
     box.innerHTML = '<div class="empty-state" style="grid-column:1/-1">' +
       '<div class="ph circle" data-label="空状态插图"></div>' +
       '<p>没有找到匹配的案例，试试放宽筛选条件</p>' +
       '<p style="font-size:13px;margin-top:6px">此处可展示推荐案例，避免用户流失</p></div>';
+    pagerBox.style.display = 'none';
   } else {
-    box.innerHTML = list.map(function (x) {
+    var pageList = list.slice((P - 1) * PAGE_SIZE, P * PAGE_SIZE);
+    box.innerHTML = pageList.map(function (x) {
       return '<a class="case-card" href="case-detail.html?c=' + encodeURIComponent(x.id) + '">' +
         '<div class="case-cover"><div class="img-fit r-4-3" style="background-image:url(\'assets/img/' + x.img + '\')"></div>' +
           '<div class="case-hover"><span class="view">查看案例</span></div></div>' +
@@ -180,13 +188,35 @@ function render() {
           '<div class="case-tags"><span>' + mapIndustry(x.i) + '</span><span>' + mapService(x.s) + '</span></div>' +
         '</div></a>';
     }).join('');
+    /* 动态分页器 */
+    if (totalPages <= 1) {
+      pagerBox.style.display = 'none';
+    } else {
+      pagerBox.style.display = 'flex';
+      var ph = '';
+      ph += '<a href="javascript:;" data-p="' + (P - 1) + '">上一页</a>';
+      for (var i = 1; i <= totalPages; i++) {
+        ph += i === P ? '<span class="cur">' + i + '</span>' : '<a href="javascript:;" data-p="' + i + '">' + i + '</a>';
+      }
+      ph += '<a href="javascript:;" data-p="' + (P + 1) + '">下一页</a>';
+      pagerBox.innerHTML = ph;
+      pagerBox.querySelectorAll('a[data-p]').forEach(function (a) {
+        a.onclick = function () {
+          var p = parseInt(this.getAttribute('data-p'), 10);
+          if (p < 1 || p > totalPages) return;
+          P = p;
+          syncURL(); render();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+      });
+    }
   }
-  document.getElementById('pager').style.display = list.length > 8 ? 'flex' : 'none';
 
   document.querySelectorAll('#fstate .x').forEach(function (el) {
     el.onclick = function () {
       var k = el.getAttribute('data-k');
       F[k] = '';
+      P = 1;
       if (k === 'kw') document.getElementById('kw').value = '';
       else setActive(k, '');
       syncURL(); render();
@@ -195,6 +225,7 @@ function render() {
   var ca = document.getElementById('clearAll');
   if (ca) ca.onclick = function () {
     Object.keys(F).forEach(function(k){ F[k] = ''; });
+    P = 1;
     document.getElementById('kw').value = '';
     ['i','s'].forEach(function(k){ setActive(k, ''); });
     syncURL(); render();
@@ -214,6 +245,8 @@ window.pageInit = function () {
     var m = new RegExp('[?&]' + k + '=([^&]*)').exec(location.search);
     if (m) F[k] = decodeURIComponent(m[1]);
   });
+  var mp = new RegExp('[?&]p=(\\d+)').exec(location.search);
+  if (mp) P = parseInt(mp[1], 10) || 1;
   ['i','s'].forEach(function(k){ setActive(k, F[k]); });
   document.getElementById('kw').value = F.kw;
 
@@ -224,6 +257,7 @@ window.pageInit = function () {
       var kw = this.getAttribute('data-kw');
       document.getElementById('kw').value = kw;
       F.kw = kw;
+      P = 1;
       syncURL(); render();
     };
   });
@@ -233,13 +267,14 @@ window.pageInit = function () {
     box.querySelectorAll('.fopt').forEach(function (b) {
       b.onclick = function () {
         F[dim] = b.getAttribute('data-v');
+        P = 1;
         setActive(dim, F[dim]);
         syncURL(); render();
       };
     });
   });
 
-  function doSearch() { F.kw = document.getElementById('kw').value.trim(); syncURL(); render(); }
+  function doSearch() { F.kw = document.getElementById('kw').value.trim(); P = 1; syncURL(); render(); }
   document.getElementById('btnSearch').onclick = doSearch;
   document.getElementById('kw').addEventListener('keydown', function (e) {
     if (e.key === 'Enter') doSearch();
