@@ -32,7 +32,7 @@
       <span id="cClient">客户：—</span>
       <span id="cIndustry">行业：—</span>
       <span id="cService">服务：—</span>
-      <span id="cYear">合作：—</span>
+      <span id="cYear"></span>
     </div>
   </div>
 </div>
@@ -59,7 +59,6 @@
       <tr><th>所属行业</th><td id="tIndustry">—</td></tr>
       <tr><th>服务内容</th><td id="tService">—</td></tr>
       <tr><th>交付形式</th><td id="tType">—</td></tr>
-      <tr><th>合作 / 上线</th><td id="tYear">—</td></tr>
     </table>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin:30px 0">
@@ -105,7 +104,6 @@ window.pageInit = function () {
   document.getElementById('cClient').textContent = '客户：' + c.c;
   document.getElementById('cIndustry').textContent = '行业：' + c.i;
   document.getElementById('cService').textContent = '服务：' + c.s;
-  document.getElementById('cYear').textContent = '合作：' + c.year;
   document.getElementById('cBg').textContent = c.d;
   document.getElementById('bcInd').textContent = c.i;
   document.getElementById('bcInd').href = 'cases.html?i=' + encodeURIComponent(c.i);
@@ -114,7 +112,6 @@ window.pageInit = function () {
   document.getElementById('tIndustry').textContent = c.i;
   document.getElementById('tService').textContent = c.s;
   document.getElementById('tType').textContent = c.t;
-  document.getElementById('tYear').textContent = c.year;
 
   // 案例视频：有映射则渲染真实播放器，无则隐藏视频区
   var vz = document.getElementById('videoZone');
